@@ -2,10 +2,11 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-ink: #1a2332;
-  --color-paper: #f7f6f3;
-  --color-accent: #0f6b6b;
-  --color-sage: #d8e6e0;
+  /* Civic neutrals — avoid NZ party colours (blue, green, red, black/white, pink, yellow). */
+  --color-ink: #3a342e;
+  --color-paper: #f2efea;
+  --color-accent: #8b5a2b;
+  --color-wash: #e5dfd6;
   --font-display: 'Fraunces', ui-serif, Georgia, serif;
   --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
 }
@@ -19,8 +20,8 @@
     min-height: 100vh;
     font-family: var(--font-sans);
     background:
-      radial-gradient(circle at 1px 1px, rgb(26 35 50 / 0.06) 1px, transparent 0) 0 0 / 22px 22px,
-      linear-gradient(155deg, var(--color-sage) 0%, var(--color-paper) 48%, var(--color-paper) 100%);
+      radial-gradient(circle at 1px 1px, rgb(58 52 46 / 0.07) 1px, transparent 0) 0 0 / 22px 22px,
+      linear-gradient(155deg, var(--color-wash) 0%, var(--color-paper) 48%, var(--color-paper) 100%);
     background-attachment: fixed;
   }
 

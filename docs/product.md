@@ -9,7 +9,7 @@ Provide enrolment and voting information for people in various situations in New
 - People who need to know whether / how they can enrol or vote
 - Support workers, family, and advocates helping someone else
 
-Tone: clear, practical, non-political. Do not use New Zealand party brand colours.
+Tone: clear, practical, non-political. Do not use NZ party-associated colours: blue, green, red, black+white, pink, yellow (see [design.md](./design.md)).
 
 ## Content workflow
 

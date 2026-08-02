@@ -43,16 +43,18 @@ Footer links to general information from `extras.json` (`Type = general`), e.g. 
 
 ## Visual direction
 
-Non-political civic look. **Avoid** NZ party colours (National blue, Labour red, Greens brand green, ACT black/yellow) and common AI defaults (purple gradients, cream + serif + terracotta, broadsheet layouts).
+Non-political civic look. **Do not use** NZ party-associated colours: blue, green, red, black+white, pink, yellow (or close brand matches). Also avoid common AI defaults (purple gradients, cream + serif + terracotta, broadsheet layouts).
 
 ### Palette (Tailwind `@theme`)
 
+Warm stone + copper — neutrals that read as civic, not partisan.
+
 | Token | Value | Use |
 |-------|-------|-----|
-| `--color-ink` | `#1A2332` | Text, primary UI |
-| `--color-paper` | `#F7F6F3` | Page background |
-| `--color-accent` | `#0F6B6B` | Links, focus, choice accent |
-| `--color-sage` | `#D8E6E0` | Soft wash / gradient |
+| `--color-ink` | `#3A342E` | Text, primary UI (warm charcoal, not black) |
+| `--color-paper` | `#F2EFEA` | Page background |
+| `--color-accent` | `#8B5A2B` | Links, focus, choice accent (copper / umber) |
+| `--color-wash` | `#E5DFD6` | Soft stone wash / gradient |
 
 ### Typography
 
@@ -62,7 +64,7 @@ Non-political civic look. **Avoid** NZ party colours (National blue, Labour red,
 
 ### Layout / chrome
 
-- Background: subtle sage→paper diagonal gradient + very light dot texture if needed (one small custom CSS rule OK)
+- Background: subtle wash→paper diagonal gradient + very light dot texture if needed (one small custom CSS rule OK)
 - Choices: full-width rows, large hit targets — not a card grid; left border accent on hover/focus
 - No floating badges, stat strips, or hero image collage
 - Works on desktop and mobile
