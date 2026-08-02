@@ -36,7 +36,7 @@ Note: the dictionary mentions a `question` type; the current export uses `genera
 
 ## Product surface
 
-- **Primary:** hierarchical drill-down of situations → issue detail (General / Enrolment / Turnout)
+- **Primary:** Jotform-style one-question-per-screen drill-down → issue detail (General / Enrolment / Turnout)
 - **Secondary:** general information pages (footer links), from `Type = general` rows
 - **Hosting:** static site on GitHub Pages (or similar)
 

@@ -1,8 +1,8 @@
 # Design
 
-## UX: drill-down wizard
+## UX: Jotform-style drill-down wizard
 
-One composition per screen — not a dashboard. Navigation only updates the URL.
+One question per screen (Jotform-style progressive form), not a dashboard. Navigation only updates the URL.
 
 ### Level screen
 

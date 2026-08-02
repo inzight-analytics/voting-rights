@@ -1,10 +1,6 @@
 # Voting Rights
 
-Static info site for New Zealand enrolment and voting situations. Users drill down a hierarchy of situations to reach issue-specific guidance (general, enrolment, turnout).
-
-## Status
-
-Documentation and source CSV are in place. App scaffolding (Vite + React + Tailwind) is next — see [docs/README.md](docs/README.md).
+Static info site for New Zealand enrolment and voting situations. Users move through a Jotform-style one-question-per-screen hierarchy to reach issue-specific guidance (general, enrolment, turnout).
 
 ## Docs
 
@@ -19,5 +15,23 @@ Documentation and source CSV are in place. App scaffolding (Vite + React + Tailw
 
 - [`data/core.csv`](data/core.csv) — exported from the Google Sheet
 - [`data/dictionary.csv`](data/dictionary.csv) — column descriptions
+- [`data/hierarchy.yaml`](data/hierarchy.yaml) — browsing structure (edit by hand)
 
-Content is edited in the sheet, re-exported here, then converted to JSON at build time (see architecture docs).
+## Develop
+
+```bash
+npm install
+npm run dev
+```
+
+`npm run build:data` converts CSV + YAML into `public/data/*.json` (also runs before `dev` and `build`).
+
+## Build & deploy
+
+Configured for GitHub Pages at `/voting-rights/`:
+
+```bash
+npm run build
+```
+
+Publish the `dist/` folder (e.g. GitHub Pages from Actions or `gh-pages`).

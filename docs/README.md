@@ -11,11 +11,11 @@ Index of design and architecture decisions for this app. Read these before imple
 
 ## Current status
 
-- **Done:** CSV data in `data/`, design and architecture documentation
-- **Next:** scaffold Vite + React + TypeScript + Tailwind, then hierarchy YAML, data build script, and UI
+- **Done:** docs, CSV data, hierarchy YAML, data build script, Jotform-style drill-down UI, GitHub Pages base path
+- **Next:** refine hierarchy copy; fill empty CSV cells; deploy `dist/` to GitHub Pages
 
 ## Content sources
 
 - `data/core.csv` — exported from Google Sheet (issues and topics)
 - `data/dictionary.csv` — column descriptions; markdown-enabled fields noted there
-- `data/hierarchy.yaml` — *not yet created*; format defined in [hierarchy.md](./hierarchy.md)
+- `data/hierarchy.yaml` — browsing structure; format in [hierarchy.md](./hierarchy.md)
