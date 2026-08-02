@@ -1,0 +1,17 @@
+Column name,Description,Markdown
+Type,The entry type within the application: core (for the main items); summary (for summary items); question (for additional questions under a separate Q and A section.,N
+Issue,The name of the question or subpopulation; these will be grouped (hierarchically) elsewhere.,N
+Topic,"For core entries, this is General (general information for that group), or related to Enrolment or Turnout.",N
+Author,,N
+Examples,,Y
+Solution,,Y
+Electoral Commission website,"Generic information, sometimes you have to dig",Y
+Electoral Act,"Legalese info, hard to figure out what it actually says",Y
+Independent Electoral Review,2 long reports - interim report and a final one (MoJ website),Y
+Andrew Geddis' Textbook,Electoral Law in Aotearoa New Zealand: third edition - Online through uni library,Y
+General Google,,Y
+,,
+,,
+Markdown-enabled fields,"You can use *Markdown* syntax to apply formatting, or [create links](https://www.markdownguide.org/basic-syntax/).
+
+This will be rendered on the frontend - all other formatting will be ignored.",

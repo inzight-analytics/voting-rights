@@ -9,11 +9,9 @@ Index of design and architecture decisions for this app. Read these before imple
 | [hierarchy.md](./hierarchy.md) | Human-editable YAML hierarchy format |
 | [design.md](./design.md) | Drill-down UX, visual direction, Tailwind tokens |
 
-Root [`plan.md`](../plan.md) is the original product brief. Prefer these docs for implementation detail.
-
 ## Current status
 
-- **Done:** product brief, CSV data in `data/`, this documentation
+- **Done:** CSV data in `data/`, design and architecture documentation
 - **Next:** scaffold Vite + React + TypeScript + Tailwind, then hierarchy YAML, data build script, and UI
 
 ## Content sources
