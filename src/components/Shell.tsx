@@ -38,10 +38,24 @@ export function Shell({ extras }: { extras: ExtraItem[] }) {
               </ul>
             </div>
           ) : null}
-          <p className="text-sm text-ink/50">
-            Information for New Zealand enrolment and voting situations. Not affiliated with any
-            political party.
-          </p>
+          <div className="space-y-2 text-sm text-ink/55">
+            <p>
+              Funded and created by{' '}
+              <a
+                href="https://www.royalsociety.org.nz/what-we-do/funds-and-opportunities/rutherford-discovery-fellowships/rutherford-discovery-fellowship-recipients/lara-greaves"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent no-underline hover:underline"
+              >
+                Lara Greaves&rsquo; Rutherford Discovery Fellowship
+              </a>{' '}
+              from the Royal Society Te Apārangi.
+            </p>
+            <p className="text-ink/45">
+              Information for New Zealand enrolment and voting situations. Not affiliated with any
+              political party.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
