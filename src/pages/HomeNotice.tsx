@@ -15,7 +15,7 @@ export function HomeNotice() {
   return (
     <>
       {message ? (
-        <p role="status" className="mb-6 rounded-xl bg-mint px-4 py-3 text-sm text-ink/80">
+        <p role="status" className="mx-auto mb-6 w-[20em] max-w-full rounded-xl bg-mint px-4 py-3 text-sm text-ink/80">
           {message}
         </p>
       ) : null}

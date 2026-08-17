@@ -1,18 +1,17 @@
 import { Link } from 'react-router-dom'
-import type { ExtraItem, TreeNode } from '../types'
+import type { TreeNode } from '../types'
 import { browsePath, childLabel, isBranch, isIssue } from '../lib/hierarchy'
 import { Breadcrumbs } from './Breadcrumbs'
-import { ChoiceButton, Field, Page } from './Field'
+import { ChoiceButton, ChoiceGrid, Field, Page } from './Field'
 import { IssueFields } from './IssueView'
 
 type WizardProps = {
   node: TreeNode
   indices: number[]
   crumbs: Array<{ title: string; path: number[] }>
-  extras?: ExtraItem[]
 }
 
-export function Wizard({ node, indices, crumbs, extras }: WizardProps) {
+export function Wizard({ node, indices, crumbs }: WizardProps) {
   return (
     <Page>
       {indices.length > 0 ? <Breadcrumbs crumbs={crumbs} /> : null}
@@ -33,7 +32,7 @@ export function Wizard({ node, indices, crumbs, extras }: WizardProps) {
             {node.children.length === 0 ? (
               <p className="text-ink/70">This path is still being written.</p>
             ) : (
-              <ul className="space-y-3">
+              <ChoiceGrid>
                 {node.children.map((child, index) => {
                   const nextIndices = [...indices, index]
                   const hint = isBranch(child)
@@ -43,34 +42,19 @@ export function Wizard({ node, indices, crumbs, extras }: WizardProps) {
                       : undefined
 
                   return (
-                    <li key={isIssue(child) ? child.slug : `branch-${index}`}>
-                      <ChoiceButton
-                        to={browsePath(nextIndices)}
-                        title={childLabel(child)}
-                        hint={hint}
-                      />
-                    </li>
+                    <ChoiceButton
+                      key={isIssue(child) ? child.slug : `branch-${index}`}
+                      to={browsePath(nextIndices)}
+                      title={childLabel(child)}
+                      hint={hint}
+                    />
                   )
                 })}
-              </ul>
+              </ChoiceGrid>
             )}
           </Field>
         </>
       )}
-
-      {indices.length === 0 && extras && extras.length > 0 ? (
-        <>
-          <hr className="border-t-2 border-ink/20" />
-          <Field label="Other questions">
-            <ChoiceButton
-              to="/info"
-              title="Other questions"
-              hint={`${extras.length} extra topics`}
-              variant="pink"
-            />
-          </Field>
-        </>
-      ) : null}
 
       {indices.length > 0 ? (
         <p>
