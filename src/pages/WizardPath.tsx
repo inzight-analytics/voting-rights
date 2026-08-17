@@ -4,7 +4,7 @@ import { useAppData } from '../data/useAppData'
 import { parseBrowseIndices, resolvePath } from '../lib/hierarchy'
 
 export function WizardPath() {
-  const { hierarchy } = useAppData()
+  const { hierarchy, issues } = useAppData()
   const { '*': splat } = useParams()
   const location = useLocation()
   const segments = splat ? splat.split('/').filter(Boolean) : []
@@ -19,5 +19,7 @@ export function WizardPath() {
     return <Navigate to="/?notice=invalid" replace />
   }
 
-  return <Wizard node={resolved.node} indices={indices} crumbs={resolved.crumbs} />
+  return (
+    <Wizard node={resolved.node} indices={indices} crumbs={resolved.crumbs} issues={issues} />
+  )
 }

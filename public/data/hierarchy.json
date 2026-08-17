@@ -1,89 +1,116 @@
 {
-  "title": "Who needs voting information?",
-  "description": "Choose the situation that best matches you or someone you are helping.",
+  "title": "Are you...",
+  "description": "",
   "children": [
     {
-      "title": "Detention or custody",
-      "description": "Prison, remand, home detention, or mental health detention.",
+      "title": "Trying to enrol and vote",
+      "description": "There are a number of barriers or issues that can get between people and enrolling and voting - which of these apply?",
       "children": [
-        "People serving a prison sentence",
-        "People on remand",
-        "People on home detention or serving community-based sentence",
-        "People sectioned under the Mental Health Act"
+        {
+          "title": "Working or child care gets in the way of voting",
+          "description": "Working or child care gets in the way",
+          "children": [
+            "i-have-to-bring-my-kids-with-me",
+            "i-am-an-essential-worker-working-on-election-day",
+            "i-am-living-somewhere-temporarily-for-work-e-g-seasonal-workers-sharemilkers-away-at-training",
+            "i-am-a-shift-worker"
+          ]
+        },
+        {
+          "title": "I can't physically get to a polling place",
+          "description": "",
+          "children": [
+            "i-will-be-in-hospital",
+            "i-cant-leave-care-or-the-house",
+            "i-am-serving-home-detention",
+            "i-am-in-a-rest-home",
+            "i-have-a-physical-disability"
+          ]
+        },
+        {
+          "title": "Names and Identity",
+          "description": "",
+          "children": [
+            "i-have-no-id",
+            "i-am-gender-diverse-and-have-changed-my-name",
+            "i-have-made-a-change-to-my-legal-name-e-g-through-marriage-divorce-adoption-or-reclaiming-an-ingoa-maori"
+          ]
+        },
+        {
+          "title": "Age",
+          "description": "",
+          "children": [
+            "i-am-17-but-will-turn-18-on-or-before-the-election-day"
+          ]
+        },
+        {
+          "title": "I don't have a normal, fixed address",
+          "description": "No address",
+          "children": [
+            "i-live-in-a-remote-area",
+            "i-work-at-sea",
+            "i-live-on-a-boat",
+            "i-do-not-have-stable-housing-or-a-normal-address",
+            "i-live-overseas-and-do-not-have-a-new-zealand-address"
+          ]
+        },
+        {
+          "title": "Enrolment issues",
+          "description": "Enrolment Issues",
+          "children": [
+            "i-have-been-placed-on-the-dormant-roll",
+            "my-enrolment-details-have-changed",
+            "i-want-to-be-on-the-unpublished-roll"
+          ]
+        },
+        {
+          "title": "Health and disability",
+          "description": "",
+          "children": [
+            "in-the-hospital",
+            "i-am-blind-or-have-low-vision",
+            "i-have-a-physical-disability-2",
+            "i-have-a-mental-health-issue",
+            "i-have-dementia-or-am-helping-someone-with-dementia",
+            "i-need-help-marking-the-paper"
+          ]
+        },
+        {
+          "title": "Prison, Remand, Home Detention etc",
+          "description": "",
+          "children": [
+            "i-am-on-home-detention",
+            "i-am-in-prison",
+            "i-am-on-remand",
+            "i-am-on-community-service"
+          ]
+        },
+        {
+          "title": "Overseas voters",
+          "description": "Overseas Voters",
+          "children": [
+            "i-am-living-overseas",
+            "i-am-overseas-as-a-member-of-the-military-or-diplomatic-service",
+            "i-am-a-seasonal-worker-or-temporarily-living-overseas-for-work"
+          ]
+        },
+        {
+          "title": "Migrant in NZ, Residents & Language",
+          "description": "",
+          "children": [
+            "i-have-migrated-to-new-zealand",
+            "residents-and-visa-holders",
+            "i-need-help-with-english",
+            "australian-citizen-residing-in-nz",
+            "i-am-from-the-realm-countries-e-g-niue-cook-islands-or-tokelau"
+          ]
+        }
       ]
     },
     {
-      "title": "Health or care",
-      "description": "Hospital, rest home, mental impairment, or difficulty leaving home.",
-      "children": [
-        "People in the hospital",
-        "People who live in a rest home",
-        "Can't leave care/the house",
-        "People with mental impairments"
-      ]
-    },
-    {
-      "title": "Disability or access needs",
-      "description": "Physical, sensory, language, identity, or access barriers.",
-      "children": [
-        "People who are blind or vision-impaired \n",
-        "People with physical disabilities",
-        "Non-English speakers",
-        "Gender diverse people",
-        "Break this down more - e.g. needs help to mark the paper",
-        "BROKEN DOWN BY INTERNET ACCESS OR NOT? People in general with no internet access"
-      ]
-    },
-    {
-      "title": "Housing, address, or identity",
-      "description": "Homelessness, remote living, boats, ID, or legal name changes.",
-      "children": [
-        "People who have housing problems/are homeless/no address",
-        "People who live very far away/remotely",
-        "People on boats (living on boats)",
-        "People with no ID",
-        "People with changes to their legal name e.g. through marriage, divorce, adoption, reclaiming ingoa Māori, other situations"
-      ]
-    },
-    {
-      "title": "Work or travel on election day",
-      "description": "Work shifts, essential work, temporary living for work, military training, or working at sea.",
-      "children": [
-        "Essential workers / Working on election day",
-        "Shift workers",
-        "Single parents",
-        "Living somewhere temporarily for work for like a few months e.g. seasonal workers, sharemilkers, off somewhere training",
-        "Military at a training camp",
-        "People working on the sea"
-      ]
-    },
-    {
-      "title": "Age, eligibility, or enrolment details",
-      "description": "Turning 18, updating details, or residency status.",
-      "children": [
-        "I am 17 but will be 18 by/on election day ",
-        "I haven’t voted in a long time or updated my details in ages",
-        "Resident or visa holder"
-      ]
-    },
-    {
-      "title": "Overseas or migration",
-      "description": "Living overseas, realm countries, diplomats, migrants, or Australians in NZ.",
-      "children": [
-        "Living/currently overseas",
-        "Living in the realm countries - Niue, Cook Islands, Tokelau",
-        "Military, NZ diplomats - overseas",
-        "Migrants",
-        "Australians residing in New Zealand"
-      ]
-    },
-    {
-      "title": "Electoral rolls",
-      "description": "Unpublished or dormant roll situations.",
-      "children": [
-        "People on the Unpublished roll",
-        "Those on the Dormant roll"
-      ]
+      "title": "Trying to help someone else enrol and vote",
+      "description": "We will duplicate the information above and do a version that is for those helping others, a light reword, still to come",
+      "children": []
     }
   ]
 }

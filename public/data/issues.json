@@ -1,374 +1,236 @@
 {
-  "People sectioned under the Mental Health Act": {
-    "General": {
-      "Electoral Act": "Electoral Act S 80(c) - a person detained in hospital under the Mental Health Act 1992 or in secure facility under the Intellectual Disability Act 2003",
-      "Independent Electoral Review": "Pg 193 - In some cases, a person who has committed a crime may not be in prison on mental health grounds or due to an intellectual disability. This situation may occur if a person has been found unfit to stand trial, acquitted on the legal grounds of insanity, committed to a hospital or secure facility upon conviction, or is in prison and requires compulsory care or treatment. In these situations, a person loses the right to vote if they are detained in a hospital or secure facility for more than three years. This disqualification essentially provides for\nconsistent treatment with other offenders.",
-      "Andrew Geddis' Textbook": "4.2.4 Exceptions to the right to vote\nPg 63/64 - We regard some people simply to be unsuitable participants in the electoral process due to their previous actions. Various classes of person who are detained in hospital for treatment of a mental illness for a period of three or more years following criminal offending cannot enrol while so detained, but may enrol immediately upon their release."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {}
+  "i-have-to-bring-my-kids-with-me": {
+    "title": "I have to bring my kids with me",
+    "question": "I am a parent with young children and I have no one to watch them while I vote. Am I allowed to bring my children with me when I vote?",
+    "answer": "Vote - the law says that a person must go into a voting booth alone. The rule is meant to protect the secrecy of the vote. However, in practice, voters can take their children with them into the voting booth if they cannot be left unattended.",
+    "source": "https://www.justice.govt.nz/assets/Documents/Publications/Independent-Electoral-Review-Final-Report-November-2023.pdf Pg 496."
   },
-  "People in the hospital": {
-    "General": {
-      "Examples": "I have to get surgery on the Friday before polling day, how do I vote?",
-      "Electoral Act": "Electoral Act Special Voting s 61(d) the person is, by reason of illness, infirmity, pregnancy, or recent childbirth, unable to attend to vote and any polling place in the district. \nS 61(f) ... not practicable for that person to vote at the polling place in the district without incurring hardship or serious inconvenience."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {
-      "Solution": "Advance vote; take away vote",
-      "Electoral Commission website": "If you can’t get to a voting place because you are in hospital, you can authorise a friend or family member to bring you your voting papers. If you’re scheduled to go into hospital prior to election day, it’s best to vote in advance if you can - advance voting begins from the 26th October - https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place"
-    }
+  "i-am-an-essential-worker-working-on-election-day": {
+    "title": "I am an essential worker / working on election day",
+    "question": "I'm an essential worker who is working on election day, can I leave work to vote?",
+    "answer": "Vote - You're legally allowed to have time away from work to go and vote on election day. You can also vote early at an advance voting place. If you haven't had a reasonable chance to vote before starting work on election day and you're not doing any essential work or service, your employer must let you leave work to vote by 3pm. You're legally allowed to be away from work for the rest of the day if you need that time to vote. Your employer can't take money from your pay for time you take off to vote. \nIf you have to work after 3pm to carry out any essential work or service, your employer must let you leave work for a reasonable time earlier in the day, so you can vote. Your employer can't take money from your pay for time you take off to vote, as long as you don’t take more than 2 hours.",
+    "source": "https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place & Electoral Act s 162"
   },
-  "People serving a prison sentence": {
-    "General": {
-      "Electoral Act": "Electoral Act s 80(1)(d)(i)(C) - disqualified from voting if detained in prision and serving a sentence for a term of 3 years or more.",
-      "Andrew Geddis' Textbook": "4.2.4 Exceptions to the right to vote\nPg 63 - any person detained in a prison facility under a sentence of imprisonment of three or more years (including life sentences or preventative detention) cannot enrol while so detained. However, they regain the right to enrol immediately upon their release, even if this should occur before the end of the full sentence of imprisonment."
-    },
-    "ENROLMENT": {
-      "Examples": "I am currently serving a prison sentence of 2 years, can I still enrol to vote? And if so, how?",
-      "Solution": "This depends on when you were sentenced",
-      "Electoral Commission website": "You can only enrol and vote if you are serving a prison sentence of less than 3 years and all the offences you were sentenced for occurred before 20 December 2025 - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote",
-      "General Google": "Prison staff offer assisstance to those who are eligible to enrol to vote and enrolment applications are individually scanned and emailed to the Electoral Commission. - https://www.corrections.govt.nz/our_work/in_prison/being_in_prison/voting_in_prison \nThe electorate you are enrolled in is based on the address you last resided at for at least 1 month, you can then fix your postal address as the prison you are in to receive mail. https://www.corrections.govt.nz/our_work/in_prison/being_in_prison/voting_in_prison"
-    },
-    "TURNOUT": {
-      "Examples": "I am currently serving a prison sentence of 2 years, how will I be able to vote from prison?",
-      "General Google": "Corrections will facilitate voting for eligible prisoners through advance voting for the 2026 General Election. Prisoners votes are counted as special vote.\nhttps://www.corrections.govt.nz/our_work/in_prison/being_in_prison/voting_in_prison \nDuring the advance voting period (26 October to 6 November 2026), mobile voting teams will attend prisons and set up voting facilities for prisoners who are eligible to vote. https://www.cab.org.nz/article/KB00001070\nThe general manager custodial must ensure that all prisoners who are eligible and have enrolled to vote are given the opportunity to vote. https://www.corrections.govt.nz/resources/policy_and_legislation/Prison-Operations-Manual/Prisoner-finance-activities/F.03-Prisoner-enrolment-and-voting"
-    }
+  "i-am-living-somewhere-temporarily-for-work-e-g-seasonal-workers-sharemilkers-away-at-training": {
+    "title": "I am living somewhere temporarily for work e.g. seasonal workers, sharemilkers, away at training",
+    "question": "I am doing seasonal farming work during the election period. Can I still vote away from my usual address?",
+    "answer": "Enrol - You are able to enrol via online or paper form - your residential address for enrolment purposes does not change because you are temporarily absent from it.\nVote - If you're away from where you usually live, you can vote at the nearest voting place. Because your name will not be on the printed roll at a voting place, you'll need to fill out a 'special declaration vote' form before you can vote. This is known as a 'special vote'.",
+    "source": ""
   },
-  "People on remand": {
-    "General": {},
-    "ENROLMENT": {
-      "Examples": "I'm on remand waiting for my trial, can I still enrol to vote?",
-      "Electoral Commission website": "If you’re on remand, home detention, or serving a community-based sentence, and you meet the eligibility criteria (you are 18 years or older, a New Zealand citizen or resident for electoral purposes, and you’ve lived in New Zealand continuously for 12 months or more at some time in your life) you can enrol to vote. - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote",
-      "Electoral Act": "Electoral Act s 80(1)(d) - disqualified from voting - a person who is detained in prison under a sentence of imprisonment.\nSpecial Voting s 61(1)(f) - not practicable for that person to vote at a polling station without incurring hardship or serious inconvience (voting while on home detention)",
-      "Andrew Geddis' Textbook": "4.2.4 Exceptions to the right to vote\nPg 63 - any person detained in a prison facility under a sentence of imprisonment of three or more years (including life sentences or preventative detention) cannot enrol while so detained. However, they regain the right to enrol immediately upon their release, even if this should occur before the end of the full sentence of imprisonment."
-    },
-    "TURNOUT": {
-      "Examples": "How do I vote if I am on remand?",
-      "General Google": "Corrections will facilitate voting for eligible prisoners through advance voting for the 2026 General Election. Prisoners votes are counted as special vote.\nhttps://www.corrections.govt.nz/our_work/in_prison/being_in_prison/voting_in_prison \nDuring the advance voting period (26 October to 6 November 2026), mobile voting teams will attend prisons and set up voting facilities for prisoners who are eligible to vote. https://www.cab.org.nz/article/KB00001070\nThe general manager custodial must ensure that all prisoners who are eligible and have enrolled to vote are given the opportunity to vote. https://www.corrections.govt.nz/resources/policy_and_legislation/Prison-Operations-Manual/Prisoner-finance-activities/F.03-Prisoner-enrolment-and-voting"
-    }
+  "i-am-a-shift-worker": {
+    "title": "I am a shift worker",
+    "question": "I work night shifts and sleep during the day, how can I cast my vote?",
+    "answer": "Vote - either vote during the advance voting period or cast a takeaway vote. You can authorise someone to pick up your voting papers from a voting place for you.",
+    "source": ""
   },
-  "People on home detention or serving community-based sentence": {
-    "General": {},
-    "ENROLMENT": {
-      "Examples": "I am serving a 6 month home detention sentence, can I still enrol to vote?",
-      "Electoral Commission website": "If you’re on remand, home detention, or serving a community-based sentence, and you meet the eligibility criteria (you are 18 years or older, a New Zealand citizen or resident for electoral purposes, and you’ve lived in New Zealand continuously for 12 months or more at some time in your life) you can enrol to vote. - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote",
-      "Electoral Act": "Electoral Act s 80(1)(d) - disqualified from voting - a person who is detained in prison under a sentence of imprisonment.",
-      "Andrew Geddis' Textbook": "4.2.4 Exceptions to the right to vote\nPg 63 - any person detained in a prison facility under a sentence of imprisonment of three or more years (including life sentences or preventative detention) cannot enrol while so detained. However, they regain the right to enrol immediately upon their release, even if this should occur before the end of the full sentence of imprisonment."
-    },
-    "TURNOUT": {
-      "Examples": "I am serving a 6 month home detention sentence, how will I be able to cast my vote if I can't leave home?",
-      "Electoral Commission website": "You can vote if you’re on home detention or serving a community-based sentence. Election officials will give your local Probation Services information about the voting options available to you. https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place\nReturning Officers liaise with local Probation Services to provide voting services for people on home detention and other community-based sentences. https://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2",
-      "Electoral Act": "S 61(1)(f) - not practicable for that person to vote at a polling station without incurring hardship or serious inconvience (special voting while on home detention)",
-      "General Google": "Returning Officers will also liaise with local Probation Services to provide voting services for people on home detention and other community-based sentences. - https://www.cab.org.nz/article/KB00001070"
-    }
+  "i-will-be-in-hospital": {
+    "title": "I will be in hospital",
+    "question": "I have to get surgery on the Friday before polling day, how do I vote?",
+    "answer": "Enrol - To enrol, you can do it online or via paper form, you may have someone to support you with it. Please note your address is not the hospital you will be staying in.\nVote - If you can't get to a voting place because you are in hospital, you can authorise a friend or family member to bring your voting papers to you instead and you can complete a takeaway vote. If you're scheduled to go into hospital prior to election day, it’s best to vote in advance if you can - advance voting begins from the 26th October, 12 days before election day.",
+    "source": "https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place & https://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2"
   },
-  "Single parents": {
-    "General": {
-      "Examples": "I am a parent with young children and I have no one to watch them while I vote. Am I allowed to bring my children inside the voting booths?",
-      "Independent Electoral Review": "9.48 In Appendix 1: Minor and Technical Recommendations, we also recommend clarifying that children under the voting age are allowed to go into voting booths with their parent or caregiver. PG 227\nThe Electoral Act says that a person must go into a voting booth alone. This rule is meant to protect the secrecy of the vote. In practice, however, voters can take their children with them into the voting booth if they cannot be left unattended. PG 494"
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {}
+  "i-cant-leave-care-or-the-house": {
+    "title": "I can't leave care/ or the house",
+    "question": "I have health issues and do not like being in public, crowded spaces. Can I still vote?",
+    "answer": "Vote - You can authorise someone to pick up your voting papers from a voting place for you. If you can’t get to a voting place, and don't have someone who can collect your voting papers for you, contact your electorate manager. It may be possible for voting papers to be dropped off or delivered to you, and then collected from you.",
+    "source": "https://vote.nz/2026-general-election/voting-in-the-election/cant-get-to-a-voting-place"
   },
-  "Non-English speakers": {
-    "General": {
-      "Electoral Act": "Electoral Act s 170 - any elector who is unable to read or write or has severe difficulty in reading or writing, or is not familiar with the English language...\nS 167(2A) Issue of ordinary ballot papers",
-      "Independent Electoral Review": "PG 270 - The Electoral Commission makes information about elections available in multiple\nlanguages. It also seeks to employ electoral officials who speak the languages commonly used in the communities they work in. Interpreters can be made available at polling places, though resource constraints are a practical limitation."
-    },
-    "ENROLMENT": {
-      "Examples": "How do I enrol to vote if I can't speak/read in English?",
-      "Electoral Commission website": "You can ask someone around you to help you complete the enrolment form, and you must sign the form yourself unless unable to because of a physical or mental impairment. Enrolment information is also available in several different languages to guide you - https://vote.nz/enrolling/enrolment-in-your-language/enrolment-information-in-multiple-languages"
-    },
-    "TURNOUT": {
-      "Examples": "Can I take someone in to help me vote if I don't speak English?",
-      "Electoral Commission website": "If you need help to read or mark the voting papers, you can ask a friend, family member or an electoral official to be your support person. A support person can go behind the voting screen with you, read out or help translate the information on the paper, and mark the voting paper if you allow them to. The support person cannot tell you who to vote for. - https://vote.nz/voting/get-help-to-vote/need-help-to-vote"
-    }
+  "i-am-serving-home-detention": {
+    "title": "I am serving home detention",
+    "question": "I am serving a 6 month home detention sentence, can I still enrol to vote?",
+    "answer": "Enrol - If you're on home detention, you can still enrol to vote (if you meet the general eligibility criteria as well). You can do this online or via paper form.\nVote - You can vote if you're on home detention or serving a community-based sentence. Election officials will give your local Probation Services information about the voting options available to you.",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote  & https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place"
   },
-  "People who live very far away/remotely": {
-    "General": {
-      "Examples": "I'll be in a remote area during the election with no voting places near me, how can I cast a vote?",
-      "Electoral Act": "Special Voting s 61(1)(f) - not practicable for that person to vote at a polling station without incurring hardship or serious inconvience",
-      "Independent Electoral Review": "PG 272 - Currently, there are legislative provisions for voting by people living in remote locations who have no access to polling places. People voting from Tokelau, Campbell Island, Raoul Island, Ross Dependency, vessels, offshore installations, remote islands administered by the Department of Conservation, and remote locations overseas can vote by upload/download, post or dictation.\n11.72 Remote voters within Aotearoa New Zealand can apply to cast a special vote on the basis that it would not be practicable to vote at a polling place without incurring hardship or serious inconvenience."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {
-      "Electoral Commission website": "If you’ll be in a remote location during an election – for example a remote New Zealand island administered by the Department of Conservation, an offshore installation, or working on a vessel during the voting period – you may be able to vote using our remote voting services.\n- https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place"
-    }
+  "i-am-in-a-rest-home": {
+    "title": "I am in a rest home",
+    "question": "I live in a residential care facility and can't enrol or vote on my own, I have no family to help me with this, how can I vote?",
+    "answer": "Vote - If you are in a rest home and you won't be able to go to a voting place, you don't need to contact us. Your local Returning Officer will contact the manager of your rest home to arrange voting services.",
+    "source": "https://elections.nz/assets/2020-general-election/Unable-to-get-to-a-voting-place_August-2020.pdf"
   },
-  "People on boats (living on boats)": {
-    "General": {
-      "Examples": "For the past few years, I have been living full-time on a boat.",
-      "Electoral Act": "Electoral Act s 72(11) - a person whose home is on any ship, boat, or vessel permanently located in any harbour shall be deemed to resude in the electoral district in which the wharf or landing place or the main whard or landing place in the harbour is situated."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {}
+  "i-have-a-physical-disability": {
+    "title": "I have a physical disability",
+    "question": "I have lost a lot of motor functions, including the use of my hands… can I vote? How do I seek assistance to vote?",
+    "answer": "Enrol - You can ask someone, such as a friend or family member, to support you to complete your enrolment form, or to complete your form for you. A person who is enrolled to vote, can complete and sign an enrolment form for you. Those with power of attorney can also complete and sign the form on your behalf. The enrolment form can be done online or a form can be uploaded, emailed or posted.\nVote - To vote, you can authorise someone to pick up your voting papers from a voting place and take them to you - this is a takeaway vote.\nIf you can't get to a voting place, and don't have someone who can collect your voting papers for you, contact your electorate manager. It may be possible for voting papers to be dropped off or delivered to you, and then collected from you.\nYou can also advance vote and bring a support person with you to the voting place and behind the voting screen if you would like.",
+    "source": "https://vote.nz/enrolling/get-help-to-enrol/need-help-to-enrol?lang=en-NZ  & https://vote.nz/2026-general-election/voting-in-the-election/need-help-to-vote"
   },
-  "People working on the sea": {
-    "General": {
-      "Examples": "I work on a cruise ship and will be working away from port during election time, how can I enrol and vote?"
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {
-      "Electoral Commission website": "If you’re working on a ship in port and you’re enrolled or eligible to enrol in the electorate the ship is in, your ship master must let you go ashore to vote. If you’re working on a ship that won’t be in port or will not return to port during the voting period, contact us closer to election time for help with enrolling and voting.\nhttps://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place",
-      "Electoral Act": "Electoral Act s 72(11) - a person whose home is on any ship, boat, or vessel permanently located in any harbour shall be deemed to resude in the electoral district in which the wharf or landing place or the main whard or landing place in the harbour is situated.\nSpecial voting s 61(b)&(c) - the person is intended to be absent from the district or outside NZ on polling day."
-    }
+  "i-have-no-id": {
+    "title": "I have no ID",
+    "question": "I don't have a license, passport, or kiwi access card, can I still enrol and vote without any of these?",
+    "answer": "Enrol - To enrol online you need a New Zealand drivers license, or a New Zealand passport, or a RealMe verified identity login - if you do not have any of these you can still enrol to vote by either completing an enrolment form online and having it emailed to you to sign and then returning it through uploading, emailing or posting the form; or you can print a form yourself or have one sent to you, then complete it and upload it, email it or post it. Alternatively, printed copies of electoral rolls are available at selected public libraries, at Electoral Commission offices or potentially at local post offices (contact your local library or post office for more details).\nVote - You do not need to take any type of ID to vote, just turn up. You can bring your EasyVote card to make it faster, but if you don't have one that's ok as well, your details will be confirmed at the voting place.",
+    "source": "https://vote.nz/enrolling/enrol-or-update/other-ways-to-enrol & https://vote.nz/voting/how-to-vote/facts-about-new-zealand-elections & https://vote.nz/enrolling/get-help-to-enrol/contact-our-enrolment-team"
   },
-  "Military, NZ diplomats - overseas": {
-    "General": {
-      "Examples": "I am a member of the New Zealand Defence Force and stationed overseas, can I still enrol to vote?",
-      "Electoral Act": "Electoral Act s 80(3) - Nothing in subsection (1)(a) or (b) applies to public servant or member of the defence force, a head of mission or head of post within the meaning of the Foreign Affairs Act 1988, an officer or employee of New Zealand Trade or Enterprise."
-    },
-    "ENROLMENT": {
-      "Electoral Commission website": "You can enrol and vote no matter how long you've been outside of New Zealand if you are one of the following: public servant working overseas and their families; New Zealand diplomats or trade representatives and their families; members of the New Zealand Defence Force and their families. - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote"
-    },
-    "TURNOUT": {
-      "Electoral Commission website": "Special vote, upload...."
-    }
+  "i-am-gender-diverse-and-have-changed-my-name": {
+    "title": "I am gender diverse and have changed my name",
+    "question": "My prefered name differs from my legal name, and has not been legally changed from my birth name. I am concerned about being questioned in public when I go to vote.",
+    "answer": "Enrol - the Electoral Commission advised that the use of a preferred name for enrolment is already allowed as the Electoral Act does not specifically require a person's legal name on the enrolment application - it only requires a full name. The online enrolling service uses your details from either a New Zealand passport or drivers licence or a Realme verified identity, so if the name you prefer to use does not match the name on these, you may have to complete a physical form and upload, email or post it to the electoral comission.\nVote - You can vote using your preferred name.",
+    "source": "https://www.justice.govt.nz/assets/Documents/Publications/Independent-Electoral-Review-Final-Report-November-2023.pdf Pg 271."
   },
-  "Military at a training camp": {
-    "General": {
-      "Electoral Act": "Electoral Act s 80(3)(a)(i) - disqualifcation not including members of the Defence force.\nSpecial voting s 61(b)&(c) - the person is intended to be absent from the district or outside NZ on polling day."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {}
+  "i-have-made-a-change-to-my-legal-name-e-g-through-marriage-divorce-adoption-or-reclaiming-an-ingoa-maori": {
+    "title": "I have made a change to my legal name e.g. through marriage, divorce, adoption, or reclaiming an ingoa Māori",
+    "question": "I no longer identify with my divorce husbands surname. Can I vote with my maiden name, despite not legally changing my name on my ID?",
+    "answer": "Enrol - the Electoral Commission advised that the use of a preferred name for enrolment is already allowed as the Electoral Act does not specifically require a person's legal name on the enrolment application - it only requires a full name. The online enrolling service uses your details from either a New Zealand passport or drivers licence or a Realme verified identity, so if the name you prefer to use does not match the name on these, you may have to complete a physical form and upload, email or post it to the electoral comission.\nVote - you can vote using your preferred name.",
+    "source": "https://www.justice.govt.nz/assets/Documents/Publications/Independent-Electoral-Review-Final-Report-November-2023.pdf  Pg 271."
   },
-  "Living somewhere temporarily for work for like a few months e.g. seasonal workers, sharemilkers, off somewhere training": {
-    "General": {
-      "Electoral Act": "Electoral Act Special voting s 61(b)&(c) - the person is intended to be absent from the district or outside NZ on polling day\nS 162 Employees to have time off to vote"
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {}
+  "i-am-17-but-will-turn-18-on-or-before-the-election-day": {
+    "title": "I am 17 but will turn 18 on or before the election day",
+    "question": "I am currently 17 years old and won't turn 18 until the day before election. Can I still enrol to vote?",
+    "answer": "Enrol - You can complete an enrolment form while you are 17, and on your 18th birthday you will be automatically enrolled and ready to vote.\nVote - Even if you only turn 18 on election day, you can still vote as normal - as long as you enrolled beforehand. If you have enrolled before 4 October you will cast a normal vote on election day. If you enrolled after 4 October but before 25 October, you will cast a Special vote at the voting place.",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote & https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote & https://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2"
   },
-  "Gender diverse people": {
-    "General": {
-      "Examples": "My preffered name differs from my legal name, and has not been legally changed from my birth name. I am concerned about being questioned or outed in public when I go to vote",
-      "Electoral Act": "Electoral Act s 83(2)(a) - application for registration as an elector must include the applicants full name",
-      "Independent Electoral Review": "PG 271 - Electoral Commission advised that the use of A preferred name for enrolment is already allowed as the Electoral Act does not specifically require a person’s legal name on an enrolment application – it only requires a full name."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {}
+  "i-live-in-a-remote-area": {
+    "title": "I live in a remote area",
+    "question": "I'll be in a remote area during the election with no voting places near me, how can I cast a vote?",
+    "answer": "Vote - You can authorise someone to pick up your voting papers from a voting place for you. If you can't get to a voting place and don't have someone who can collect your voting papers, you should contact your electorate manager. They may be able to arrange for voting papers to be dropped off or delivered to you and then collected from you. Remote voters within Aotearoa New Zealand could also apply to cast a special vote, but only on the basis that it would not be practicable to vote at a polling place without incurring hardship or serious inconvenience. For someone who can't get to a voting place because they're in a remote location, the Commission has a separate process for arranging voting services. Their 2026 page specifically says to call 0800 36 76 56 for information.",
+    "source": "https://www.justice.govt.nz/assets/Documents/Publications/Independent-Electoral-Review-Final-Report-November-2023.pdf pg 274, 11.72. & Electoral Act s 61(1)(f)"
   },
-  "People who live in a rest home": {
-    "General": {
-      "Examples": "I live in a residential care facility and can't enrol or vote on my own, I have no family to help me with this, how can I ensure my vote is casted.",
-      "Electoral Act": "Electoral Act Special Voting - s 61(d) the person is, by reason of illness, infirmity, pregnancy, or recent childbirth, unable to attend to vote and any polling place in the district. \nS 61(f) ... not practicable for that person to vote at the polling place in the district without incurring hardship or serious inconvenience.",
-      "Independent Electoral Review": "PG 271/272 - The Electoral Commission provides enrolment and voting services to people receiving care in residential facilities, such as aged-care facilities, hospitals and mental health in-patient units. \nThere are potential risks (although not common) to the ability of people in residential facilities to exercise their political rights. Emphasises the importance of the Electoral Commission continuing to work with staff in these facilities to ensure that all eligible residents are given the opportunity to exercise their right to vote."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {
-      "Electoral Commission website": "If you are in a care home and you won’t be able to go to a voting place, you don’t need to contact us. Your local Electorate Manager will contact the manager of your care home to arrange voting services.\n- https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place"
-    }
+  "i-work-at-sea": {
+    "title": "I work at sea",
+    "question": "I work on a cruise ship and will be working away from port during election time, how can I enrol and vote?",
+    "answer": "Enrol - Your residential address for enrolment purposes does not change because you are temporarily absent from it.\nVote - If you're working on a ship in port and you’re enrolled or eligible to enrol in the electorate the ship is in, your ship master must let you go ashore to vote. If you're working on a ship that won't be in port or will not return to port during the voting period you are eligible for a special vote.",
+    "source": "https://vote.nz/2026-general-election/voting-in-the-election/cant-get-to-a-voting-place & Electoral Act Section 72(6)(a)"
   },
-  "Essential workers / Working on election day": {
-    "General": {
-      "Examples": "I'm an essential worker who is working on election day, can I leave work to vote?",
-      "Electoral Act": "Electoral Act s 162 Employees to have time off to vote"
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {
-      "Electoral Commission website": "You’re legally allowed to have time away from work to go and vote on election day. You can also vote early at an advance voting place. If you haven’t had a reasonable chance to vote before starting work on election day and you’re not doing any essential work or service, your employer must let you leave work to vote by 3pm. You’re legally allowed to be away from work for the rest of the day if you need that time to vote.\nYour employer can’t take money from your pay for time you take off to vote.\nIf you have to work after 3pm to carry out any essential work or service, your employer must let you leave work for a reasonable time earlier in the day, so you can vote. Your employer can’t take money from your pay for time you take off to vote, as long as you don’t take more than 2 hours.\nhttps://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place"
-    }
+  "i-live-on-a-boat": {
+    "title": "I live on a boat",
+    "question": "For the past few years, I have been living full-time on a boat. Can I enrol to vote?",
+    "answer": "Enrol - If your home is on a ship or boat that is permanently in a harbour, use the address of that ship or boat. If your home is on a travelling ship or boat, use the last New Zealand address you lived at for at least 1 month, even if that is some time ago. We will need a postal address on the enrolment form to send mail to you. The postal address could be a PO Box, or the address of a friend, family member, church or support group.",
+    "source": "https://elections.nz/assets/OIA-requests/2026/2026-04-Documents-released.pdf & Electoral Act s 72(11)"
   },
-  "Shift workers": {
-    "General": {
-      "Examples": "I work night shifts and sleep during the day, how can I cast my vote",
-      "Electoral Act": "Electoral Act s 162 Employees to have time off to vote\nSpecial Voting s 61(f) ... not practicable for that person to vote at the polling place in the district without incurring hardship or serious inconvenience."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {
-      "Electoral Commission website": "Advance voting; Takeaway vote...?"
-    }
+  "i-do-not-have-stable-housing-or-a-normal-address": {
+    "title": "I do not have stable housing or a normal address",
+    "question": "I am experiencing homelessness/am unhoused and do no have an address to enrol, how can I still complete my enrolment form?",
+    "answer": "Enrol - You can enrol at a place where you spend a lot of time; you can enrol at your last residential address where you lived for at least 1 month, even if it was some time ago; you can enrol at the address of a friend, family member, church or support group (just ensure you can safely collect your mail from this address). If you do not think you can safely collect your mail from this address you can have your postal address set as somewhere different if you wish, this should be a place you are able to safely receive/collect correspondence.\nVote - The Electoral comission will have all voting places listed online so you can find one near you or you can call them and ask on 0800 36 76 56. Often times voting places are at well frequented hubs in the community... To cast your vote, you can just show up to a voting place during the advanced voting period or on election day and the team will support you to make your vote - you do not need any form of ID.",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote & https://vote.nz/voting/how-to-vote/facts-about-new-zealand-elections"
   },
-  "Living/currently overseas": {
-    "General": {
-      "Electoral Act": "Electoral Act s 80(1)(a) - Citizen living outside of NZ and has not been in NZ within the last 3 years are disqualified.\nS 80(1)(b) - a resident who is outside of NZ and has not been in NZ within the last 12 months are disqualified for registration. \nS 61(c) Special Voters - the person intends to be outside New Zealand on polling day.",
-      "Andrew Geddis' Textbook": "4.2.4 Exceptions to the right to vote\nPg 63 - New Zealand citizens who reside outside the country and have not visited Aotearoa New Zealand within a three-year period, or permanent residents who reside outside the country and have not visited it within 12 months. However, citizens immediately regain the right to register on the electoral roll upon their re-entry into Aotearoa New Zealand for any period of time, while permanent residents do so once they re-establish their “residency” in Aotearoa New Zealand."
-    },
-    "ENROLMENT": {
-      "Examples": "I am living or staying in Australia at the time of the election, can I still enrol and how can I do it?",
-      "Electoral Commission website": "You can enrol if you've lived in NZ for more than 12 months continously at some point in your life AND are a NZ citizen and have been in NZ within the last 3 years OR a resident for electoral purposes and have been in NZ within the last 12 months. Your electorate will be where you last lived in NZ for longer than 1 month - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote\nEnrol online, physical etc....",
-      "Electoral Act": "Section 72(12) - A New Zealand citizen who is outside New Zealand shall be deemed to reside where he or she had his or her last home in New Zealand"
-    },
-    "TURNOUT": {
-      "Examples": "How do I vote if I'm overseas at the time of the election?",
-      "Electoral Commission website": "The best way to vote from overseas is to download your voting papers from our website, complete them, then upload them (you cannot send back voting papers through email). A link to download your voting papers will be available on this website from the date overseas voting opens. You can complete the papers both digitally or physically, if you choose to complete them by hand you can scan and upload them online or post or hand deliver them to your nearest overseas voting place. https://vote.nz/voting/how-to-vote/vote-from-overseas"
-    }
+  "i-live-overseas-and-do-not-have-a-new-zealand-address": {
+    "title": "I live overseas and do not have a New Zealand address",
+    "question": "I am a kiwi who has recently moved overseas and do not have a New Zealand address, can I still vote?",
+    "answer": "Enrol - If you are a New Zealand citizen, who has lived in New Zealand for more than 12 months continuously at some point in your life AND have been to New Zealand in the last 3 years - you are still eligible to enrol to vote. Just because you don't currently have a New Zealand address does not mean you cannot vote. Your electorate will be where you last lived in New Zealand for longer than 1 month and you may set your postal address to your overseas address to ensure you receive correspondence. You can enrol online using a New Zealand passport or drivers licence or a Realme login. If you don't have either of these, you can also enrol via paper form.\nVote - The best way to vote from overseas is to download your voting papers from the electoral commission's website, complete them, then upload them online (you cannot send back voting papers through email). A link to download your voting papers will be available on the electoral commission's website from the date overseas voting opens (21 October). You can complete the papers both digitally (marking the paper digitally) or physically, if you choose to complete them by hand you can scan and upload them online, or you can post or hand deliver them to your nearest overseas voting place. If you're uploading your voting papers, you must return them by 7pm (NZ time) on election day (7th November).\nYou may also be able to vote at an overseas voting place. A list of overseas voting places will be available on the electoral commission's website prior to the election.",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/enrol-from-overseas?utm_source=chatgpt.com & https://vote.nz/2026-general-election/voting-in-the-election/vote-from-overseas"
   },
-  "BROKEN DOWN BY INTERNET ACCESS OR NOT? People in general with no internet access": {
-    "General": {},
-    "ENROLMENT": {},
-    "TURNOUT": {}
+  "i-have-been-placed-on-the-dormant-roll": {
+    "title": "I have been placed on the dormant roll",
+    "question": "I haven't voted in a while. I have tried to enrol but found I have been placed on the dormant roll. How do I vote?",
+    "answer": "Enrol - To get off the dormant roll, you simply need to update your enrolment address. However you need to do this before voting starts on 26 October 2026. You won't be able to do it at the voting place. To check or update your enrolment details, go to vote.nz or call 0800 36 76 56.\nVote - If you update your enrolment address before enrolment closes you can cast your vote as normal. If you do not manage to update your address before midnight 25 October and you have been on the doormant roll for less than 3 years, you can still cast a vote. If your current address is in the same electorate as your old enrolment address you can cast a party vote and an electorate vote, but if the address is in a different electorate you may only cast a party vote.",
+    "source": "https://elections.nz/assets/2026-General-Election/2026-Factsheet-Make-Sure-Youre-Enrolled-for-the-2026-General-Election-v2.pdf"
   },
-  "Living in the realm countries - Niue, Cook Islands, Tokelau": {
-    "General": {
-      "Examples": "I am from Niue, Cook Islands or Tokelau and I don't know if I can enrol and vote in New Zealand",
-      "Electoral Commission website": "You can enrol and vote once you have lived in New Zealand continously for 12 months or more - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote , https://vote.nz/enrolling/get-ready-to-enrol/enrol-from-overseas",
-      "Electoral Act": "S 80(1)(b) - a resident who is outside of NZ and has not been in NZ within the last 12 months are disqualified for registration.",
-      "Andrew Geddis' Textbook": "4.2.4 Exceptions to the right to vote\nPg 63 - New Zealand citizens or permanent residents who have never lived in Aotearoa New Zealand for at least one continuous year."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {}
+  "my-enrolment-details-have-changed": {
+    "title": "My enrolment details have changed",
+    "question": "I have moved address recently, how do I change my enrollment information?",
+    "answer": "Enrol - You can enrol, check or update your details online at vote.nz using your NZ driver licence,\nNZ passport or RealMe verified identity. You can also call freephone 0800 36 76 56 to ask for an enrolment form to be sent to you. Or free text your name and address to 3676 to be sent a form. Give your email, phone number, and address to the Electoral Commission so they can keep in touch with you, in regards to enrolment and voting.",
+    "source": "https://elections.nz/assets/2026-General-Election/2026-Factsheet-Make-Sure-Youre-Enrolled-for-the-2026-General-Election-v2.pd"
   },
-  "Migrants": {
-    "General": {},
-    "ENROLMENT": {
-      "Electoral Commission website": "You can enrol if you're living in New Zealand lawfully and are not required to leave within a specified time (this does not have to be a permanent resident visa); AND you must have lived in New Zealand continously for 12 months or more (this counts time before a visa was granted); AND you must not be subject to sections 15 or 16 of the Immigration Act, for example have a conviction for certain offenses - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote",
-      "Electoral Act": "Electoral Act s 73 Meaning of resident for electoral purposes\n\nS 74(1)(b) Qualification of electors - that person has at some time resided continuously in NZ for a period of not less that 1 year."
-    },
-    "TURNOUT": {}
+  "i-want-to-be-on-the-unpublished-roll": {
+    "title": "I want to be on the unpublished roll",
+    "question": "I worry that my abusive ex partner will find my new confidential address if I enrol to vote. Can I enrol to vote without my information becoming publicly accessible?",
+    "answer": "Enrol - apply to go on the unpublished roll. This means that your details won't be included on printed electoral rolls. To apply to be on the roll you must download, complete, and email a form to the electoral commission. You need to provide information that shows why you need to register on the unpublished roll. E.g. A letter explaining why your work or personal circumstances place you at risk. This letter could be from your employer, lawyer, social worker, advocate, or someone of standing in the community. A copy of a protection order that is in force under the Family Violence Act 2018. A copy of a restraining order that is in force under the Harassment Act 1997 etc.\nVote - You can vote at any voting place in a general election, referendum or by-election. You'll need to make a special vote because your details won’t be on the printed electoral roll used to issue voting papers at the voting place.",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/can-you-go-on-the-unpublished-roll"
   },
-  "Resident or visa holder": {
-    "General": {
-      "Examples": "I am a resident or have a visa to reside in New Zealand, I've never voted in NZ before, am I eligible to enrol and vote?",
-      "Andrew Geddis' Textbook": "4.2.4 Exceptions to the right to vote\nPg 63 - New Zealand citizens who reside outside the country and have not visited Aotearoa New Zealand within a three-year period, or permanent residents who reside outside the country and have not visited it within 12 months. However, citizens immediately regain the right to register on the electoral roll upon their re-entry into Aotearoa New Zealand for any period of time, while permanent residents do so once they re-establish their “residency” in Aotearoa New Zealand."
-    },
-    "ENROLMENT": {
-      "Electoral Commission website": "You can enrol if you're living in New Zealand lawfully and are not required to leave within a specified time (this does not have to be a permanent resident visa); AND you must have lived in New Zealand continously for 12 months or more (this counts time before a visa was granted); AND you must not be subject to sections 15 or 16 of the Immigration Act, for example have a conviction for certain offenses - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote",
-      "Electoral Act": "Electoral Act s 73 Meaning of resident for electoral purposes\n\nS 74(1)(b) Qualification of electors - that person has at some time resided continuously in NZ for a period of not less that 1 year."
-    },
-    "TURNOUT": {}
+  "in-the-hospital": {
+    "title": "In the hospital",
+    "question": "I have to get surgery on the Friday before polling day, how do I vote?",
+    "answer": "Enrol - To enrol, you can do it online or via paper form, you may have someone to support you with it. Please note your address is not the hospital you will be staying in.\nVote - If you can't get to a voting place because you are in hospital, you can authorise a friend or family member to bring your voting papers to you instead and you can complete a takeaway vote. If you're scheduled to go into hospital prior to election day, it’s best to vote in advance if you can - advance voting begins from the 26th October.",
+    "source": "https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place"
   },
-  "People who have housing problems/are homeless/no address": {
-    "General": {
-      "Electoral Act": "Electoral Act s 72(3) - a person resides at the place where that person chooses to make his or her home by reason of family or personal relations, or for other domestic or personal reasons."
-    },
-    "ENROLMENT": {
-      "Examples": "I am experiencing homelessness/am unhoused and do no have an address to enrol, how can I still complete my enrolment form?",
-      "Electoral Commission website": "You can enrol at a place where you spend a lot of time; you can enrol at your last residential address where you lived for at least 1 month, even if it was some time ago; you can enrol at the address of a friend, family member, church or support group (just ensure you can safely collect your mail from this address) - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote"
-    },
-    "TURNOUT": {
-      "Examples": "I am experiencing homelessness/am unhoused and do not know how or where I can go to cast a vote"
-    }
+  "i-am-blind-or-have-low-vision": {
+    "title": "I am blind or have low vision",
+    "question": "I am partially blind and need help reading and marking the paper to vote",
+    "answer": "Enrol - A support person can help you enrol online or via paper form if you're blind or have low vision. If you can't sign the form, a support person can complete the form on your behalf.\nVote - You may bring a support person to assist you that can help you vote, read out the voting paper and mark the paper for you if necessary. Furthermore, a telephone dictation voting service is available for blind and vision-impaired voters and voters who have a physical disability that prevents them from marking the voting paper independently and in secret. You need to register to use this service, even if you've used it at previous elections.\nRegistration for the telephone dictation service opens on Monday 5 October 2026, and will close at noon (NZT) on election day, Saturday 7 November 2026.\nVoting with the telephone dictation service opens on Wednesday 21 October 2026, and will close at 7pm (NZT) on election day, Saturday 7 November 2026.",
+    "source": "https://vote.nz/voting/get-help-to-vote/need-help-to-vote & https://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2 & https://vote.nz/2026-general-election/voting-in-the-election/cant-get-to-a-voting-place"
   },
-  "People with physical disabilities": {
-    "General": {
-      "Examples": "I am wheelchair bound with ALS. I have lost a lot of motor functions, including the use of my hands… can I vote? How do I seek assistance to vote?",
-      "Electoral Act": "Electoral Act s 170 Blind, disabled, or illiterate voters\nS 167(2A) - elector is unable to comply with requirement because of physical disability... may gesture or by assistence of a person nominated...\nS 85 Registration of persons who have a physical or mental impairment - may apply for a representative under s 83."
-    },
-    "ENROLMENT": {
-      "Electoral Commission website": "A person who is enrolled to vote, can complete and sign an enrolment form for someone who can’t do it themselves because of a physical impairment.\nOr those with power of attorney can also complete and sign the form.\nThe form can be uploaded, emailed or posted. \nhttps://vote.nz/enrolling/get-help-to-enrol/need-help-to-enrol?lang=en-NZ"
-    },
-    "TURNOUT": {
-      "Examples": "Can't make it to a voting place...",
-      "Electoral Commission website": "Take away vote - for those who can make it, can bring a support person..."
-    }
+  "i-have-a-physical-disability-2": {
+    "title": "I have a physical disability",
+    "question": "I have lost a lot of motor functions, including the use of my hands… can I vote? How do I seek assistance to vote?",
+    "answer": "Enrol - You can ask someone, such as a friend or family member, to support you to complete your enrolment form, or to complete your form for you. A person who is enrolled to vote, can complete and sign an enrolment form for you. Those with power of attorney can also complete and sign the form on your behalf. The enrolment form can be done online or a form can be uploaded, emailed or posted.\nVote - To vote, you can authorise someone to pick up your voting papers from a voting place and take them to you - this is a takeaway vote.\nIf you can't get to a voting place, and don't have someone who can collect your voting papers for you, contact your electorate manager. It may be possible for voting papers to be dropped off or delivered to you, and then collected from you.\nYou can also advance vote and bring a support person with you to the voting place and behind the voting screen if you would like.",
+    "source": "https://vote.nz/enrolling/get-help-to-enrol/need-help-to-enrol?lang=en-NZ & https://vote.nz/2026-general-election/voting-in-the-election/need-help-to-vote"
   },
-  "People who are blind or vision-impaired \n": {
-    "General": {
-      "Electoral Act": "Electoral Act s 170 - any elector who is wholly or partially blind... \nS 85 Registration of persons who have a physical or mental impairment - may apply for a representative under s 83."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {
-      "Examples": "Need help reading and marking the paper to vote",
-      "Electoral Commission website": "You may bring a support person to assist you that can help you vote, read out the voting paper and mark the paper if necessary. Furthermore, a telephone dictation voting service is available for blind and vision-impaired voters and voters who have a physical disability that prevents them from marking the voting paper independently and in secret. You need to register to use this service, even if you’ve used it at previous elections.https://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2 \nhttps://vote.nz/voting/get-help-to-vote/need-help-to-vote"
-    }
+  "i-have-a-mental-health-issue": {
+    "title": "I have a mental health issue",
+    "question": "I struggle with severe anxiety and don't know if I can vote on my own, how can I get help to enrol and vote?",
+    "answer": "Enrol - You can ask a support person to help you enrol online if you wish. A support person can also complete and sign an enrolment form on your behalf if you require help because of a mental impairment. To sign the enrolment form on your behalf, the support person must be enrolled to vote; have enduring power of attorney; or be the person’s appointed welfare guardian. If required, the support person can also fill in another form so we can contact them as your representative.\nVote - If you need help with voting, a friend, family member or electoral official can be your support person and assist you.\nYour support person can:\nGo behind the voting screen with you\nRead out the words and information on your voting paper\nMark the voting papers for you if you ask them to.\nYour support person can't tell you who you should vote for. \nYou can vote as long as you want to and can clearly indicate your voting choice. However, you must be present and able to indicate you choice at the time the vote is cast. If you're not able to do this, no one can cast a vote on your behalf, even someone with power of attorney or guardianship.",
+    "source": "https://vote.nz/enrolling/get-help-to-enrol/need-help-to-enrol?lang=en-N & https://vote.nz/voting/get-help-to-vote/need-help-to-vote"
   },
-  "Break this down more - e.g. needs help to mark the paper": {
-    "General": {
-      "Electoral Act": "Electoral Act s 170(1) - any elector who is wholly or partially blind, or (whether because of physical handicap or otherwise) is unable to read or write or has severe difficulty in reading or writing, or is not sufficiently familiar with the English language to vote without assistance, may vote in accordance with the provisions of this section."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {}
+  "i-have-dementia-or-am-helping-someone-with-dementia": {
+    "title": "I have dementia or am helping someone with dementia",
+    "question": "My grandparent has dementia, can they still vote?",
+    "answer": "Enrol - A support person can help someone with dementia to enrol to vote. A support person can also complete and sign an enrolment form on their behalf if they require help. To sign the enrolment form on their behalf, the support person must be enrolled to vote; have enduring power of attorney; or be the person’s appointed welfare guardian. If you're helping someone with dementia enrol, you will need to fill in another form so we can contact you as their representative. Ring 0800 36 76 56 for the form.\nVote - People living with dementia, or any other cognitive impairment, are able to continue to vote if they wish to do so. They can have help voting by taking a support person with them to the voting place.\nA person with dementia can vote as long as they want to and can clearly indicate their voting choice. However, they must be present and able to indicate their choice at the time the vote is cast. If they're not able to do this, no one can cast a vote on their behalf, even someone with power of attorney or guardianship.",
+    "source": "https://vote.nz/voting/get-help-to-vote/need-help-to-vote"
   },
-  "People with mental impairments": {
-    "General": {
-      "Electoral Act": "Electoral Act s 85 Registration of persons who have physical or mental impairment - may apply for a representative under s 83."
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {}
+  "i-need-help-marking-the-paper": {
+    "title": "I need help marking the paper",
+    "question": "I struggle with gripping pens/pencils to write and need help marking the voting papers",
+    "answer": "You may bring a support person to assist you, they can help you vote, read out the voting paper and mark the paper for you if necessary. Your support person cannot tell you who to vote for.",
+    "source": "https://vote.nz/2026-general-election/voting-in-the-election/need-help-to-vote"
   },
-  "Can't leave care/the house": {
-    "General": {
-      "Electoral Act": "Electoral Act Special Voting s 61(d) the person is, by reason of illness, infirmity, pregnancy, or recent childbirth, unable to attend to vote and any polling place in the district. \nS 61(f) ... not practicable for that person to vote at the polling place in the district without incurring hardship or serious inconvenience.\""
-    },
-    "ENROLMENT": {},
-    "TURNOUT": {
-      "Electoral Commission website": "Authorise someone to collect your voting papers from a voting place for you - https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place"
-    }
+  "i-am-on-home-detention": {
+    "title": "I am on home detention",
+    "question": "I am serving a 6 month home detention sentence, how can I my vote if I can't leave home?",
+    "answer": "Enrol - If you're on home detention, you can still enrol to vote. You can do this online or via paper form.\nVote - You can vote if you're on home detention or serving a community-based sentence. Election officials will give your local Probation Services information about the voting options available to you.",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote & https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place"
   },
-  "I haven’t voted in a long time or updated my details in ages": {
-    "General": {},
-    "ENROLMENT": {
-      "Electoral Commission website": "Update details if already enrolled... Form of ID needed? Check to see if details correct - digitally and via email/phone?"
-    },
-    "TURNOUT": {}
+  "i-am-in-prison": {
+    "title": "I am in prison",
+    "question": "I am currently serving a prison sentence of 2 years, can I still vote and will I be able to vote from prison?",
+    "answer": "Enrol - You can still enrol, but this depends on when the offences you were sentenced for occured. If the offences you were sentenced for were before 20 December 2025 and your sentence is under 3 years, you can enrol and vote.\nPrison staff assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission.\nVote - Enrol - You can still enrol, but this depends on when the offences you were sentenced for occured. If the offences you were sentenced for were before 20 December 2025 and your sentence is under 3 years, you can enrol and vote.\nPrison staff assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission. During the advance voting period, mobile voting teams will attend prisons and set up voting facilities for prisoners who are eligible to vote.",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote & https://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2 & https://www.corrections.govt.nz/our_work/in_prison/being_in_prison/voting_in_prison."
   },
-  "People with changes to their legal name e.g. through marriage, divorce, adoption, reclaiming ingoa Māori, other situations": {
-    "General": {
-      "Electoral Act": "Electoral Act a 83(2)(a) - application of registration elector must state their full name on the application\nSection 94?",
-      "Independent Electoral Review": "PG 271 - Electoral Commission advised that the use of A preferred name for enrolment is already allowed as the Electoral Act does not specifically require a person’s legal name on an enrolment application – it only requires a full name."
-    },
-    "ENROLMENT": {
-      "Electoral Commission website": "Update details if already enrolled... Form of ID needed?"
-    },
-    "TURNOUT": {}
+  "i-am-on-remand": {
+    "title": "I am on remand",
+    "question": "I'm in prison while on remand waiting for my trial, can I still enrol to vote?",
+    "answer": "Enrol - If you're on remand, you can still enrol to vote if you meet the general eligibility criteria. You do not face the same restrictions as those who have been sentenced. If you are in prison while on remand, prison staff will assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission.\nVote - If you're in a police cell in the electorate on election day, a voting team may visit before midday so you can vote. If you are in prison while on remand, during the advance voting period, mobile voting teams will attend prisons and set up voting facilities for those who are eligible to vote.",
+    "source": "https://www.corrections.govt.nz/our_work/in_prison/being_in_prison/voting_in_prison & https://vote.nz/2026-general-election/voting-in-the-election/cant-get-to-a-voting-place & https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote"
   },
-  "People with no ID": {
-    "General": {},
-    "ENROLMENT": {
-      "Examples": "I don't have a license, passport, or kiwi access card, can I still enrol and vote without any of these?",
-      "Electoral Commission website": "To enrol online you need a New Zealand drivers license, or a New Zealand passport, or a RealMe verified identity login - if you do not have any of these you can still enrol to vote by either completing an enrolment form online and having it emailed to you to sign and then returning it through uploading, emailing or posting the form; or you can print a form yourself or have one sent to you, then complete it and upload it, email it or post it - https://vote.nz/enrolling/enrol-or-update/other-ways-to-enrol"
-    },
-    "TURNOUT": {
-      "Examples": "What if I forget to take my ID when I go to vote, will I still be allowed vote?",
-      "Electoral Commission website": "You do not need to take any type of ID to vote, just turn up. You can bring your EasyVote card to make it faster, but if you don't have one that's ok as well, your details will be confirmed at the voting place - https://vote.nz/voting/how-to-vote/facts-about-new-zealand-elections"
-    }
+  "i-am-on-community-service": {
+    "title": "I am on community service",
+    "question": "I'm serving a community service sentence can I still vote?",
+    "answer": "Enrol - If you're serving a community based sentence, you can still enrol to vote. You can do this online or via paper form.\nVote - You can vote if you're on home detention or serving a community-based sentence. Election officials will give your local Probation Services information about the voting options available to you.",
+    "source": "https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place & https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote."
   },
-  "Australians residing in New Zealand": {
-    "General": {
-      "Examples": "I am an Australian living in New Zealand, can I vote?",
-      "Electoral Act": "Electoral Act s 73 - you are a resident for electoral purposes if you are living in NZ and not lawfully required to leave within a specified time."
-    },
-    "ENROLMENT": {
-      "Electoral Commission website": "You can enrol and vote once you have lived in New Zealand continously for 12 months or more - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote"
-    },
-    "TURNOUT": {}
+  "i-am-living-overseas": {
+    "title": "I am living overseas",
+    "question": "I am living or staying in Australia at the time of the election, can I still enrol and vote and how can I do it?",
+    "answer": "Enrol - If you are a New Zealand citizen, who has lived in New Zealand for more than 12 months continuously at some point in your life AND have been to New Zealand in the last 3 years - you are still eligible to enrol to vote. Your electorate will be where you last lived in New Zealand for longer than 1 month and you may set your postal address to your overseas address to ensure you receive correspondence. You can enrol online using a New Zealand passport or drivers licence or a Realme login. If you don't have either of these, you can also enrol via paper form.\nVote - The best way to vote from overseas is to download your voting papers from the electoral commission's website, complete them, then upload them online (you cannot send back voting papers through email). A link to download your voting papers will be available on the electoral commission's website from the date overseas voting opens (21 October). You can complete the papers both digitally (marking the paper digitally) or physically, if you choose to complete them by hand you can scan and upload them online, or you can post or hand deliver them to your nearest overseas voting place. If you're uploading your voting papers, you must return them by 7pm (NZ time) on election day (7th November).\nYou may also be able to vote at an overseas voting place. A list of overseas voting places will be available on the electoral commission's website prior to the election.",
+    "source": "https://vote.nz/voting/how-to-vote/vote-from-overseas & https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote"
   },
-  "I am 17 but will be 18 by/on election day ": {
-    "General": {
-      "Electoral Act": "Electoral Act s 82(2) - you are able to be qualified as an elector before turning 18."
-    },
-    "ENROLMENT": {
-      "Examples": "I am 17 years old now but between the final enrolment date and the election date I will turn 18 years old",
-      "Electoral Commission website": "You can complete an enrolment form while you are 17, and on your 18th birthday you will be automatically enrolled and ready to vote - https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote"
-    },
-    "TURNOUT": {
-      "Examples": "I am 17 years old now but will be 18 on election day, can I still vote and how?",
-      "Electoral Commission website": "Even if you only turn 18 on election day, you can still vote as normal - as long as you enrolled beforehand. If you have enrolled before 4 October you will cast a normal vote on election day. If you enrolled after 4 October but before 25 October, you will cast a Special vote at the voting place. - \nhttps://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote \nhttps://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2"
-    }
+  "i-am-overseas-as-a-member-of-the-military-or-diplomatic-service": {
+    "title": "I am overseas as a member of the military or diplomatic service",
+    "question": "I am a member of the New Zealand Defence Force and stationed overseas, can I still enrol to vote?",
+    "answer": "Enrol - You can enrol and vote no matter how long you've been outside of New Zealand if you are one of the following: public servant working overseas and their families; New Zealand diplomats or trade representatives and their families; members of the New Zealand Defence Force and their families. You can enrol online using a New Zealand passport or drivers licence or a Realme login, or you can enrol using a paper form.\nVote - You can cast a special vote.\nThe best way to vote from overseas is to download your voting papers from the electoral commission’s website, complete them, then upload them (you cannot send back voting papers through email). A link to download your voting papers will be available on the electoral commission's website from the date overseas voting opens (21 October). You can complete the papers both digitally or physically, if you choose to complete them by hand you can scan and upload them online, or you can post or hand deliver them to your nearest overseas voting place.",
+    "source": "https://vote.nz/voting/how-to-vote/vote-from-overseas & https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote"
   },
-  "People on the Unpublished roll": {
-    "General": {
-      "Author": "R"
-    },
-    "ENROLMENT": {
-      "Author": "R",
-      "Examples": "I am worried about my new confidential address being publicly accessible to my abusive ex partner...",
-      "Electoral Commission website": "Going on the unpublished roll means your details won’t be included on printed electoral rolls. It also means you won’t be able to check or update your enrolment details online. You'll need to make a special vote at parliamentary and local elections. To apply to go on the unpublished roll, choose one of the following options: download the form: https://vote.nz/assets/pagecomponent-file-files/2024_ELE0128-Concerned-for-your-safety-DL-English.pdf  \n\nComplete the form and email it to us. Or call 0800 36 76 56 and we’ll post the form to you in the mail. If you're not already enrolled, you also need to complete an enrolment form. https://vote.nz/enrolling/get-ready-to-enrol/can-you-go-on-the-unpublished-roll",
-      "Electoral Act": "Electoral Act s 115 Unpublished Names \n(1) where the Electoral Commission is satisfied, on the application of any person, that the publication of that person’s name would be prejudicial to the personal safety of that person or his or her family, the Electoral Commission may direct that—\n(a) the name and residence of that person shall not be published in any main or supplementary roll or in any list or index that may be available for inspection by the public; and\n(b) the name and particulars of that person shall not be available for inspection under section 110(3)(c); and\n(c) the application for registration of that person shall not be available for inspection under section 110(3)(d).",
-      "Independent Electoral Review": "Pg. 420 - Persons whose personal safety or that of a member of their family would be at risk if their name was included in the roll can apply to go on the unpublished roll. The details of persons on the unpublished roll do not appear in the printed roll and their details are not released by the Electoral Commission to anyone, including parties, candidates, or researchers.\n\nMany submitters considered that there should be greater availability and awareness of the unpublished roll. And it should be easier to be placed on the roll."
-    },
-    "TURNOUT": {
-      "Author": "R",
-      "Electoral Commission website": "You can vote at any voting place in a general election, referendum or by-election. You’ll need to make a special vote because your details won’t be on the printed electoral roll used to issue voting papers at the voting place.\n\nTo make a special vote at a parliamentary election, you’ll need to fill in an extra form – a special vote declaration - to confirm your electorate. You don't need to complete the address or previous name information on the form if you don't want to, but providing this information helps us to confirm you’re eligible to vote. When you get to a voting place, someone will be there to show you what to do.\nhttps://vote.nz/enrolling/get-ready-to-enrol/can-you-go-on-the-unpublished-roll",
-      "Electoral Act": "Electoral Act s 115 Unpublished Names \n(1) where the Electoral Commission is satisfied, on the application of any person, that the publication of that person’s name would be prejudicial to the personal safety of that person or his or her family, the Electoral Commission may direct that—\n(a) the name and residence of that person shall not be published in any main or supplementary roll or in any list or index that may be available for inspection by the public; and\n(b) the name and particulars of that person shall not be available for inspection under section 110(3)(c); and\n(c) the application for registration of that person shall not be available for inspection under section 110(3)(d)."
-    }
+  "i-am-a-seasonal-worker-or-temporarily-living-overseas-for-work": {
+    "title": "I am a seasonal worker or temporarily living overseas for work",
+    "question": "I am living somewhere temporarily for work for a few months, how do I vote?",
+    "answer": "Enrol - You can still enrol and vote if you are a New Zealand citizen or resident for electoral purposes and only residing outside of New Zealand temporarily for work (if you have been back to New Zealand in the last 3 years). You can enrol online with a New Zealand passport or drivers licence or a Realme login or you can complete a paper form. Your residential address for enrolment purposes does not change because you are temporarily absent from it.\nVote - You can cast a special vote.\nThe best way to vote from overseas is to download your voting papers from the electoral commission’s website, complete them, then upload them (you cannot send back voting papers through email). A link to download your voting papers will be available on the electoral commission's website from the date overseas voting opens (21 October). You can complete the papers both digitally or physically, if you choose to complete them by hand you can scan and upload them online, or you can post or hand deliver them to your nearest overseas voting place.",
+    "source": "https://vote.nz/voting/how-to-vote/vote-from-overseas & Electoral Act Section 72(6)(a)"
   },
-  "Those on the Dormant roll": {
-    "General": {
-      "Author": "R"
-    },
-    "ENROLMENT": {
-      "Author": "R",
-      "Examples": "I have been placed on the dormant roll",
-      "Electoral Commission website": "Someone on the dormant roll is still eligible to vote, but if their current address is in a different electorate to their enrolled address, they may only be able to make a party vote. \nTo get off the dormant roll, you simply need to update your enrolment address. However you need to do this before voting starts on 26 October 2026. You won’t be able to do it at the voting place. To check or update your enrolment details, go to vote.nz or call 0800 36 76 56. \nhttps://vote.nz/2026-general-election/about/overview > https://elections.nz/assets/2026-General-Election/2026-Factsheet-Make-Sure-Youre-Enrolled-for-the-2026-General-Election-v2.pdf",
-      "Electoral Act": "Electoral Act s 89CB Electoral commission may remove persons name from the dormant roll and register person as elector.\n \nS 109 Dormant roll\n(1) The Electoral Commission must maintain a dormant roll that shows for each district the particulars of those persons whose names have been removed from the roll for the relevant district—",
-      "Independent Electoral Review": "Pg. 404 - A dormant roll is also maintained, containing the enrolment details of people who the Electoral Commission is unable to contact at their listed enrolment address. The Electoral Commission removes people from the dormant roll when a person either enrols at a new address, dies, or after they have been on the dormant roll for three years."
-    },
-    "TURNOUT": {
-      "Author": "R",
-      "Electoral Commission website": "Someone on the dormant roll is still eligible to vote, but if their current address is in a different electorate to their enrolled address, they may only be able to make a party vote. \nTo get off the dormant roll, you simply need to update your enrolment address. However you need to do this before voting starts on 26 October 2026. You won’t be able to do it at the voting place. To check or update your enrolment details, go to vote.nz or call 0800 36 76 56. \nhttps://vote.nz/2026-general-election/about/overview > https://elections.nz/assets/2026-General-Election/2026-Factsheet-Make-Sure-Youre-Enrolled-for-the-2026-General-Election-v2.pdf"
-    }
+  "i-have-migrated-to-new-zealand": {
+    "title": "I have migrated to New Zealand",
+    "question": "I am a migrant in NZ who has been here for 1.5 years, am I able to vote?",
+    "answer": "Enrol - You can enrol to vote as a resident or visa holder IF the visa does not require you to leave within a specified time AND you must have lived in New Zealand continuously for 12 months or more (this generally counts from your arrival to the country not from when you were granted your current visa). You do not have to be a permanent resident to enrol to vote. \nYou also must not be subject to sections 15 or 16 of the Immigration Act, for example have a conviction for certain offenses.\nVote - You can cast an advance vote or a normal vote.",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote"
+  },
+  "residents-and-visa-holders": {
+    "title": "Residents and visa holders",
+    "question": "I am a resident or have a visa to reside in New Zealand and have been here for 2 years, I've never voted in NZ before, am I eligible to enrol and vote?",
+    "answer": "Enrol - You can enrol to vote as a resident or visa holder IF the visa does not require you to leave within a specified time AND you must have lived in New Zealand continuously for 12 months or more (this generally counts from your arrival to the country not from when you were granted your current visa). You do not have to be a permanent resident to enrol to vote. \nYou also must not be subject to sections 15 or 16 of the Immigration Act, for example have a conviction for certain offenses.\nVote - You can cast an advance vote or a normal vote.",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote"
+  },
+  "i-need-help-with-english": {
+    "title": "I need help with English",
+    "question": "Can I take someone in to help me vote if I don't speak English?",
+    "answer": "Enrol - Enrolment information is available in several different languages and accessible formats to help guide you. The enrolment form itself is in English, if you require help with this you are able to ask someone around you for help to complete it.\nVote - You are allowed to take a support person into the voting booth to help you translate, read and/or mark the voting papers. This can be a friend, family member or you may ask an electoral official to help you. They can go behind the voting screen with you to help, but they may not instruct you on who to vote for.",
+    "source": "https://vote.nz/voting/get-help-to-vote/need-help-to-vote & https://vote.nz/enrolling/enrolment-in-your-language/enrolment-information-in-multiple-languages"
+  },
+  "australian-citizen-residing-in-nz": {
+    "title": "Australian citizen residing in NZ",
+    "question": "I am an Australian citizen who has lived in New Zealand for 3 years, can I vote?",
+    "answer": "Enrol - You can enrol and vote once you have lived in New Zealand continuously for 12 months or more. You can enrol online using a NZ passport or drivers licence or a Realme login, if you do not have these, you can complete a paper form.\nVote - You can cast an advanced vote or an election day (normal) vote.",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote"
+  },
+  "i-am-from-the-realm-countries-e-g-niue-cook-islands-or-tokelau": {
+    "title": "I am from the realm countries e.g. Niue, Cook Islands, or Tokelau",
+    "question": "I am from Niue, Cook Islands or Tokelau and I don't know if I can enrol and vote in New Zealand",
+    "answer": "Enrol - You can enrol and vote once you have lived in New Zealand continuously for 12 months or more. If you have not been to New Zealand for over 12 months you cannot vote. You can enrol online using a NZ passport or drivers licence or a Realme login, if you do not have these, you can complete a paper form.\nVote - You can cast an advanced vote; an election day vote; or a special vote (if you are not currently in NZ).",
+    "source": "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote &"
   }
 }

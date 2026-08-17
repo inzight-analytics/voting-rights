@@ -1,14 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Source+Sans+3:wght@400;550;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;550;600;700&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  /* Civic neutrals — avoid NZ party colours (blue, green, red, black/white, pink, yellow). */
-  --color-ink: #3a342e;
-  --color-paper: #f2efea;
-  --color-accent: #8b5a2b;
-  --color-wash: #e5dfd6;
-  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --color-ink: #3c3329;
+  --color-paper: #fff2cc;
+  --color-peach: #f9cb9c;
+  --color-peach-deep: #f6b26b;
+  --color-pink: #f4cccc;
+  --color-rose: #ea9999;
+  --color-mint: #d9ead3;
+  --color-sticky: #fff59d;
+  --color-accent: #b5651d;
   --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -16,13 +20,14 @@
     @apply bg-paper text-ink antialiased;
   }
 
+  #root {
+    min-height: 100dvh;
+  }
+
   body {
     min-height: 100vh;
     font-family: var(--font-sans);
-    background:
-      radial-gradient(circle at 1px 1px, rgb(58 52 46 / 0.07) 1px, transparent 0) 0 0 / 22px 22px,
-      linear-gradient(155deg, var(--color-wash) 0%, var(--color-paper) 48%, var(--color-paper) 100%);
-    background-attachment: fixed;
+    background: var(--color-paper);
   }
 
   a {

@@ -1,7 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
+import { ContentCard, SourceLine } from '../components/ContentCard'
 import { Markdown } from '../components/Markdown'
 import { useAppData } from '../data/useAppData'
-import { FIELD_LABEL, MARKDOWN_FIELDS } from '../types'
 
 export function ExtraPage() {
   const { extras } = useAppData()
@@ -12,34 +12,28 @@ export function ExtraPage() {
     return <Navigate to="/?notice=unknown-info" replace />
   }
 
-  const hasContent = MARKDOWN_FIELDS.some((field) => item.fields[field]?.trim())
-
   return (
-    <article className="max-w-2xl">
-      <Link to="/" className="text-sm font-medium text-accent no-underline hover:underline">
+    <article className="mx-auto max-w-2xl text-left">
+      <Link to="/" className="text-sm font-semibold text-accent no-underline hover:underline">
         ← Back to start
       </Link>
-      <h1 className="mt-6 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-        {item.issue.trim()}
+      <h1 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+        {item.title}
       </h1>
 
-      <div className="mt-8 space-y-8">
-        {hasContent ? (
-          MARKDOWN_FIELDS.map((field) => {
-            const content = item.fields[field]
-            if (!content?.trim()) return null
-            return (
-              <section key={field}>
-                <h2 className="mb-2 font-display text-xl font-semibold">{FIELD_LABEL[field]}</h2>
-                <Markdown content={content} />
-              </section>
-            )
-          })
+      <div className="mt-8">
+        {item.answer.trim() ? (
+          <ContentCard variant="pink">
+            <Markdown content={item.answer} />
+            <SourceLine source={item.source} />
+          </ContentCard>
         ) : (
-          <p className="text-ink/65">
-            This topic is listed for reference. Detailed content will appear here when added to the
-            data sheet.
-          </p>
+          <ContentCard variant="pink">
+            <p className="text-ink/70">
+              This topic is listed for reference. Detailed content will appear here when added to
+              the spreadsheet.
+            </p>
+          </ContentCard>
         )}
       </div>
     </article>

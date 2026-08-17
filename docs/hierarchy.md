@@ -1,72 +1,40 @@
-# Hierarchy format
+# Hierarchy in the spreadsheet
 
-File: [`data/hierarchy.yaml`](../data/hierarchy.yaml) (to be created).
+Hierarchy lives in [`data/sheet.csv`](../data/sheet.csv) (export of the Google Sheet tab **tidied again**). There is no separate YAML file.
 
-Human-editable nested YAML. Keep it minimal — no IDs, slugs, or extra metadata.
+Refresh with `npm run fetch:data`, then `npm run build:data`.
 
-## Shape
+## Columns
 
-Every **branch** node has:
+| Column | Header | Role |
+|--------|--------|------|
+| A | TOP LEVEL | Root question, a top-level branch, or an additional-question title |
+| B | BARRIERS | Next-screen prompt on a top-level row; later, a barrier group |
+| C | THESE SIT NEXT TO BARRIERS | Example copy shown as chips around a barrier bubble (not clickable yet) |
+| D | SPECIFIC ISSUES | Next-level choices after a barrier is selected |
+| E | ANSWER | Guidance. Prefix with `Enrol -` / `Vote -` to split sections |
+| F | Source? | Citation or URL |
 
-- `title` — display heading / question for this level
-- `description` — short supporting copy
-- `children` — list of branches and/or leaves
+Empty cells inherit the current parent (outline layout). Blank rows are ignored.
 
-A **leaf** is a plain string that exactly matches an `Issue` value in the CSV (`Type` = `core` or `summary`).
+## Parser rules (`scripts/build-data.ts`)
 
-The **root** uses the same shape as any branch.
+1. First **A-only** row is the root (`Are you...`).
+2. **A + B** → top-level branch. Title = A, description = B.
+3. **A + C**, no B/D/E → stub top-level branch (e.g. help-someone copy still to come).
+4. **A** with no B/D → **additional question** (FAQ). Title = A, answer = E, source = F.
+5. **B** (A empty) → barrier group under the current top-level. Title = D or B.
+6. **C and/or D** (A and B empty) → leaf under the current barrier. C = example beside the parent barrier; D = issue title on the next screen; E/F = answer.
 
-## Example
+Nesting follows the sheet outline and can deepen if more indented group rows are added (today: root → branch → barrier → issue).
 
-```yaml
-title: Who needs voting information?
-description: Choose the situation that best matches you or someone you are helping.
-children:
-  - title: Detention or custody
-    description: Prison, remand, home detention, or mental health detention.
-    children:
-      - People serving a prison sentence
-      - People on remand
-      - People on home detention or serving community-based sentence
-      - People sectioned under the Mental Health Act
+## Outputs
 
-  - title: Health or care
-    description: Hospital, rest home, or difficulty leaving home.
-    children:
-      - People in the hospital
-      - People who live in a rest home
-      - Can't leave care/the house
-```
+Canonical files stored in the app:
 
-## Rules
+- [`src/data/hierarchy.json`](../src/data/hierarchy.json) — tree of `{ title, description, children }`. Leaves are `{ slug, title, question, enrol?, vote?, answer?, source }`. `Enrol -` / `Vote -` (also Enrolment / Voting) prefixes become `enrol` and `vote`; leftover text stays in `answer`.
+- [`src/data/extras.json`](../src/data/extras.json) — additional questions `{ slug, title, answer, source }`
 
-| Rule | Detail |
-|------|--------|
-| Branch | Object with `title`, `description`, `children` |
-| Leaf | String = CSV `Issue` name (exact match) |
-| Nesting | Unlimited |
-| Matching | Leaf ↔ `Issue` for `core` or `summary` rows |
-| Root | Same fields as any branch |
-| No IDs | Titles are display copy only; leaves are the join key |
+`GET /api/:name` serves `src/data/:name.json` (`/api/issues` aliases the nested hierarchy).
 
-## Starter grouping
-
-Group the ~33 core issues into top-level buckets so the wizard is usable immediately, for example:
-
-- Detention or custody
-- Health or care
-- Disability or access needs
-- Housing or address
-- Work or travel on election day
-- Age or eligibility
-- Overseas or migration
-- Rolls (summary issues: unpublished / dormant — if linked as leaves)
-
-Editors can rename titles and re-nest freely; leaf strings must stay in sync with the Sheet/`Issue` column.
-
-## Validation
-
-`npm run build:data` should:
-
-1. Fail (or error loudly) if a leaf string has no matching issue
-2. Warn if a `core`/`summary` issue is never referenced in the hierarchy
+`public/data/*.json` is still emitted in the older split shape the UI fetches today (leaf children are slugs, plus a separate `issues.json`).

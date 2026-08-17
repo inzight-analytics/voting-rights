@@ -5,11 +5,11 @@ import { useAppData } from '../data/useAppData'
 export function IssuePage() {
   const { issues } = useAppData()
   const { name } = useParams()
-  const issueName = name ? decodeURIComponent(name) : ''
+  const issueId = name ? decodeURIComponent(name) : ''
 
-  if (!issueName || !issues[issueName]) {
+  if (!issueId || !issues[issueId]) {
     return <Navigate to="/?notice=unknown-issue" replace />
   }
 
-  return <IssueView issueName={issueName} issues={issues} />
+  return <IssueView issueId={issueId} issues={issues} />
 }

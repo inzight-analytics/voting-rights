@@ -8,15 +8,15 @@ type Crumb = {
 
 export function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-6">
-      <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink/65">
+    <nav aria-label="Breadcrumb" className="text-center">
+      <ol className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-ink/65">
         {crumbs.map((crumb, index) => {
           const isLast = index === crumbs.length - 1
           return (
             <li key={browsePath(crumb.path)} className="flex items-center gap-2">
               {index > 0 ? <span aria-hidden>/</span> : null}
               {isLast ? (
-                <span className="font-medium text-ink/85">{crumb.title}</span>
+                <span className="font-semibold text-ink/85">{crumb.title}</span>
               ) : (
                 <Link
                   to={browsePath(crumb.path)}
@@ -30,7 +30,7 @@ export function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
         })}
       </ol>
       <div className="mt-3">
-        <Link to="/" className="text-sm font-medium text-accent no-underline hover:underline">
+        <Link to="/" className="text-sm font-semibold text-accent no-underline hover:underline">
           Start over
         </Link>
       </div>

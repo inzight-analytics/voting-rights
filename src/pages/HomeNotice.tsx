@@ -17,7 +17,7 @@ export function HomeNotice() {
       {message ? (
         <div
           role="status"
-          className="mb-6 border-l-4 border-accent bg-white/70 px-4 py-3 text-sm text-ink/80"
+          className="mb-6 rounded-2xl bg-mint px-4 py-3 text-sm text-ink/80"
         >
           {message}
         </div>

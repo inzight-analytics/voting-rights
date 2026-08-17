@@ -1,141 +1,296 @@
+/**
+ * Parse the "tidied again" Google Sheet export (data/sheet.csv).
+ *
+ * Columns:
+ *   A TOP LEVEL
+ *   B BARRIERS
+ *   C THESE SIT NEXT TO BARRIERS  (full question / notes)
+ *   D SPECIFIC ISSUES             (short label)
+ *   E ANSWER
+ *   F Source?
+ *
+ * Outline rules (empty cells inherit the current parent):
+ *   1. First A-only row is the root question (e.g. "Are you...").
+ *   2. A + B                        → top-level branch. Title=A, description=B.
+ *   3. A + C, no B/D/E              → stub top-level branch. Title=A, description=C.
+ *   4. A, no B/D                    → additional question (FAQ). Title=A, answer=E, source=F.
+ *   5. B (A empty)                  → barrier group under current top-level.
+ *                                     Title = D or B.
+ *   6. C and/or D (A and B empty)   → leaf issue under current barrier.
+ *                                     title=D or C, question=C, answer=E, source=F.
+ *
+ * Canonical app data is two files:
+ *   src/data/hierarchy.json  — tree with issues nested as leaves
+ *     leaves: { slug, title, question, enrol?, vote?, answer?, source }
+ *     Enrol -/Vote - prefixes become enrol/vote; leftover text stays in answer
+ *   src/data/extras.json     — additional questions
+ *
+ * public/data/*.json is still emitted in the older split shape the UI fetches today.
+ */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parse } from 'csv-parse/sync'
-import { parse as parseYaml } from 'yaml'
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const outDir = join(root, 'public', 'data')
+const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..')
+const appDataDir = join(rootDir, 'src', 'data')
+const publicDataDir = join(rootDir, 'public', 'data')
 
-const MARKDOWN_FIELDS = [
-  'Examples',
-  'Solution',
-  'Electoral Commission website',
-  'Electoral Act',
-  'Independent Electoral Review',
-  "Andrew Geddis' Textbook",
-  'General Google',
-] as const
+type SheetRow = {
+  'TOP LEVEL': string
+  BARRIERS: string
+  'THESE SIT NEXT TO BARRIERS': string
+  'SPECIFIC ISSUES': string
+  ANSWER: string
+  'Source?': string
+}
 
-type MarkdownField = (typeof MARKDOWN_FIELDS)[number]
-
-type TopicFields = Partial<Record<MarkdownField, string>> & {
-  Author?: string
+type IssueLeaf = {
+  slug: string
+  title: string
+  question: string
+  answer?: string
+  enrol?: string
+  vote?: string
+  source: string
 }
 
 type HierarchyNode = {
   title: string
   description: string
-  children: Array<HierarchyNode | string>
+  children: Array<HierarchyNode | IssueLeaf>
 }
 
-type CsvRow = {
-  Type: string
-  Issue: string
-  Topic: string
-  Author: string
-} & Partial<Record<MarkdownField, string>>
-
-function collectLeaves(node: HierarchyNode, leaves: string[] = []): string[] {
-  for (const child of node.children ?? []) {
-    if (typeof child === 'string') leaves.push(child)
-    else collectLeaves(child, leaves)
-  }
-  return leaves
-}
-
-const csvText = readFileSync(join(root, 'data', 'core.csv'), 'utf8')
-const rows = parse(csvText, {
-  columns: true,
-  skip_empty_lines: true,
-  relax_quotes: true,
-  relax_column_count: true,
-}) as CsvRow[]
-
-const issues: Record<string, Record<string, TopicFields>> = {}
-const issueTypes = new Map<string, Set<string>>()
-const extras: Array<{
-  issue: string
+type ExtraItem = {
   slug: string
-  topic: string
-  fields: TopicFields
-}> = []
+  title: string
+  answer: string
+  source: string
+}
+
+function cell(row: SheetRow, key: keyof SheetRow): string {
+  return (row[key] ?? '').replace(/\r\n/g, '\n').trim()
+}
 
 function slugify(value: string): string {
-  return value
+  const slug = value
     .trim()
     .toLowerCase()
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
+    .replace(/['’]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '')
+  return slug || 'item'
 }
 
-for (const row of rows) {
-  const type = (row.Type ?? '').trim().toLowerCase()
-  const issue = row.Issue ?? ''
-  if (!issue) continue
+function uniqueSlug(base: string, used: Set<string>): string {
+  let slug = slugify(base)
+  if (!used.has(slug)) {
+    used.add(slug)
+    return slug
+  }
+  let n = 2
+  while (used.has(`${slug}-${n}`)) n += 1
+  slug = `${slug}-${n}`
+  used.add(slug)
+  return slug
+}
 
-  const fields: TopicFields = {}
-  if (row.Author?.trim()) fields.Author = row.Author.trim()
-  for (const key of MARKDOWN_FIELDS) {
-    const value = row[key]?.trim()
-    if (value) fields[key] = value
+const PREFIX = /^(Enrol|Enrolment|Vote|Voting)\s*[-–—:]\s*/i
+
+function splitAnswerFields(text: string): Pick<IssueLeaf, 'answer' | 'enrol' | 'vote'> {
+  const trimmed = text.trim()
+  if (!trimmed) return {}
+
+  const chunks = trimmed
+    .split(/(?=(?:^|\n)\s*(?:Enrol(?:ment)?|Vot(?:e|ing))\s*[-–—:]\s*)/i)
+    .map((chunk) => chunk.trim())
+    .filter(Boolean)
+
+  if (chunks.length <= 1 && !PREFIX.test(trimmed)) {
+    return { answer: trimmed }
   }
 
-  if (type === 'core' || type === 'summary') {
-    const topic = (row.Topic || 'General').trim()
-    if (!issues[issue]) issues[issue] = {}
-    issues[issue][topic] = { ...issues[issue][topic], ...fields }
-    if (!issueTypes.has(issue)) issueTypes.set(issue, new Set())
-    issueTypes.get(issue)!.add(type)
-  } else if (type === 'general' || type === 'question') {
+  const result: Pick<IssueLeaf, 'answer' | 'enrol' | 'vote'> = {}
+  for (const chunk of chunks) {
+    const match = chunk.match(PREFIX)
+    if (!match) {
+      result.answer = result.answer ? `${result.answer}\n\n${chunk}` : chunk
+      continue
+    }
+    const key = match[1].toLowerCase().startsWith('enrol') ? 'enrol' : 'vote'
+    const body = chunk.slice(match[0].length).trim()
+    if (!body) continue
+    result[key] = result[key] ? `${result[key]}\n\n${body}` : body
+  }
+  return result
+}
+
+function combinedAnswer(leaf: IssueLeaf): string {
+  const parts: string[] = []
+  if (leaf.enrol) parts.push(`Enrol - ${leaf.enrol}`)
+  if (leaf.vote) parts.push(`Vote - ${leaf.vote}`)
+  if (leaf.answer) parts.push(leaf.answer)
+  return parts.join('\n')
+}
+
+function isIssue(node: HierarchyNode | IssueLeaf): node is IssueLeaf {
+  return 'slug' in node && !('children' in node)
+}
+
+function flattenIssues(
+  node: HierarchyNode,
+  map: Record<string, { title: string; question: string; answer: string; source: string }>,
+): void {
+  for (const child of node.children) {
+    if (isIssue(child)) {
+      map[child.slug] = {
+        title: child.title,
+        question: child.question,
+        answer: combinedAnswer(child),
+        source: child.source,
+      }
+    } else {
+      flattenIssues(child, map)
+    }
+  }
+}
+
+function toSlugTree(node: HierarchyNode): {
+  title: string
+  description: string
+  children: Array<ReturnType<typeof toSlugTree> | string>
+} {
+  return {
+    title: node.title,
+    description: node.description,
+    children: node.children.map((child) => (isIssue(child) ? child.slug : toSlugTree(child))),
+  }
+}
+
+function countLeaves(node: HierarchyNode): number {
+  let n = 0
+  for (const child of node.children) {
+    n += isIssue(child) ? 1 : countLeaves(child)
+  }
+  return n
+}
+
+function writeJson(path: string, data: unknown): void {
+  writeFileSync(path, `${JSON.stringify(data, null, 2)}\n`)
+}
+
+const csvText = readFileSync(join(rootDir, 'data', 'sheet.csv'), 'utf8')
+const rows = parse(csvText, {
+  columns: true,
+  skip_empty_lines: false,
+  relax_quotes: true,
+  relax_column_count: true,
+  trim: false,
+}) as SheetRow[]
+
+const extras: ExtraItem[] = []
+const usedSlugs = new Set<string>()
+
+const hierarchy: HierarchyNode = {
+  title: 'Are you...',
+  description: '',
+  children: [],
+}
+
+let currentTop: HierarchyNode | null = null
+let currentBarrier: HierarchyNode | null = null
+let sawRoot = false
+
+for (const row of rows) {
+  const top = cell(row, 'TOP LEVEL')
+  const barrier = cell(row, 'BARRIERS')
+  const question = cell(row, 'THESE SIT NEXT TO BARRIERS')
+  const specific = cell(row, 'SPECIFIC ISSUES')
+  const answer = cell(row, 'ANSWER')
+  const source = cell(row, 'Source?')
+
+  if (!top && !barrier && !question && !specific && !answer && !source) continue
+
+  if (top) {
+    if (!sawRoot && !barrier && !question && !specific && !answer) {
+      hierarchy.title = top
+      sawRoot = true
+      currentTop = null
+      currentBarrier = null
+      continue
+    }
+
+    if (barrier) {
+      currentTop = { title: top, description: barrier, children: [] }
+      currentBarrier = null
+      hierarchy.children.push(currentTop)
+      sawRoot = true
+      continue
+    }
+
+    if (question && !specific && !answer) {
+      currentTop = { title: top, description: question, children: [] }
+      currentBarrier = null
+      hierarchy.children.push(currentTop)
+      sawRoot = true
+      continue
+    }
+
     extras.push({
-      issue,
-      slug: slugify(issue),
-      topic: row.Topic ?? '',
-      fields,
+      slug: uniqueSlug(top, usedSlugs),
+      title: top,
+      answer,
+      source,
+    })
+    currentTop = null
+    currentBarrier = null
+    continue
+  }
+
+  if (barrier) {
+    if (!currentTop) {
+      throw new Error(`Barrier ${JSON.stringify(barrier)} has no parent top-level row`)
+    }
+    const title = specific || barrier
+    const description = specific && specific !== barrier ? barrier : ''
+    currentBarrier = { title, description, children: [] }
+    currentTop.children.push(currentBarrier)
+    continue
+  }
+
+  if (question || specific) {
+    if (!currentBarrier) {
+      throw new Error(
+        `Issue ${JSON.stringify(specific || question)} has no parent barrier row`,
+      )
+    }
+    const title = specific || question
+    currentBarrier.children.push({
+      slug: uniqueSlug(title, usedSlugs),
+      title,
+      question,
+      ...splitAnswerFields(answer),
+      source,
     })
   }
 }
 
-const hierarchy = parseYaml(
-  readFileSync(join(root, 'data', 'hierarchy.yaml'), 'utf8'),
-) as HierarchyNode
+const issues: Record<string, { title: string; question: string; answer: string; source: string }> =
+  {}
+flattenIssues(hierarchy, issues)
 
-if (!hierarchy?.title || !Array.isArray(hierarchy.children)) {
-  throw new Error('hierarchy.yaml must have title, description, and children')
-}
+mkdirSync(appDataDir, { recursive: true })
+mkdirSync(publicDataDir, { recursive: true })
 
-const leaves = collectLeaves(hierarchy)
-const knownIssues = new Set(
-  [...issueTypes.entries()]
-    .filter(([, types]) => types.has('core') || types.has('summary'))
-    .map(([issue]) => issue),
-)
+writeJson(join(appDataDir, 'hierarchy.json'), hierarchy)
+writeJson(join(appDataDir, 'extras.json'), extras)
 
-const missing: string[] = []
-for (const leaf of leaves) {
-  if (!knownIssues.has(leaf)) missing.push(leaf)
-}
-if (missing.length) {
-  console.error('Hierarchy leaves with no matching core/summary Issue:')
-  for (const leaf of missing) console.error(`  - ${JSON.stringify(leaf)}`)
-  process.exit(1)
-}
-
-const referenced = new Set(leaves)
-const unused = [...knownIssues].filter((issue) => !referenced.has(issue))
-if (unused.length) {
-  console.warn('Issues not referenced in hierarchy.yaml:')
-  for (const issue of unused) console.warn(`  - ${JSON.stringify(issue)}`)
-}
-
-mkdirSync(outDir, { recursive: true })
-writeFileSync(join(outDir, 'issues.json'), JSON.stringify(issues, null, 2))
-writeFileSync(join(outDir, 'hierarchy.json'), JSON.stringify(hierarchy, null, 2))
-writeFileSync(join(outDir, 'extras.json'), JSON.stringify(extras, null, 2))
+writeJson(join(publicDataDir, 'hierarchy.json'), toSlugTree(hierarchy))
+writeJson(join(publicDataDir, 'issues.json'), issues)
+writeJson(join(publicDataDir, 'extras.json'), extras)
 
 console.log(
-  `Wrote ${Object.keys(issues).length} issues, ${leaves.length} hierarchy leaves, ${extras.length} extras → public/data/`,
+  `Wrote ${countLeaves(hierarchy)} nested issues, ${hierarchy.children.length} top-level branches, ${extras.length} additional questions`,
 )

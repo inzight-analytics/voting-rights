@@ -1,17 +1,7 @@
 Column name,Description,Markdown
-Type,The entry type within the application: core (for the main items); summary (for summary items); question (for additional questions under a separate Q and A section.,N
-Issue,The name of the question or subpopulation; these will be grouped (hierarchically) elsewhere.,N
-Topic,"For core entries, this is General (general information for that group), or related to Enrolment or Turnout.",N
-Author,,N
-Examples,,Y
-Solution,,Y
-Electoral Commission website,"Generic information, sometimes you have to dig",Y
-Electoral Act,"Legalese info, hard to figure out what it actually says",Y
-Independent Electoral Review,2 long reports - interim report and a final one (MoJ website),Y
-Andrew Geddis' Textbook,Electoral Law in Aotearoa New Zealand: third edition - Online through uni library,Y
-General Google,,Y
-,,
-,,
-Markdown-enabled fields,"You can use *Markdown* syntax to apply formatting, or [create links](https://www.markdownguide.org/basic-syntax/).
-
-This will be rendered on the frontend - all other formatting will be ignored.",
+TOP LEVEL,"Root question, a top-level branch (e.g. Trying to enrol and vote), or an additional FAQ title when BARRIERS is empty.",N
+BARRIERS,"On a top-level row: the next-screen prompt. On later rows: a barrier group under that branch. Empty cells inherit the current group.",N
+THESE SIT NEXT TO BARRIERS,"Example phrases shown as chips around the parent barrier bubble. Not the next-level choices.",Y
+SPECIFIC ISSUES,"The next drill-down choice after a barrier is selected (leaf title).",N
+ANSWER,"Guidance text. Prefix with Enrol - or Vote -; the converter splits those into enrol / vote fields (unprefixed text stays in answer).",Y
+Source?,Citation or URL shown under the answer.,Y

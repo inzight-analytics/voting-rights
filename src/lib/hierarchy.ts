@@ -1,4 +1,4 @@
-import type { HierarchyNode } from '../types'
+import type { HierarchyNode, IssuesData } from '../types'
 
 export function isBranch(child: HierarchyNode | string): child is HierarchyNode {
   return typeof child === 'object' && child !== null
@@ -6,6 +6,40 @@ export function isBranch(child: HierarchyNode | string): child is HierarchyNode 
 
 export function childLabel(child: HierarchyNode | string): string {
   return isBranch(child) ? child.title : child.replace(/\s+/g, ' ').trim()
+}
+
+function tidyLabel(value: string): string {
+  return value.replace(/\s+/g, ' ').trim().replace(/[.,;]+$/, '')
+}
+
+function joinEnglish(parts: string[]): string {
+  if (parts.length === 1) return parts[0]
+  if (parts.length === 2) return `${parts[0]}, or ${parts[1]}`
+  return `${parts.slice(0, -1).join(', ')}, or ${parts[parts.length - 1]}`
+}
+
+/** Sticky-note copy beside a barrier — the specific-issue titles, kept short. */
+export function barrierNote(node: HierarchyNode, issues: IssuesData): string | null {
+  const titles: string[] = []
+
+  for (const child of node.children) {
+    if (typeof child !== 'string') continue
+    const title = issues[child]?.title
+    if (title) titles.push(tidyLabel(title))
+  }
+
+  if (!titles.length) return null
+
+  const kept: string[] = []
+  for (const title of titles) {
+    const next = joinEnglish([...kept, title])
+    if (kept.length > 0 && next.length > 110) break
+    kept.push(title)
+  }
+
+  let text = joinEnglish(kept)
+  if (kept.length < titles.length) text += '…'
+  return text
 }
 
 export type ResolvedPath =
