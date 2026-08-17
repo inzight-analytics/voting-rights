@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown'
-import { sourceHref } from '../lib/answer'
+import { parseSourceItem } from '../lib/answer'
 
 export function Markdown({ content }: { content: string }) {
   return (
@@ -16,16 +16,17 @@ export function Source({ source }: { source: string[] }) {
   return (
     <ul className="m-0 flex list-none flex-col gap-1 p-0">
       {items.map((item, index) => {
-        const href = sourceHref(item)
+        const { href, label, note } = parseSourceItem(item)
         return (
           <li key={`${index}-${item}`} className="m-0">
             {href ? (
               <a href={href} target="_blank" rel="noopener noreferrer">
-                {item}
+                {label}
               </a>
             ) : (
-              item
+              label
             )}
+            {note ? ` (${note})` : null}
           </li>
         )
       })}

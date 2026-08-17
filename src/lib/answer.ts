@@ -34,7 +34,22 @@ export function splitAnswer(answer: string): AnswerSection[] {
   return sections.length ? sections : [{ label: 'What to do', body: text }]
 }
 
-export function sourceHref(source: string): string | null {
-  const match = source.match(/https?:\/\/\S+/i)
-  return match ? match[0].replace(/[),.;]+$/, '') : null
+export type DisplaySource = {
+  href: string | null
+  label: string
+  note: string | null
+}
+
+export function parseSourceItem(source: string): DisplaySource {
+  const trimmed = source.trim()
+  if (!/^https?:\/\//i.test(trimmed)) {
+    return { href: null, label: trimmed, note: null }
+  }
+
+  const space = trimmed.search(/\s/)
+  const rawUrl = space === -1 ? trimmed : trimmed.slice(0, space)
+  const note = space === -1 ? '' : trimmed.slice(space).trim()
+  const href = rawUrl.replace(/[),.;]+$/, '')
+
+  return { href, label: href, note: note || null }
 }
