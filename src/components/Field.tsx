@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactNode, Ref } from 'react'
 import { Link } from 'react-router-dom'
 
 export function Page({ children }: { children: ReactNode }) {
@@ -32,9 +32,18 @@ export function ChoiceGrid({ children }: { children: ReactNode }) {
   )
 }
 
-export function ChoiceWrap({ children }: { children: ReactNode }) {
+export function ChoiceWrap({
+  children,
+  ref,
+}: {
+  children: ReactNode
+  ref?: Ref<HTMLDivElement>
+}) {
   return (
-    <div className="grid w-full auto-rows-[1fr] grid-cols-[repeat(auto-fit,minmax(min(100%,15em),15em))] justify-center gap-x-3 gap-y-44 overflow-visible sm:gap-x-6 sm:gap-y-52">
+    <div
+      ref={ref}
+      className="grid w-full auto-rows-[1fr] grid-cols-[repeat(auto-fit,minmax(min(100%,15em),15em))] justify-center gap-x-3 gap-y-6 overflow-visible sm:gap-x-6 sm:gap-y-8"
+    >
       {children}
     </div>
   )
@@ -53,9 +62,9 @@ export function PostIt({
 
   return (
     <p
-      className={`pointer-events-none rounded-xl px-3 py-2 text-center text-xs leading-snug text-ink/80 shadow-[0_2px_8px_rgb(60_51_41_/0.12)] ${surface} ${className}`}
+      className={`post-it pointer-events-none rounded-[2px] px-3 py-2 text-left text-sm leading-snug text-ink/80 ${surface} ${className}`}
     >
-      {children}
+      <span className="relative z-10">{children}</span>
     </p>
   )
 }
@@ -65,7 +74,7 @@ export function ChoiceButton({
   title,
   hint,
   variant = 'peach',
-  className = '',
+  className = 'justify-center py-3',
 }: {
   to: string
   title: string
@@ -79,7 +88,7 @@ export function ChoiceButton({
   return (
     <Link
       to={to}
-      className={`flex h-full flex-col items-center justify-center rounded-xl px-4 py-3 text-center text-ink no-underline transition ${surface} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${className}`}
+      className={`flex h-full flex-col items-center rounded-xl px-4 text-center text-ink no-underline transition ${surface} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${className}`}
     >
       <span className="font-semibold">{title}</span>
       {hint ? <span className="mt-1 text-sm font-normal text-ink/70">{hint}</span> : null}

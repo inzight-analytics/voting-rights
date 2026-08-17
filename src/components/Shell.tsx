@@ -27,7 +27,7 @@ export function Shell() {
         </div>
       ) : null}
 
-      <main className="mx-auto w-full max-w-[100rem] flex-1 px-4 py-8 sm:px-8">
+      <main className="mx-auto flex w-full max-w-[100rem] flex-1 flex-col px-4 py-8 sm:px-8">
         <Outlet />
       </main>
 

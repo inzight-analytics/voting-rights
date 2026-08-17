@@ -58,3 +58,36 @@
 .prose-content strong {
   @apply font-semibold text-ink;
 }
+
+/* Concave paper shadow: darker/thinner at centre, wider and softer at the sides.
+   The card surface (::before) covers the gradient origin so the join is not a hard line. */
+.post-it {
+  isolation: isolate;
+}
+
+.post-it::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background-color: inherit;
+  pointer-events: none;
+}
+
+.post-it::after {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  width: 100%;
+  bottom: -0.65rem;
+  height: 1.2rem;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 28% at 50% 0, rgb(60 51 41 / 0.42) 0%, transparent 78%),
+    radial-gradient(farthest-corner at 0% 0, rgb(60 51 41 / 0.3) 0%, transparent 52%),
+    radial-gradient(farthest-corner at 100% 0, rgb(60 51 41 / 0.3) 0%, transparent 52%);
+  mask-image: linear-gradient(to bottom, transparent 28%, black 62%);
+}

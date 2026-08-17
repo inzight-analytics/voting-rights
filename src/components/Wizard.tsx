@@ -1,8 +1,36 @@
+import { useLayoutEffect, useRef, useState } from 'react'
 import type { HierarchyNode, TreeNode } from '../types'
 import { browsePath, childLabel, firstIssueQuestion, isBranch, isIssue } from '../lib/hierarchy'
 import { Breadcrumbs } from './Breadcrumbs'
 import { ChoiceButton, ChoiceGrid, ChoiceWrap, Field, HeadingBubble, Page, PostIt } from './Field'
 import { IssueFields } from './IssueView'
+
+function useFirstRowCount(itemCount: number) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [count, setCount] = useState(0)
+
+  useLayoutEffect(() => {
+    const root = ref.current
+    if (!root) return
+
+    const update = () => {
+      const items = [...root.children] as HTMLElement[]
+      if (items.length === 0) {
+        setCount(0)
+        return
+      }
+      const top = Math.min(...items.map((el) => el.offsetTop))
+      setCount(items.filter((el) => Math.abs(el.offsetTop - top) < 2).length)
+    }
+
+    update()
+    const observer = new ResizeObserver(update)
+    observer.observe(root)
+    return () => observer.disconnect()
+  }, [itemCount])
+
+  return { ref, count }
+}
 
 type WizardProps = {
   node: TreeNode
@@ -11,26 +39,40 @@ type WizardProps = {
 }
 
 function Barriers({ node, indices }: { node: HierarchyNode; indices: number[] }) {
-  return (
-    <div className="flex flex-col items-center gap-8">
-      <HeadingBubble>{node.title}</HeadingBubble>
+  const { ref: wrapRef, count: firstRowCount } = useFirstRowCount(node.children.length)
 
-      {node.description ? (
-        <p className="max-w-2xl text-center font-bold">{node.description}</p>
-      ) : null}
+  return (
+    <div className="flex w-full flex-1 flex-col items-center justify-center gap-20">
+      <div className="flex flex-col items-center gap-8">
+        <HeadingBubble>{node.title}</HeadingBubble>
+
+        {node.description ? (
+          <p className="max-w-2xl text-center font-bold">{node.description}</p>
+        ) : null}
+      </div>
 
       {node.children.length === 0 ? (
         <p className="text-ink/70">This path is still being written.</p>
       ) : (
-        <ChoiceWrap>
+        <ChoiceWrap ref={wrapRef}>
           {node.children.map((child, index) => {
             const example = firstIssueQuestion(child)
+            const noteShift = index % 2 === 0 ? '-left-2' : '-right-2'
+            const firstRow = index < firstRowCount
             return (
-              <div key={isIssue(child) ? child.slug : `branch-${index}`} className="relative h-full">
-                <ChoiceButton to={browsePath([...indices, index])} title={childLabel(child)} />
+              <div
+                key={isIssue(child) ? child.slug : `branch-${index}`}
+                className="group relative h-full"
+                data-first-row={firstRow ? '' : undefined}
+              >
+                <ChoiceButton
+                  to={browsePath([...indices, index])}
+                  title={childLabel(child)}
+                  className="justify-center py-8"
+                />
                 {example ? (
                   <PostIt
-                    className="absolute top-full left-2 right-2 mt-2"
+                    className={`absolute top-full z-10 w-[calc(100%-1.25rem)] -translate-y-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 group-data-first-row:top-auto group-data-first-row:bottom-full group-data-first-row:translate-y-3 ${noteShift}`}
                     variant={index % 2 === 0 ? 'pink' : 'yellow'}
                   >
                     {example}
