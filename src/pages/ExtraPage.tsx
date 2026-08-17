@@ -1,6 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { ContentCard, SourceLine } from '../components/ContentCard'
-import { Markdown } from '../components/Markdown'
+import { Field, Page } from '../components/Field'
+import { Markdown, Source } from '../components/Markdown'
 import { useAppData } from '../data/useAppData'
 
 export function ExtraPage() {
@@ -13,29 +13,19 @@ export function ExtraPage() {
   }
 
   return (
-    <article className="mx-auto max-w-2xl text-left">
-      <Link to="/" className="text-sm font-semibold text-accent no-underline hover:underline">
-        ← Back to start
-      </Link>
-      <h1 className="mt-6 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-        {item.title}
-      </h1>
-
-      <div className="mt-8">
-        {item.answer.trim() ? (
-          <ContentCard variant="pink">
-            <Markdown content={item.answer} />
-            <SourceLine source={item.source} />
-          </ContentCard>
-        ) : (
-          <ContentCard variant="pink">
-            <p className="text-ink/70">
-              This topic is listed for reference. Detailed content will appear here when added to
-              the spreadsheet.
-            </p>
-          </ContentCard>
-        )}
-      </div>
-    </article>
+    <Page>
+      <Link to="/">← Back to start</Link>
+      <h1 className="font-display text-3xl font-bold tracking-tight">{item.title}</h1>
+      {item.answer.trim() ? (
+        <Field label="Answer">
+          <Markdown content={item.answer} />
+        </Field>
+      ) : (
+        <p className="text-ink/70">No details for this topic yet.</p>
+      )}
+      <Field label="Source">
+        {item.source.trim() ? <Source source={item.source} /> : <p className="text-ink/55">—</p>}
+      </Field>
+    </Page>
   )
 }

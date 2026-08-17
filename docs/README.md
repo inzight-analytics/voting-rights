@@ -14,4 +14,3 @@ Index of design and architecture decisions for this app.
 - `data/sheet.csv` — export of Google Sheet tab **tidied again**
 - `data/dictionary.csv` — column descriptions
 - `src/data/hierarchy.json` / `src/data/extras.json` — converted app data
-- `GET /api/issues` and `GET /api/extras` — JSON endpoints

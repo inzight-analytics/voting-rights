@@ -1,16 +1,15 @@
-import { Navigate, useLocation, useParams } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 import { Wizard } from '../components/Wizard'
 import { useAppData } from '../data/useAppData'
 import { parseBrowseIndices, resolvePath } from '../lib/hierarchy'
 
 export function WizardPath() {
-  const { hierarchy, issues } = useAppData()
-  const { '*': splat } = useParams()
+  const { hierarchy } = useAppData()
   const location = useLocation()
-  const segments = splat ? splat.split('/').filter(Boolean) : []
+  const segments = location.pathname.split('/').filter(Boolean)
   const indices = parseBrowseIndices(segments)
 
-  if (indices === null) {
+  if (indices === null || indices.length === 0) {
     return <Navigate to="/?notice=invalid" replace state={{ from: location.pathname }} />
   }
 
@@ -19,7 +18,5 @@ export function WizardPath() {
     return <Navigate to="/?notice=invalid" replace />
   }
 
-  return (
-    <Wizard node={resolved.node} indices={indices} crumbs={resolved.crumbs} issues={issues} />
-  )
+  return <Wizard node={resolved.node} indices={indices} crumbs={resolved.crumbs} />
 }

@@ -1,84 +1,64 @@
-import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import type { IssuesData } from '../types'
+import type { Issue, IssuesData } from '../types'
 import { splitAnswer } from '../lib/answer'
-import { ContentCard, SourceLine } from './ContentCard'
-import { Markdown } from './Markdown'
+import { Field, Page } from './Field'
+import { Markdown, Source } from './Markdown'
 
-type IssueViewProps = {
-  issueId: string
-  issues: IssuesData
+export function IssueFields({ issue }: { issue: Issue }) {
+  const sections =
+    issue.enrol || issue.vote
+      ? [
+          ...(issue.enrol ? [{ label: 'Enrolment', body: issue.enrol }] : []),
+          ...(issue.vote ? [{ label: 'Voting', body: issue.vote }] : []),
+          ...(issue.answer?.trim() ? [{ label: 'What to do', body: issue.answer }] : []),
+        ]
+      : splitAnswer(issue.answer ?? '')
+
+  return (
+    <>
+      {issue.question && issue.question !== issue.title ? (
+        <Field label="Question">
+          <p>{issue.question}</p>
+        </Field>
+      ) : null}
+
+      {sections.length === 0 ? (
+        <p className="text-ink/70">No details for this topic yet.</p>
+      ) : (
+        sections.map((section) => (
+          <Field key={section.label} label={section.label}>
+            <Markdown content={section.body} />
+          </Field>
+        ))
+      )}
+
+      <Field label="Source">
+        {issue.source.trim() ? <Source source={issue.source} /> : <p className="text-ink/55">—</p>}
+      </Field>
+    </>
+  )
 }
 
-export function IssueView({ issueId, issues }: IssueViewProps) {
+export function IssueView({ issueId, issues }: { issueId: string; issues: IssuesData }) {
   const [searchParams] = useSearchParams()
   const issue = issues[issueId]
   const from = searchParams.get('from')
-  const [visible, setVisible] = useState(true)
-
-  useEffect(() => {
-    setVisible(false)
-    const id = requestAnimationFrame(() => setVisible(true))
-    return () => cancelAnimationFrame(id)
-  }, [issueId])
 
   if (!issue) {
     return (
-      <div className="max-w-2xl">
-        <h1 className="font-display text-3xl font-bold">Not found</h1>
-        <p className="mt-4 text-ink/70">No information is available for this situation yet.</p>
-        <Link to="/" className="mt-6 inline-block font-medium">
-          Back to start
-        </Link>
-      </div>
+      <Page>
+        <h1 className="font-display text-3xl font-bold tracking-tight">Not found</h1>
+        <p>No information is available for this situation yet.</p>
+        <Link to="/">Back to start</Link>
+      </Page>
     )
   }
 
-  const sections = splitAnswer(issue.answer)
-
   return (
-    <article
-      className={`mx-auto max-w-2xl text-left transition duration-500 ease-out ${
-        visible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
-      }`}
-    >
-      <div className="mb-6">
-        {from ? (
-          <Link
-            to={from}
-            className="text-sm font-semibold text-accent no-underline hover:underline"
-          >
-            ← Back to situations
-          </Link>
-        ) : (
-          <Link to="/" className="text-sm font-semibold text-accent no-underline hover:underline">
-            ← Start over
-          </Link>
-        )}
-      </div>
-
-      <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-        {issue.title}
-      </h1>
-      {issue.question && issue.question !== issue.title ? (
-        <p className="mt-3 text-lg leading-relaxed text-ink/75">{issue.question}</p>
-      ) : null}
-
-      <div className="mt-8 flex flex-col gap-4">
-        {sections.length === 0 ? (
-          <ContentCard>
-            <p className="text-ink/70">No details for this topic yet.</p>
-          </ContentCard>
-        ) : (
-          sections.map((section) => (
-            <ContentCard key={section.label} pill={section.label}>
-              <Markdown content={section.body} />
-            </ContentCard>
-          ))
-        )}
-      </div>
-
-      <SourceLine source={issue.source} />
-    </article>
+    <Page>
+      {from ? <Link to={from}>← Back to situations</Link> : <Link to="/">← Start over</Link>}
+      <h1 className="font-display text-3xl font-bold tracking-tight">{issue.title}</h1>
+      <IssueFields issue={issue} />
+    </Page>
   )
 }

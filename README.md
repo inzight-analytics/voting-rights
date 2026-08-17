@@ -20,10 +20,8 @@ Static info site for New Zealand enrolment and voting situations. Users move thr
 
 ```bash
 npm run fetch:data   # refresh data/sheet.csv
-npm run build:data   # CSV → JSON
+npm run build:data   # CSV → JSON (imported by the app)
 ```
-
-`GET /api/issues` and `GET /api/extras` return JSON.
 
 ## Develop
 

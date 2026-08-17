@@ -34,7 +34,3 @@ Canonical files stored in the app:
 
 - [`src/data/hierarchy.json`](../src/data/hierarchy.json) — tree of `{ title, description, children }`. Leaves are `{ slug, title, question, enrol?, vote?, answer?, source }`. `Enrol -` / `Vote -` (also Enrolment / Voting) prefixes become `enrol` and `vote`; leftover text stays in `answer`.
 - [`src/data/extras.json`](../src/data/extras.json) — additional questions `{ slug, title, answer, source }`
-
-`GET /api/:name` serves `src/data/:name.json` (`/api/issues` aliases the nested hierarchy).
-
-`public/data/*.json` is still emitted in the older split shape the UI fetches today (leaf children are slugs, plus a separate `issues.json`).

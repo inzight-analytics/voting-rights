@@ -24,8 +24,6 @@
  *     leaves: { slug, title, question, enrol?, vote?, answer?, source }
  *     Enrol -/Vote - prefixes become enrol/vote; leftover text stays in answer
  *   src/data/extras.json     — additional questions
- *
- * public/data/*.json is still emitted in the older split shape the UI fetches today.
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -34,7 +32,6 @@ import { parse } from 'csv-parse/sync'
 
 const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..')
 const appDataDir = join(rootDir, 'src', 'data')
-const publicDataDir = join(rootDir, 'public', 'data')
 
 type SheetRow = {
   'TOP LEVEL': string
@@ -127,46 +124,8 @@ function splitAnswerFields(text: string): Pick<IssueLeaf, 'answer' | 'enrol' | '
   return result
 }
 
-function combinedAnswer(leaf: IssueLeaf): string {
-  const parts: string[] = []
-  if (leaf.enrol) parts.push(`Enrol - ${leaf.enrol}`)
-  if (leaf.vote) parts.push(`Vote - ${leaf.vote}`)
-  if (leaf.answer) parts.push(leaf.answer)
-  return parts.join('\n')
-}
-
 function isIssue(node: HierarchyNode | IssueLeaf): node is IssueLeaf {
   return 'slug' in node && !('children' in node)
-}
-
-function flattenIssues(
-  node: HierarchyNode,
-  map: Record<string, { title: string; question: string; answer: string; source: string }>,
-): void {
-  for (const child of node.children) {
-    if (isIssue(child)) {
-      map[child.slug] = {
-        title: child.title,
-        question: child.question,
-        answer: combinedAnswer(child),
-        source: child.source,
-      }
-    } else {
-      flattenIssues(child, map)
-    }
-  }
-}
-
-function toSlugTree(node: HierarchyNode): {
-  title: string
-  description: string
-  children: Array<ReturnType<typeof toSlugTree> | string>
-} {
-  return {
-    title: node.title,
-    description: node.description,
-    children: node.children.map((child) => (isIssue(child) ? child.slug : toSlugTree(child))),
-  }
 }
 
 function countLeaves(node: HierarchyNode): number {
@@ -277,19 +236,9 @@ for (const row of rows) {
   }
 }
 
-const issues: Record<string, { title: string; question: string; answer: string; source: string }> =
-  {}
-flattenIssues(hierarchy, issues)
-
 mkdirSync(appDataDir, { recursive: true })
-mkdirSync(publicDataDir, { recursive: true })
-
 writeJson(join(appDataDir, 'hierarchy.json'), hierarchy)
 writeJson(join(appDataDir, 'extras.json'), extras)
-
-writeJson(join(publicDataDir, 'hierarchy.json'), toSlugTree(hierarchy))
-writeJson(join(publicDataDir, 'issues.json'), issues)
-writeJson(join(publicDataDir, 'extras.json'), extras)
 
 console.log(
   `Wrote ${countLeaves(hierarchy)} nested issues, ${hierarchy.children.length} top-level branches, ${extras.length} additional questions`,
