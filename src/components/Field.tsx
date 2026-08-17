@@ -5,6 +5,16 @@ export function Page({ children }: { children: ReactNode }) {
   return <div className="mx-auto max-w-2xl space-y-8">{children}</div>
 }
 
+export function HeadingBubble({ children }: { children: ReactNode }) {
+  return (
+    <section className="w-[20em] max-w-full rounded-xl bg-white px-4 py-3">
+      <h1 className="font-display text-center text-lg font-bold tracking-tight text-ink">
+        {children}
+      </h1>
+    </section>
+  )
+}
+
 export function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <section>
@@ -17,6 +27,14 @@ export function Field({ label, children }: { label: string; children: ReactNode 
 export function ChoiceGrid({ children }: { children: ReactNode }) {
   return (
     <div className="grid w-full grid-cols-1 items-stretch gap-3 sm:grid-cols-2 sm:gap-6">
+      {children}
+    </div>
+  )
+}
+
+export function ChoiceWrap({ children }: { children: ReactNode }) {
+  return (
+    <div className="grid w-full auto-rows-[1fr] grid-cols-[repeat(auto-fit,minmax(min(100%,15em),15em))] justify-center gap-3 sm:gap-6">
       {children}
     </div>
   )

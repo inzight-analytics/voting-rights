@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import type { TreeNode } from '../types'
+import type { HierarchyNode, TreeNode } from '../types'
 import { browsePath, childLabel, isBranch, isIssue } from '../lib/hierarchy'
 import { Breadcrumbs } from './Breadcrumbs'
-import { ChoiceButton, ChoiceGrid, Field, Page } from './Field'
+import { ChoiceButton, ChoiceGrid, ChoiceWrap, Field, HeadingBubble, Page } from './Field'
 import { IssueFields } from './IssueView'
 
 type WizardProps = {
@@ -11,7 +11,37 @@ type WizardProps = {
   crumbs: Array<{ title: string; path: number[] }>
 }
 
+function Barriers({ node, indices }: { node: HierarchyNode; indices: number[] }) {
+  return (
+    <div className="flex flex-col items-center gap-8">
+      <HeadingBubble>{node.title}</HeadingBubble>
+
+      {node.description ? (
+        <p className="max-w-2xl text-center font-bold">{node.description}</p>
+      ) : null}
+
+      {node.children.length === 0 ? (
+        <p className="text-ink/70">This path is still being written.</p>
+      ) : (
+        <ChoiceWrap>
+          {node.children.map((child, index) => (
+            <ChoiceButton
+              key={isIssue(child) ? child.slug : `branch-${index}`}
+              to={browsePath([...indices, index])}
+              title={childLabel(child)}
+            />
+          ))}
+        </ChoiceWrap>
+      )}
+    </div>
+  )
+}
+
 export function Wizard({ node, indices, crumbs }: WizardProps) {
+  if (indices.length === 1 && isBranch(node)) {
+    return <Barriers node={node} indices={indices} />
+  }
+
   return (
     <Page>
       {indices.length > 0 ? <Breadcrumbs crumbs={crumbs} /> : null}

@@ -1,4 +1,4 @@
-import { ChoiceButton, ChoiceGrid } from '../components/Field'
+import { ChoiceButton, ChoiceGrid, HeadingBubble } from '../components/Field'
 import { browsePath, childLabel, isIssue } from '../lib/hierarchy'
 import { useAppData } from '../data/useAppData'
 
@@ -9,11 +9,7 @@ export function Home() {
 
   return (
     <div className="flex flex-col items-center gap-8">
-      <section className="w-[20em] max-w-full rounded-xl bg-white px-4 py-3">
-        <h1 className="font-display text-center text-lg font-bold tracking-tight text-ink">
-          {hierarchy.title}
-        </h1>
-      </section>
+      <HeadingBubble>{hierarchy.title}</HeadingBubble>
 
       <div className={bubbleRow}>
         <ChoiceGrid>
