@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { Field, Page } from '../components/Field'
 import { Markdown, Source } from '../components/Markdown'
 import { useAppData } from '../data/useAppData'
@@ -14,9 +14,6 @@ export function ExtraPage() {
 
   return (
     <Page>
-      <p>
-        <Link to="/info">← Back</Link>
-      </p>
       <h1 className="font-display text-3xl font-bold tracking-tight">{item.title}</h1>
       <Field label="Slug">
         <p>{item.slug || '—'}</p>

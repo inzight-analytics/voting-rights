@@ -34,9 +34,29 @@ export function ChoiceGrid({ children }: { children: ReactNode }) {
 
 export function ChoiceWrap({ children }: { children: ReactNode }) {
   return (
-    <div className="grid w-full auto-rows-[1fr] grid-cols-[repeat(auto-fit,minmax(min(100%,15em),15em))] justify-center gap-3 sm:gap-6">
+    <div className="grid w-full auto-rows-[1fr] grid-cols-[repeat(auto-fit,minmax(min(100%,15em),15em))] justify-center gap-x-3 gap-y-44 overflow-visible sm:gap-x-6 sm:gap-y-52">
       {children}
     </div>
+  )
+}
+
+export function PostIt({
+  children,
+  className = '',
+  variant = 'yellow',
+}: {
+  children: ReactNode
+  className?: string
+  variant?: 'yellow' | 'pink'
+}) {
+  const surface = variant === 'pink' ? 'bg-pink' : 'bg-sticky'
+
+  return (
+    <p
+      className={`pointer-events-none rounded-xl px-3 py-2 text-center text-xs leading-snug text-ink/80 shadow-[0_2px_8px_rgb(60_51_41_/0.12)] ${surface} ${className}`}
+    >
+      {children}
+    </p>
   )
 }
 

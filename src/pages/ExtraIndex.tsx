@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { ChoiceButton, Field, Page } from '../components/Field'
 import { useAppData } from '../data/useAppData'
 
@@ -7,9 +6,6 @@ export function ExtraIndex() {
 
   return (
     <Page>
-      <p>
-        <Link to="/">← Back</Link>
-      </p>
       <h1 className="font-display text-3xl font-bold tracking-tight text-ink">Other questions</h1>
       <Field label="Children">
         {extras.length === 0 ? (

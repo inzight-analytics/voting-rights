@@ -1,6 +1,10 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
+import { HistoryNav, parentPath } from './HistoryNav'
 
 export function Shell() {
+  const { pathname } = useLocation()
+  const showHistory = pathname !== '/'
+
   return (
     <div className="flex min-h-dvh flex-col bg-paper">
       <header className="shrink-0">
@@ -16,6 +20,12 @@ export function Shell() {
           </p>
         </div>
       </header>
+
+      {showHistory ? (
+        <div className="mx-auto w-full max-w-[100rem] px-4 sm:px-8">
+          <HistoryNav fallback={parentPath(pathname)} />
+        </div>
+      ) : null}
 
       <main className="mx-auto w-full max-w-[100rem] flex-1 px-4 py-8 sm:px-8">
         <Outlet />

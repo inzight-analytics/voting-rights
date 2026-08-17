@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom'
 import type { HierarchyNode, TreeNode } from '../types'
-import { browsePath, childLabel, isBranch, isIssue } from '../lib/hierarchy'
+import { browsePath, childLabel, firstIssueQuestion, isBranch, isIssue } from '../lib/hierarchy'
 import { Breadcrumbs } from './Breadcrumbs'
-import { ChoiceButton, ChoiceGrid, ChoiceWrap, Field, HeadingBubble, Page } from './Field'
+import { ChoiceButton, ChoiceGrid, ChoiceWrap, Field, HeadingBubble, Page, PostIt } from './Field'
 import { IssueFields } from './IssueView'
 
 type WizardProps = {
@@ -24,13 +23,22 @@ function Barriers({ node, indices }: { node: HierarchyNode; indices: number[] })
         <p className="text-ink/70">This path is still being written.</p>
       ) : (
         <ChoiceWrap>
-          {node.children.map((child, index) => (
-            <ChoiceButton
-              key={isIssue(child) ? child.slug : `branch-${index}`}
-              to={browsePath([...indices, index])}
-              title={childLabel(child)}
-            />
-          ))}
+          {node.children.map((child, index) => {
+            const example = firstIssueQuestion(child)
+            return (
+              <div key={isIssue(child) ? child.slug : `branch-${index}`} className="relative h-full">
+                <ChoiceButton to={browsePath([...indices, index])} title={childLabel(child)} />
+                {example ? (
+                  <PostIt
+                    className="absolute top-full left-2 right-2 mt-2"
+                    variant={index % 2 === 0 ? 'pink' : 'yellow'}
+                  >
+                    {example}
+                  </PostIt>
+                ) : null}
+              </div>
+            )
+          })}
         </ChoiceWrap>
       )}
     </div>
@@ -85,12 +93,6 @@ export function Wizard({ node, indices, crumbs }: WizardProps) {
           </Field>
         </>
       )}
-
-      {indices.length > 0 ? (
-        <p>
-          <Link to={browsePath(indices.slice(0, -1))}>← Back</Link>
-        </p>
-      ) : null}
     </Page>
   )
 }

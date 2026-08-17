@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import type { Issue, IssuesData } from '../types'
 import { splitAnswer } from '../lib/answer'
 import { Field, Page } from './Field'
@@ -40,9 +40,7 @@ export function IssueFields({ issue }: { issue: Issue }) {
 }
 
 export function IssueView({ issueId, issues }: { issueId: string; issues: IssuesData }) {
-  const [searchParams] = useSearchParams()
   const issue = issues[issueId]
-  const from = searchParams.get('from')
 
   if (!issue) {
     return (
@@ -56,7 +54,6 @@ export function IssueView({ issueId, issues }: { issueId: string; issues: Issues
 
   return (
     <Page>
-      {from ? <Link to={from}>← Back to situations</Link> : <Link to="/">← Start over</Link>}
       <h1 className="font-display text-3xl font-bold tracking-tight">{issue.title}</h1>
       <IssueFields issue={issue} />
     </Page>

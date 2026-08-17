@@ -12,6 +12,15 @@ export function childLabel(child: TreeNode): string {
   return child.title.replace(/\s+/g, ' ').trim()
 }
 
+/** Column-C example from the first leaf under a barrier group. */
+export function firstIssueQuestion(node: TreeNode): string | undefined {
+  if (!isBranch(node) || node.children.length === 0) return undefined
+  const first = node.children[0]
+  if (!isIssue(first)) return undefined
+  const question = first.question.replace(/\s+/g, ' ').trim()
+  return question || undefined
+}
+
 export type ResolvedPath =
   | { ok: true; node: TreeNode; crumbs: Array<{ title: string; path: number[] }> }
   | { ok: false; reason: 'invalid' }
