@@ -14,15 +14,20 @@ export function ExtraPage() {
 
   return (
     <Page>
-      <Link to="/">← Back to start</Link>
+      <p>
+        <Link to="/info">← Back</Link>
+      </p>
       <h1 className="font-display text-3xl font-bold tracking-tight">{item.title}</h1>
-      {item.answer.trim() ? (
-        <Field label="Answer">
+      <Field label="Slug">
+        <p>{item.slug || '—'}</p>
+      </Field>
+      <Field label="Answer">
+        {item.answer.trim() ? (
           <Markdown content={item.answer} />
-        </Field>
-      ) : (
-        <p className="text-ink/70">No details for this topic yet.</p>
-      )}
+        ) : (
+          <p className="text-ink/55">—</p>
+        )}
+      </Field>
       <Field label="Source">
         {item.source.trim() ? <Source source={item.source} /> : <p className="text-ink/55">—</p>}
       </Field>

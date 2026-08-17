@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import type { TreeNode } from '../types'
+import type { ExtraItem, TreeNode } from '../types'
 import { browsePath, childLabel, isBranch, isIssue } from '../lib/hierarchy'
 import { Breadcrumbs } from './Breadcrumbs'
 import { ChoiceButton, Field, Page } from './Field'
@@ -9,9 +9,10 @@ type WizardProps = {
   node: TreeNode
   indices: number[]
   crumbs: Array<{ title: string; path: number[] }>
+  extras?: ExtraItem[]
 }
 
-export function Wizard({ node, indices, crumbs }: WizardProps) {
+export function Wizard({ node, indices, crumbs, extras }: WizardProps) {
   return (
     <Page>
       {indices.length > 0 ? <Breadcrumbs crumbs={crumbs} /> : null}
@@ -56,6 +57,20 @@ export function Wizard({ node, indices, crumbs }: WizardProps) {
           </Field>
         </>
       )}
+
+      {indices.length === 0 && extras && extras.length > 0 ? (
+        <>
+          <hr className="border-t-2 border-ink/20" />
+          <Field label="Other questions">
+            <ChoiceButton
+              to="/info"
+              title="Other questions"
+              hint={`${extras.length} extra topics`}
+              variant="pink"
+            />
+          </Field>
+        </>
+      ) : null}
 
       {indices.length > 0 ? (
         <p>

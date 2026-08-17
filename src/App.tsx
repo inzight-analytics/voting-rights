@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
 import { Shell } from './components/Shell'
+import { ExtraIndex } from './pages/ExtraIndex'
 import { ExtraPage } from './pages/ExtraPage'
 import { HomeNotice } from './pages/HomeNotice'
 import { IssuePage } from './pages/IssuePage'
@@ -35,6 +36,7 @@ export default function App() {
         <Route element={<Shell />}>
           <Route index element={<HomeNotice />} />
           <Route path="issue/:name" element={<IssuePage />} />
+          <Route path="info" element={<ExtraIndex />} />
           <Route path="info/:slug" element={<ExtraPage />} />
           <Route path="*" element={<WizardPath />} />
         </Route>
