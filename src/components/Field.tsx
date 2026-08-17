@@ -1,6 +1,15 @@
 import type { ReactNode, Ref } from 'react'
 import { Link } from 'react-router-dom'
 
+export function LevelCanvas({ header, children }: { header: ReactNode; children: ReactNode }) {
+  return (
+    <div className="flex w-full flex-1 flex-col items-center justify-center gap-20">
+      <div className="flex flex-col items-center gap-8">{header}</div>
+      {children}
+    </div>
+  )
+}
+
 export function Page({ children }: { children: ReactNode }) {
   return <div className="mx-auto max-w-2xl space-y-8">{children}</div>
 }

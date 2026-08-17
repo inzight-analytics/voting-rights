@@ -4,4 +4,4 @@ BARRIERS,"On a top-level row: the next-screen prompt. On later rows: a barrier g
 THESE SIT NEXT TO BARRIERS,"Example phrases shown as chips around the parent barrier bubble. Not the next-level choices.",Y
 SPECIFIC ISSUES,"The next drill-down choice after a barrier is selected (leaf title).",N
 ANSWER,"Guidance text. Prefix with Enrol - or Vote -; the converter splits those into enrol / vote fields (unprefixed text stays in answer).",Y
-Source?,Citation or URL shown under the answer.,Y
+Source?,Citation or URL shown under the answer. Multiple sources may be separated by &.,Y

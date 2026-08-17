@@ -2,8 +2,8 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import type { HierarchyNode, TreeNode } from '../types'
 import { browsePath, childLabel, firstIssueQuestion, isBranch, isIssue } from '../lib/hierarchy'
 import { Breadcrumbs } from './Breadcrumbs'
-import { ChoiceButton, ChoiceGrid, ChoiceWrap, Field, HeadingBubble, Page, PostIt } from './Field'
-import { IssueFields } from './IssueView'
+import { ChoiceButton, ChoiceGrid, ChoiceWrap, Field, HeadingBubble, LevelCanvas, Page, PostIt } from './Field'
+import { IssueAdvice } from './IssueView'
 
 function useFirstRowCount(itemCount: number) {
   const ref = useRef<HTMLDivElement>(null)
@@ -42,15 +42,16 @@ function Barriers({ node, indices }: { node: HierarchyNode; indices: number[] })
   const { ref: wrapRef, count: firstRowCount } = useFirstRowCount(node.children.length)
 
   return (
-    <div className="flex w-full flex-1 flex-col items-center justify-center gap-20">
-      <div className="flex flex-col items-center gap-8">
-        <HeadingBubble>{node.title}</HeadingBubble>
-
-        {node.description ? (
-          <p className="max-w-2xl text-center font-bold">{node.description}</p>
-        ) : null}
-      </div>
-
+    <LevelCanvas
+      header={
+        <>
+          <HeadingBubble>{node.title}</HeadingBubble>
+          {node.description ? (
+            <p className="max-w-2xl text-center font-bold">{node.description}</p>
+          ) : null}
+        </>
+      }
+    >
       {node.children.length === 0 ? (
         <p className="text-ink/70">This path is still being written.</p>
       ) : (
@@ -83,7 +84,35 @@ function Barriers({ node, indices }: { node: HierarchyNode; indices: number[] })
           })}
         </ChoiceWrap>
       )}
-    </div>
+    </LevelCanvas>
+  )
+}
+
+function BarrierIssues({ node, indices }: { node: HierarchyNode; indices: number[] }) {
+  return (
+    <LevelCanvas
+      header={
+        <>
+          <p className="text-center font-bold">What&rsquo;s the issue?</p>
+          <HeadingBubble>{node.title}</HeadingBubble>
+        </>
+      }
+    >
+      {node.children.length === 0 ? (
+        <p className="text-ink/70">This path is still being written.</p>
+      ) : (
+        <ChoiceWrap>
+          {node.children.map((child, index) => (
+            <ChoiceButton
+              key={isIssue(child) ? child.slug : `branch-${index}`}
+              to={browsePath([...indices, index])}
+              title={childLabel(child)}
+              className="justify-center py-8"
+            />
+          ))}
+        </ChoiceWrap>
+      )}
+    </LevelCanvas>
   )
 }
 
@@ -92,49 +121,51 @@ export function Wizard({ node, indices, crumbs }: WizardProps) {
     return <Barriers node={node} indices={indices} />
   }
 
+  if (indices.length === 2 && isBranch(node)) {
+    return <BarrierIssues node={node} indices={indices} />
+  }
+
+  if (isIssue(node)) {
+    return <IssueAdvice issue={node} />
+  }
+
   return (
     <Page>
       {indices.length > 0 ? <Breadcrumbs crumbs={crumbs} /> : null}
 
       <h1 className="font-display text-3xl font-bold tracking-tight text-ink">{node.title}</h1>
 
-      {isIssue(node) ? (
-        <IssueFields issue={node} />
-      ) : (
-        <>
-          {node.description ? (
-            <Field label="Description">
-              <p>{node.description}</p>
-            </Field>
-          ) : null}
+      {node.description ? (
+        <Field label="Description">
+          <p>{node.description}</p>
+        </Field>
+      ) : null}
 
-          <Field label="Children">
-            {node.children.length === 0 ? (
-              <p className="text-ink/70">This path is still being written.</p>
-            ) : (
-              <ChoiceGrid>
-                {node.children.map((child, index) => {
-                  const nextIndices = [...indices, index]
-                  const hint = isBranch(child)
-                    ? child.description || undefined
-                    : child.question && child.question !== child.title
-                      ? child.question
-                      : undefined
+      <Field label="Children">
+        {node.children.length === 0 ? (
+          <p className="text-ink/70">This path is still being written.</p>
+        ) : (
+          <ChoiceGrid>
+            {node.children.map((child, index) => {
+              const nextIndices = [...indices, index]
+              const hint = isBranch(child)
+                ? child.description || undefined
+                : child.question && child.question !== child.title
+                  ? child.question
+                  : undefined
 
-                  return (
-                    <ChoiceButton
-                      key={isIssue(child) ? child.slug : `branch-${index}`}
-                      to={browsePath(nextIndices)}
-                      title={childLabel(child)}
-                      hint={hint}
-                    />
-                  )
-                })}
-              </ChoiceGrid>
-            )}
-          </Field>
-        </>
-      )}
+              return (
+                <ChoiceButton
+                  key={isIssue(child) ? child.slug : `branch-${index}`}
+                  to={browsePath(nextIndices)}
+                  title={childLabel(child)}
+                  hint={hint}
+                />
+              )
+            })}
+          </ChoiceGrid>
+        )}
+      </Field>
     </Page>
   )
 }

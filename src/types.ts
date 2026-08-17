@@ -5,7 +5,7 @@ export type Issue = {
   answer?: string
   enrol?: string
   vote?: string
-  source: string
+  source: string[]
 }
 
 export type HierarchyNode = {
@@ -20,7 +20,7 @@ export type ExtraItem = {
   slug: string
   title: string
   answer: string
-  source: string
+  source: string[]
 }
 
 export type AnswerSection = {

@@ -21,7 +21,7 @@
  *
  * Canonical app data is two files:
  *   src/data/hierarchy.json  — tree with issues nested as leaves
- *     leaves: { slug, title, question, enrol?, vote?, answer?, source }
+ *     leaves: { slug, title, question, enrol?, vote?, answer?, source[] }
  *     Enrol -/Vote - prefixes become enrol/vote; leftover text stays in answer
  *   src/data/extras.json     — additional questions
  */
@@ -49,7 +49,7 @@ type IssueLeaf = {
   answer?: string
   enrol?: string
   vote?: string
-  source: string
+  source: string[]
 }
 
 type HierarchyNode = {
@@ -62,7 +62,14 @@ type ExtraItem = {
   slug: string
   title: string
   answer: string
-  source: string
+  source: string[]
+}
+
+function parseSources(value: string): string[] {
+  return value
+    .split(/\s+&\s*/)
+    .map((item) => item.trim())
+    .filter(Boolean)
 }
 
 function cell(row: SheetRow, key: keyof SheetRow): string {
@@ -168,9 +175,9 @@ for (const row of rows) {
   const question = cell(row, 'THESE SIT NEXT TO BARRIERS')
   const specific = cell(row, 'SPECIFIC ISSUES')
   const answer = cell(row, 'ANSWER')
-  const source = cell(row, 'Source?')
+  const source = parseSources(cell(row, 'Source?'))
 
-  if (!top && !barrier && !question && !specific && !answer && !source) continue
+  if (!top && !barrier && !question && !specific && !answer && source.length === 0) continue
 
   if (top) {
     if (!sawRoot && !barrier && !question && !specific && !answer) {

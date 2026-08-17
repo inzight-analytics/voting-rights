@@ -9,19 +9,26 @@ export function Markdown({ content }: { content: string }) {
   )
 }
 
-export function Source({ source }: { source: string }) {
-  if (!source.trim()) return null
-  const href = sourceHref(source)
+export function Source({ source }: { source: string[] }) {
+  const items = source.map((item) => item.trim()).filter(Boolean)
+  if (!items.length) return null
 
   return (
-    <p className="m-0">
-      {href ? (
-        <a href={href} target="_blank" rel="noopener noreferrer">
-          {source}
-        </a>
-      ) : (
-        source
-      )}
-    </p>
+    <ul className="m-0 flex list-none flex-col gap-1 p-0">
+      {items.map((item, index) => {
+        const href = sourceHref(item)
+        return (
+          <li key={`${index}-${item}`} className="m-0">
+            {href ? (
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                {item}
+              </a>
+            ) : (
+              item
+            )}
+          </li>
+        )
+      })}
+    </ul>
   )
 }

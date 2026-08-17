@@ -26,7 +26,7 @@ export function ExtraPage() {
         )}
       </Field>
       <Field label="Source">
-        {item.source.trim() ? <Source source={item.source} /> : <p className="text-ink/55">—</p>}
+        {item.source.length > 0 ? <Source source={item.source} /> : <p className="text-ink/55">—</p>}
       </Field>
     </Page>
   )
