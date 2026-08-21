@@ -1,5 +1,5 @@
 import { ChoiceButton, ChoiceGrid, HeadingBubble } from '../components/Field'
-import { browsePath, childLabel, isIssue } from '../lib/hierarchy'
+import { browsePath, childLabel, hasBarriers, isIssue } from '../lib/hierarchy'
 import { useAppData } from '../data/useAppData'
 
 const bubbleRow = 'w-[calc(30em+1.5rem)] max-w-full'
@@ -18,6 +18,7 @@ export function Home() {
               key={isIssue(child) ? child.slug : `branch-${index}`}
               to={browsePath([index])}
               title={childLabel(child)}
+              disabled={!hasBarriers(child)}
             />
           ))}
         </ChoiceGrid>

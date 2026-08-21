@@ -1,4 +1,5 @@
 import type { ReactNode, Ref } from 'react'
+import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { withTerms } from './Term'
 
@@ -81,19 +82,152 @@ export function PostIt({
   )
 }
 
+const TIP_CLOSE_MS = 180
+const TIP_MARGIN = 8
+const TIP_GAP = 8
+
+function ComingSoonChoice({
+  title,
+  variant,
+  className,
+  message,
+}: {
+  title: string
+  variant: 'peach' | 'pink'
+  className: string
+  message: string
+}) {
+  const tipId = useId()
+  const [open, setOpen] = useState(false)
+  const [coords, setCoords] = useState<CSSProperties | null>(null)
+  const rootRef = useRef<HTMLDivElement>(null)
+  const tipRef = useRef<HTMLSpanElement>(null)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const surface = variant === 'pink' ? 'bg-pink/35' : 'bg-peach/35'
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current)
+    }
+  }, [])
+
+  useLayoutEffect(() => {
+    if (!open) {
+      setCoords(null)
+      return
+    }
+
+    const root = rootRef.current
+    const tip = tipRef.current
+    if (!root || !tip) return
+
+    const update = () => {
+      const trigger = root.getBoundingClientRect()
+      const tipRect = tip.getBoundingClientRect()
+      const width = Math.min(tipRect.width || 224, window.innerWidth - TIP_MARGIN * 2)
+      const height = tipRect.height
+
+      let top = trigger.bottom + TIP_GAP
+      if (top + height > window.innerHeight - TIP_MARGIN && trigger.top - TIP_GAP - height >= TIP_MARGIN) {
+        top = trigger.top - TIP_GAP - height
+      }
+
+      let left = trigger.left + trigger.width / 2 - width / 2
+      left = Math.min(Math.max(TIP_MARGIN, left), window.innerWidth - TIP_MARGIN - width)
+
+      setCoords({ position: 'fixed', top, left, width, transform: 'none' })
+    }
+
+    update()
+    window.addEventListener('resize', update)
+    window.addEventListener('scroll', update, true)
+    return () => {
+      window.removeEventListener('resize', update)
+      window.removeEventListener('scroll', update, true)
+    }
+  }, [open, message])
+
+  const show = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current)
+      closeTimer.current = null
+    }
+    setOpen(true)
+  }
+
+  const hide = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    closeTimer.current = setTimeout(() => setOpen(false), TIP_CLOSE_MS)
+  }
+
+  return (
+    <div
+      ref={rootRef}
+      className="relative h-full"
+      onMouseEnter={show}
+      onMouseLeave={hide}
+      onFocus={show}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) hide()
+      }}
+    >
+      <div
+        role="button"
+        aria-disabled="true"
+        aria-describedby={open ? tipId : undefined}
+        tabIndex={0}
+        className={`flex h-full cursor-default flex-col items-center rounded-xl px-4 text-center text-ink/40 ${surface} ${className}`}
+      >
+        <span className="font-semibold">{withTerms(title)}</span>
+      </div>
+      {open ? (
+        <span
+          ref={tipRef}
+          id={tipId}
+          role="tooltip"
+          style={coords ?? { visibility: 'hidden' }}
+          className="fixed z-30 w-56 max-w-[calc(100vw-1rem)]"
+          onMouseEnter={show}
+          onMouseLeave={hide}
+        >
+          <span className="block rounded-lg bg-white px-3 py-2 text-left text-sm font-normal leading-snug text-ink shadow-[0_8px_24px_rgb(60_51_41/0.18)]">
+            {message}
+          </span>
+        </span>
+      ) : null}
+    </div>
+  )
+}
+
 export function ChoiceButton({
   to,
   title,
   hint,
   variant = 'peach',
   className = 'justify-center py-3',
+  disabled = false,
+  disabledTooltip = 'This is still being prepared, check back soon!',
 }: {
   to: string
   title: string
   hint?: string
   variant?: 'peach' | 'pink'
   className?: string
+  disabled?: boolean
+  disabledTooltip?: string
 }) {
+  if (disabled) {
+    return (
+      <ComingSoonChoice
+        title={title}
+        variant={variant}
+        className={className}
+        message={disabledTooltip}
+      />
+    )
+  }
+
   const surface =
     variant === 'pink' ? 'bg-pink hover:bg-rose' : 'bg-peach hover:bg-peach-deep'
 

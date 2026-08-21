@@ -21,6 +21,11 @@ export function firstIssueQuestion(node: TreeNode): string | undefined {
   return question || undefined
 }
 
+/** Top-level path is ready when it has at least one barrier/group under it. */
+export function hasBarriers(node: TreeNode): boolean {
+  return isBranch(node) && node.children.length > 0
+}
+
 export type ResolvedPath =
   | { ok: true; node: TreeNode; crumbs: Array<{ title: string; path: number[] }> }
   | { ok: false; reason: 'invalid' }
