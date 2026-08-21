@@ -3,17 +3,19 @@
  *
  * Columns:
  *   A TOP LEVEL
- *   B BARRIERS
- *   C THESE SIT NEXT TO BARRIERS  (full question / notes)
- *   D SPECIFIC ISSUES             (short label)
- *   E ANSWER
+ *   B BARRIERS          (extras section: Key)
+ *   C EXAMPLES          (THESE SIT NEXT TO BARRIERS / EXAMPLES)
+ *   D SPECIFIC ISSUES   (extras section: Summary)
+ *   E ANSWER            (extras section: Description)
  *   F Source?
  *
  * Outline rules (empty cells inherit the current parent):
  *   1. First A-only row is the root question (e.g. "Are you...").
- *   2. A + B                        → top-level branch. Title=A, description=B.
+ *   2. A + B, no D/E                → top-level branch. Title=A, description=B.
+ *      (B that looks like a key id is treated as an extra instead.)
  *   3. A + C, no B/D/E              → stub top-level branch. Title=A, description=C.
- *   4. A, no B/D                    → additional question (FAQ). Title=A, answer=E, source=F.
+ *   4. A otherwise                  → additional question (FAQ / term).
+ *                                     Title=A, key=B or slug(A), summary=D, answer=E, source=F.
  *   5. B (A empty)                  → barrier group under current top-level.
  *                                     Title = D or B.
  *   6. C and/or D (A and B empty)   → leaf issue under current barrier.
@@ -23,7 +25,8 @@
  *   src/data/hierarchy.json  — tree with issues nested as leaves
  *     leaves: { slug, title, question, enrol?, vote?, answer?, source[] }
  *     Enrol -/Vote - prefixes become enrol/vote; leftover text stays in answer
- *   src/data/extras.json     — additional questions
+ *   src/data/extras.json     — additional questions / glossary terms
+ *     { key, title, summary, answer, source[] }
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -36,7 +39,8 @@ const appDataDir = join(rootDir, 'src', 'data')
 type SheetRow = {
   'TOP LEVEL': string
   BARRIERS: string
-  'THESE SIT NEXT TO BARRIERS': string
+  EXAMPLES?: string
+  'THESE SIT NEXT TO BARRIERS'?: string
   'SPECIFIC ISSUES': string
   ANSWER: string
   'Source?': string
@@ -59,8 +63,9 @@ type HierarchyNode = {
 }
 
 type ExtraItem = {
-  slug: string
+  key: string
   title: string
+  summary: string
   answer: string
   source: string[]
 }
@@ -74,6 +79,10 @@ function parseSources(value: string): string[] {
 
 function cell(row: SheetRow, key: keyof SheetRow): string {
   return (row[key] ?? '').replace(/\r\n/g, '\n').trim()
+}
+
+function examplesCell(row: SheetRow): string {
+  return cell(row, 'EXAMPLES') || cell(row, 'THESE SIT NEXT TO BARRIERS')
 }
 
 function slugify(value: string): string {
@@ -99,6 +108,19 @@ function uniqueSlug(base: string, used: Set<string>): string {
   slug = `${slug}-${n}`
   used.add(slug)
   return slug
+}
+
+/** Short id used in [[key]] links, e.g. special-vote */
+function isKeyLike(value: string): boolean {
+  return /^[a-z][a-z0-9_-]*$/i.test(value) && value.length <= 64
+}
+
+function isExtrasLegend(barrier: string, specific: string, answer: string): boolean {
+  return (
+    barrier.toLowerCase() === 'key' &&
+    specific.toLowerCase() === 'summary' &&
+    answer.toLowerCase() === 'description'
+  )
 }
 
 const PREFIX = /^(Enrol|Enrolment|Vote|Voting)\s*[-–—:]\s*/i
@@ -158,6 +180,7 @@ const rows = parse(csvText, {
 
 const extras: ExtraItem[] = []
 const usedSlugs = new Set<string>()
+const usedKeys = new Set<string>()
 
 const hierarchy: HierarchyNode = {
   title: 'Are you...',
@@ -169,15 +192,29 @@ let currentTop: HierarchyNode | null = null
 let currentBarrier: HierarchyNode | null = null
 let sawRoot = false
 
+function pushExtra(title: string, keyCell: string, summary: string, answer: string, source: string[]) {
+  const key = uniqueSlug(keyCell || title, usedKeys)
+  usedSlugs.add(key)
+  extras.push({
+    key,
+    title,
+    summary,
+    answer,
+    source,
+  })
+}
+
 for (const row of rows) {
   const top = cell(row, 'TOP LEVEL')
   const barrier = cell(row, 'BARRIERS')
-  const question = cell(row, 'THESE SIT NEXT TO BARRIERS')
+  const question = examplesCell(row)
   const specific = cell(row, 'SPECIFIC ISSUES')
   const answer = cell(row, 'ANSWER')
   const source = parseSources(cell(row, 'Source?'))
 
   if (!top && !barrier && !question && !specific && !answer && source.length === 0) continue
+
+  if (!top && isExtrasLegend(barrier, specific, answer)) continue
 
   if (top) {
     if (!sawRoot && !barrier && !question && !specific && !answer) {
@@ -188,7 +225,8 @@ for (const row of rows) {
       continue
     }
 
-    if (barrier) {
+    // A + B with no D/E → top-level branch, unless B is a glossary key.
+    if (barrier && !specific && !answer && !isKeyLike(barrier)) {
       currentTop = { title: top, description: barrier, children: [] }
       currentBarrier = null
       hierarchy.children.push(currentTop)
@@ -196,7 +234,7 @@ for (const row of rows) {
       continue
     }
 
-    if (question && !specific && !answer) {
+    if (question && !barrier && !specific && !answer) {
       currentTop = { title: top, description: question, children: [] }
       currentBarrier = null
       hierarchy.children.push(currentTop)
@@ -204,12 +242,7 @@ for (const row of rows) {
       continue
     }
 
-    extras.push({
-      slug: uniqueSlug(top, usedSlugs),
-      title: top,
-      answer,
-      source,
-    })
+    pushExtra(top, barrier, specific, answer, source)
     currentTop = null
     currentBarrier = null
     continue

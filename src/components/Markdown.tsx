@@ -1,12 +1,39 @@
-import ReactMarkdown from 'react-markdown'
+import type { Components } from 'react-markdown'
+import ReactMarkdown, { defaultUrlTransform } from 'react-markdown'
 import { parseSourceItem } from '../lib/answer'
+import { rewriteTermMarkers, Term, withTerms } from './Term'
+
+const markdownComponents: Components = {
+  a({ href, children }) {
+    if (href?.startsWith('term:')) {
+      return <Term termKey={decodeURIComponent(href.slice('term:'.length))} />
+    }
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    )
+  },
+}
+
+function urlTransform(url: string): string {
+  if (url.startsWith('term:')) return url
+  return defaultUrlTransform(url)
+}
 
 export function Markdown({ content }: { content: string }) {
   return (
     <div className="prose-content">
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <ReactMarkdown components={markdownComponents} urlTransform={urlTransform}>
+        {rewriteTermMarkers(content)}
+      </ReactMarkdown>
     </div>
   )
+}
+
+/** Plain (non-markdown) copy that still expands [[key]] terms. */
+export function RichText({ content }: { content: string }) {
+  return <>{withTerms(content)}</>
 }
 
 export function Source({ source }: { source: string[] }) {
@@ -24,7 +51,7 @@ export function Source({ source }: { source: string[] }) {
                 {label}
               </a>
             ) : (
-              label
+              <RichText content={label} />
             )}
             {note ? ` (${note})` : null}
           </li>

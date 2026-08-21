@@ -1,5 +1,6 @@
 import type { ReactNode, Ref } from 'react'
 import { Link } from 'react-router-dom'
+import { withTerms } from './Term'
 
 export function LevelCanvas({ header, children }: { header: ReactNode; children: ReactNode }) {
   return (
@@ -18,7 +19,7 @@ export function HeadingBubble({ children }: { children: ReactNode }) {
   return (
     <section className="w-[20em] max-w-full rounded-xl bg-white px-4 py-3">
       <h1 className="font-display text-center text-lg font-bold tracking-tight text-ink">
-        {children}
+        {typeof children === 'string' ? withTerms(children) : children}
       </h1>
     </section>
   )
@@ -35,7 +36,7 @@ export function Field({ label, children }: { label: string; children: ReactNode 
 
 export function ChoiceGrid({ children }: { children: ReactNode }) {
   return (
-    <div className="grid w-full grid-cols-1 items-stretch gap-3 sm:grid-cols-2 sm:gap-6">
+    <div className="grid w-full grid-cols-2 items-stretch gap-3 sm:gap-6">
       {children}
     </div>
   )
@@ -51,7 +52,7 @@ export function ChoiceWrap({
   return (
     <div
       ref={ref}
-      className="grid w-full auto-rows-[1fr] grid-cols-[repeat(auto-fit,minmax(min(100%,15em),15em))] justify-center gap-x-3 gap-y-6 overflow-visible sm:gap-x-6 sm:gap-y-8"
+      className="grid w-full auto-rows-[1fr] grid-cols-2 justify-center gap-x-3 gap-y-6 overflow-visible sm:grid-cols-[repeat(auto-fit,minmax(min(100%,15em),15em))] sm:gap-x-6 sm:gap-y-8"
     >
       {children}
     </div>
@@ -73,7 +74,9 @@ export function PostIt({
     <p
       className={`post-it pointer-events-none rounded-[2px] px-3 py-2 text-left text-sm leading-snug text-ink/80 ${surface} ${className}`}
     >
-      <span className="relative z-10">{children}</span>
+      <span className="relative z-10">
+        {typeof children === 'string' ? withTerms(children) : children}
+      </span>
     </p>
   )
 }
@@ -99,8 +102,8 @@ export function ChoiceButton({
       to={to}
       className={`flex h-full flex-col items-center rounded-xl px-4 text-center text-ink no-underline transition ${surface} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${className}`}
     >
-      <span className="font-semibold">{title}</span>
-      {hint ? <span className="mt-1 text-sm font-normal text-ink/70">{hint}</span> : null}
+      <span className="font-semibold">{withTerms(title)}</span>
+      {hint ? <span className="mt-1 text-sm font-normal text-ink/70">{withTerms(hint)}</span> : null}
     </Link>
   )
 }

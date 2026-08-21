@@ -22,9 +22,11 @@ Empty cells inherit the current parent (outline layout). Blank rows are ignored.
 1. First **A-only** row is the root (`Are you...`).
 2. **A + B** → top-level branch. Title = A, description = B.
 3. **A + C**, no B/D/E → stub top-level branch (e.g. help-someone copy still to come).
-4. **A** with no B/D → **additional question** (FAQ). Title = A, answer = E, source = F.
+4. **A** otherwise → **additional question / glossary term**. Title = A, key = B (or slug of A), summary = D, answer = E, source = F.
 5. **B** (A empty) → barrier group under the current top-level. Title = D or B.
 6. **C and/or D** (A and B empty) → leaf under the current barrier. C = example beside the parent barrier; D = issue title on the next screen; E/F = answer.
+
+A legend row `Key / Summary / Description` in the extras section is ignored.
 
 Nesting follows the sheet outline and can deepen if more indented group rows are added (today: root → branch → barrier → issue).
 
@@ -32,5 +34,9 @@ Nesting follows the sheet outline and can deepen if more indented group rows are
 
 Canonical files stored in the app:
 
-- [`src/data/hierarchy.json`](../src/data/hierarchy.json) — tree of `{ title, description, children }`. Leaves are `{ slug, title, question, enrol?, vote?, answer?, source }`. `Enrol -` / `Vote -` (also Enrolment / Voting) prefixes become `enrol` and `vote`; leftover text stays in `answer`.
-- [`src/data/extras.json`](../src/data/extras.json) — additional questions `{ slug, title, answer, source }`
+- [`src/data/hierarchy.json`](../src/data/hierarchy.json) — tree of `{ title, description, children }`. Leaves are `{ slug, title, question, enrol?, vote?, answer?, source[] }`. `Enrol -` / `Vote -` (also Enrolment / Voting) prefixes become `enrol` and `vote`; leftover text stays in `answer`.
+- [`src/data/extras.json`](../src/data/extras.json) — glossary / additional questions `{ key, title, summary, answer, source[] }`
+
+## Term markers
+
+Anywhere guidance text can include `[[key]]`. The app replaces that with a dotted-underline term that shows `summary` in a tooltip and links to `/info/:key`.

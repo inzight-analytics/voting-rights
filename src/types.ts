@@ -17,8 +17,9 @@ export type HierarchyNode = {
 export type IssuesData = Record<string, Issue>
 
 export type ExtraItem = {
-  slug: string
+  key: string
   title: string
+  summary: string
   answer: string
   source: string[]
 }

@@ -1,7 +1,7 @@
 Column name,Description,Markdown
-TOP LEVEL,"Root question, a top-level branch (e.g. Trying to enrol and vote), or an additional FAQ title when BARRIERS is empty.",N
-BARRIERS,"On a top-level row: the next-screen prompt. On later rows: a barrier group under that branch. Empty cells inherit the current group.",N
-THESE SIT NEXT TO BARRIERS,"Example phrases shown as chips around the parent barrier bubble. Not the next-level choices.",Y
-SPECIFIC ISSUES,"The next drill-down choice after a barrier is selected (leaf title).",N
-ANSWER,"Guidance text. Prefix with Enrol - or Vote -; the converter splits those into enrol / vote fields (unprefixed text stays in answer).",Y
+TOP LEVEL,"Root question, a top-level branch (e.g. Trying to enrol and vote), or an additional FAQ / glossary title.",N
+BARRIERS,"On a top-level row: the next-screen prompt. On later rows: a barrier group under that branch. In the extras section: Key (id for [[key]] links and /info/:key).",N
+EXAMPLES,"Example phrases shown as chips around the parent barrier bubble. Not the next-level choices.",Y
+SPECIFIC ISSUES,"The next drill-down choice after a barrier is selected (leaf title). In the extras section: Summary (tooltip text for [[key]] terms).",N
+ANSWER,"Guidance text. Prefix with Enrol - or Vote -; the converter splits those into enrol / vote fields (unprefixed text stays in answer). In the extras section: full Description. Supports [[key]] term markers.",Y
 Source?,Citation or URL shown under the answer. Multiple sources may be separated by &.,Y

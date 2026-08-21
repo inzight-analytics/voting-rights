@@ -13,8 +13,8 @@ export function ExtraIndex() {
         ) : (
           <ul className="space-y-3">
             {extras.map((item) => (
-              <li key={item.slug}>
-                <ChoiceButton to={`/info/${item.slug}`} title={item.title} variant="pink" />
+              <li key={item.key}>
+                <ChoiceButton to={`/info/${item.key}`} title={item.title} variant="pink" />
               </li>
             ))}
           </ul>

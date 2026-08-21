@@ -32,8 +32,8 @@ export function Home() {
             <ChoiceGrid>
               {extras.map((item) => (
                 <ChoiceButton
-                  key={item.slug}
-                  to={`/info/${item.slug}`}
+                  key={item.key}
+                  to={`/info/${item.key}`}
                   title={item.title}
                   variant="pink"
                 />

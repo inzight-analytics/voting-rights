@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run build:data && vite",
+    "dev": "npm run build:data && vite --host",
     "fetch:data": "tsx scripts/fetch-sheet.ts",
     "build:data": "tsx scripts/build-data.ts",
     "build": "npm run build:data && tsc -b && vite build",

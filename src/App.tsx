@@ -37,7 +37,7 @@ export default function App() {
           <Route index element={<HomeNotice />} />
           <Route path="issue/:name" element={<IssuePage />} />
           <Route path="info" element={<ExtraIndex />} />
-          <Route path="info/:slug" element={<ExtraPage />} />
+          <Route path="info/:key" element={<ExtraPage />} />
           <Route path="*" element={<WizardPath />} />
         </Route>
       </Routes>

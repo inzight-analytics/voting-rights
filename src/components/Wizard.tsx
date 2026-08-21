@@ -4,6 +4,7 @@ import { browsePath, childLabel, firstIssueQuestion, isBranch, isIssue } from '.
 import { Breadcrumbs } from './Breadcrumbs'
 import { ChoiceButton, ChoiceGrid, ChoiceWrap, Field, HeadingBubble, LevelCanvas, Page, PostIt } from './Field'
 import { IssueAdvice } from './IssueView'
+import { RichText } from './Markdown'
 
 function useFirstRowCount(itemCount: number) {
   const ref = useRef<HTMLDivElement>(null)
@@ -47,7 +48,9 @@ function Barriers({ node, indices }: { node: HierarchyNode; indices: number[] })
         <>
           <HeadingBubble>{node.title}</HeadingBubble>
           {node.description ? (
-            <p className="max-w-2xl text-center font-bold">{node.description}</p>
+            <p className="max-w-2xl text-center font-bold">
+              <RichText content={node.description} />
+            </p>
           ) : null}
         </>
       }

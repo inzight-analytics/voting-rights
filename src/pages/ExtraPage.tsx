@@ -5,8 +5,8 @@ import { useAppData } from '../data/useAppData'
 
 export function ExtraPage() {
   const { extras } = useAppData()
-  const { slug } = useParams()
-  const item = extras.find((extra) => extra.slug === slug)
+  const { key } = useParams()
+  const item = extras.find((extra) => extra.key === key)
 
   if (!item) {
     return <Navigate to="/?notice=unknown-info" replace />
