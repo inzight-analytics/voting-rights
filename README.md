@@ -32,7 +32,7 @@ npm run dev
 
 ## Build & deploy
 
-Configured for GitHub Pages at `/voting-rights/`:
+Configured for https://vote.inzight.co.nz (Vite `base: '/'`):
 
 ```bash
 npm run build

@@ -43,7 +43,7 @@ Parser rules are in [hierarchy.md](./hierarchy.md).
 
 ## URL as state
 
-Live site: `https://inzight-analytics.github.io/voting-rights/`.
+Live site: `https://vote.inzight.co.nz`.
 
 | Route | Meaning |
 |-------|---------|

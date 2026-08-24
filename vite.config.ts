@@ -15,8 +15,8 @@ function spaFallback(): Plugin {
   }
 }
 
-// Project Pages: https://inzight-analytics.github.io/voting-rights/
+// Custom domain (GitHub Pages root): https://vote.inzight.co.nz
 export default defineConfig({
-  base: '/voting-rights/',
+  base: '/',
   plugins: [react(), tailwindcss(), spaFallback()],
 })
