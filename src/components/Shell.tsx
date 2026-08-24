@@ -8,16 +8,13 @@ export function Shell() {
   return (
     <div className="flex min-h-dvh flex-col bg-paper">
       <header className="shrink-0">
-        <div className="mx-auto flex w-full max-w-[100rem] items-baseline justify-between gap-4 px-4 py-5 sm:px-8">
+        <div className="mx-auto w-full max-w-[100rem] px-4 py-5 sm:px-8">
           <Link
             to="/"
             className="font-display text-2xl font-bold tracking-tight text-ink no-underline sm:text-3xl"
           >
             Voting Rights
           </Link>
-          <p className="hidden text-sm font-medium text-ink/60 sm:block">
-            Enrolment &amp; voting guidance
-          </p>
         </div>
       </header>
 
@@ -44,6 +41,17 @@ export function Shell() {
               Lara Greaves&rsquo; Rutherford Discovery Fellowship
             </a>{' '}
             from the Royal Society Te Apārangi.
+          </p>
+          <p className="mt-2">
+            Supported by{' '}
+            <a
+              href="https://inzight.co.nz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent"
+            >
+              iNZight Analytics
+            </a>
           </p>
           <p className="mt-2 text-ink/45">
             Information for New Zealand enrolment and voting situations. Not affiliated with any
