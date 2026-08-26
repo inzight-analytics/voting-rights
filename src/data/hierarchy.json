@@ -36,7 +36,7 @@
               "enrol": "You can enrol online or by completing a paper form. Your residential address for enrolment purposes does not change if you are temporarily away from your usual home.",
               "vote": "If you are away from your usual place of residence, you can vote at the nearest voting place. As your name will not appear on the printed electoral roll at that location, you will need to complete a special declaration vote form before voting. This is known as a [[special-vote]].",
               "source": [
-                "Electoral Act s 61(b), s 72(6)(a), and S 162."
+                "Electoral Act s 61(b), s 72(6)(a), and s 162."
               ]
             },
             {
@@ -88,7 +88,7 @@
               "slug": "i-am-in-a-rest-home",
               "title": "I am in a rest home",
               "question": "I live in a residential care facility and can't enrol or vote on my own, I have no family to help me with this, how can I vote?",
-              "vote": "If you are in a rest home and you won't be able to go to a voting place, you don't need to the Electoral Commission. Your Electoral Manager will contact the manager of your rest home to arrange voting services.",
+              "vote": "If you are in a rest home and you won’t be able to go to a voting place, you don’t need to contact the Electoral Commission. Your local Electorate Manager will contact the manager of your care home to arrange voting services.",
               "source": [
                 "https://vote.nz/2026-general-election/voting-in-the-election/cant-get-to-a-voting-place"
               ]
@@ -115,7 +115,7 @@
               "slug": "i-have-no-id",
               "title": "I have no ID",
               "question": "I don't have a license, passport, or kiwi access card, can I still enrol and vote without any of these?",
-              "enrol": "To enrol online, you need a New Zealand driver licence, New Zealand passport, or a verified RealMe identity. If you do not have any of these, you can still enrol by completing an enrolment form online and having it emailed to you to sign, then uploading, emailing or posting the completed form. Alternatively, you can print a form yourself or request one to be sent to you, then return it by upload, email or post. Printed enrolment forms may also be available at selected public libraries, Electoral Commission offices, and potentially local post offices. Contact your local library or post office for more information.",
+              "enrol": "To enrol online, you need a **New Zealand driver licence**, **New Zealand passport**, or a **verified RealMe identity**. If you do not have any of these, you can still enrol by completing an enrolment form online and having it emailed to you to sign, then uploading, emailing or posting the completed form. \n\nAlternatively, you can print a form yourself or request one to be sent to you, then return it by upload, email or post. Printed enrolment forms may also be available at selected public libraries, Electoral Commission offices, and potentially local post offices. Contact your local library or post office for more information.",
               "vote": "You do not need to bring any form of ID to vote. Simply turn up at a voting place. You can bring your EasyVote card to make the process quicker, but if you do not have one, that is okay too. Your details can be confirmed at the voting place.",
               "source": [
                 "https://vote.nz/enrolling/enrol-or-update/other-ways-to-enrol",
@@ -235,8 +235,8 @@
             {
               "slug": "i-have-been-placed-on-the-dormant-roll",
               "title": "I have been placed on the dormant roll",
-              "question": "I haven't voted in a while. I have tried to enrol but found I have been placed on the dormant roll. How do I vote?",
-              "enrol": "To come off the [[dormant-roll]], you simply need to update your enrolment address. You must do this before voting starts on 26 October 2026, as you cannot update your enrolment at a voting place. To check or update your enrolment details, visit vote.nz or call 0800 36 76 56.",
+              "question": "Enrol – To come off the [[dormant-roll]], you simply need to update your enrolment address. You must do this before voting starts on 26 October 2026, as you cannot update your enrolment at a voting place. To check or update your enrolment details, visit vote.nz or call 0800 36 76 56.\nVote – If you update your enrolment address before enrolment closes, you can vote normally. If you do not update your address before midnight on 25 October and have been on the dormant roll for less than three years, you can still vote. If your current address is in the same electorate as your previous enrolment address, you can cast both a party vote and an electorate vote. If your current address is in a different electorate, you can only cast a party vote.",
+              "enrol": "To come off the [dormant-roll], you simply need to update your enrolment address. You must do this before voting starts on 26 October 2026, as you cannot update your enrolment at a voting place. To check or update your enrolment details, visit vote.nz or call 0800 36 76 56.",
               "vote": "If you update your enrolment address before enrolment closes, you can vote normally. If you do not update your address before midnight on 25 October and have been on the dormant roll for less than three years, you can still vote. If your current address is in the same electorate as your previous enrolment address, you can cast both a party vote and an electorate vote. If your current address is in a different electorate, you can only cast a party vote.",
               "source": [
                 "https://elections.nz/assets/2026-General-Election/2026-Factsheet-Make-Sure-Youre-Enrolled-for-the-2026-General-Election-v2.pdf Electoral Act s 89CB and s 109."
@@ -365,7 +365,8 @@
                 "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote",
                 "https://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2",
                 "https://www.corrections.govt.nz/our_work/in_prison/being_in_prison/voting_in_prison.",
-                "Electoral Act s 80(1)(d)(i)(C)"
+                "Electoral Amendment Act 2025, ss 10",
+                "13."
               ]
             },
             {
