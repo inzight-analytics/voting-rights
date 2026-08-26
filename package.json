@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "npm run build:data && vite --host",
     "fetch:data": "tsx scripts/fetch-sheet.ts",
+    "sync:data": "tsx scripts/sync-data.ts",
     "build:data": "tsx scripts/build-data.ts",
-    "build": "npm run build:data && tsc -b && vite build",
+    "build:app": "tsc -b && vite build",
+    "build": "npm run build:data && npm run build:app",
     "lint": "oxlint",
     "preview": "vite preview"
   },
