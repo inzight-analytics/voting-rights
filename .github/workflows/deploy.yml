@@ -7,14 +7,6 @@ on:
     # Hourly sheet sync. Offset from :00 to reduce GitHub schedule queue drops.
     - cron: '23 * * * *'
   workflow_dispatch:
-    inputs:
-      action:
-        description: What to run
-        type: choice
-        options:
-          - deploy
-          - sync
-        default: deploy
 
 permissions:
   contents: read
@@ -27,7 +19,7 @@ concurrency:
 
 jobs:
   sync:
-    if: github.event_name == 'push' || github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.action == 'sync')
+    if: github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -62,19 +54,14 @@ jobs:
 
   build:
     needs: sync
-    if: |
-      always() &&
-      (needs.sync.result == 'success' || needs.sync.result == 'skipped') &&
-      (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.action == 'deploy'))
+    if: always() && needs.sync.result == 'success' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
         with:
           ref: main
 
-      - name: Pull latest after sync
-        if: needs.sync.result == 'success'
-        run: git pull origin main
+      - run: git pull origin main
 
       - uses: actions/setup-node@v5
         with:
@@ -82,11 +69,6 @@ jobs:
           cache: npm
 
       - run: npm ci
-
-      - name: Fetch sheet when sync job did not run
-        if: needs.sync.result == 'skipped'
-        run: npm run sync:data
-
       - run: npm run build:app
       - uses: actions/upload-pages-artifact@v5
         with:
@@ -94,7 +76,7 @@ jobs:
 
   deploy:
     needs: build
-    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.action == 'deploy')
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
