@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   sync:
-    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.action == 'sync')
+    if: github.event_name == 'push' || github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.action == 'sync')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -61,16 +61,32 @@ jobs:
           git push
 
   build:
-    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.action == 'deploy')
+    needs: sync
+    if: |
+      always() &&
+      (needs.sync.result == 'success' || needs.sync.result == 'skipped') &&
+      (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.action == 'deploy'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Pull latest after sync
+        if: needs.sync.result == 'success'
+        run: git pull origin main
+
       - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
+
       - run: npm ci
-      - run: npm run sync:data
+
+      - name: Fetch sheet when sync job did not run
+        if: needs.sync.result == 'skipped'
+        run: npm run sync:data
+
       - run: npm run build:app
       - uses: actions/upload-pages-artifact@v5
         with:
