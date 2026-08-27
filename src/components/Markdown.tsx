@@ -1,6 +1,7 @@
 import type { Components } from 'react-markdown'
 import ReactMarkdown, { defaultUrlTransform } from 'react-markdown'
 import { parseSourceItem } from '../lib/answer'
+import { ExternalLink } from './a11y'
 import { rewriteTermMarkers, Term, withTerms } from './Term'
 
 const markdownComponents: Components = {
@@ -8,11 +9,7 @@ const markdownComponents: Components = {
     if (href?.startsWith('term:')) {
       return <Term termKey={decodeURIComponent(href.slice('term:'.length))} />
     }
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        {children}
-      </a>
-    )
+    return <ExternalLink href={href ?? '#'}>{children}</ExternalLink>
   },
 }
 
@@ -47,9 +44,7 @@ export function Source({ source }: { source: string[] }) {
         return (
           <li key={`${index}-${item}`} className="m-0">
             {href ? (
-              <a href={href} target="_blank" rel="noopener noreferrer">
-                {label}
-              </a>
+              <ExternalLink href={href}>{label}</ExternalLink>
             ) : (
               <RichText content={label} />
             )}

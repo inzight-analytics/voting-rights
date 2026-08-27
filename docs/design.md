@@ -47,7 +47,15 @@ Palette is taken from the design board swatches (warm yellow canvas, peach conte
 | `--color-rose` | `#EA9999` | Pink hover / emphasis |
 | `--color-mint` | `#D9EAD3` | Empty-path notes only |
 | `--color-ink` | `#3C3329` | Text |
-| `--color-accent` | `#B5651D` | Links (umber, not party colours) |
+| `--color-accent` | `#9A5518` | Links (umber, not party colours) |
+
+### Accessibility
+
+- Target **WCAG 2.1 AA** for text contrast (4.5:1 normal, 3:1 large/UI).
+- Muted text uses `text-ink/70` minimum on `paper`; section labels use full `text-ink` on coloured cards.
+- Interactive controls use the `.focus-ring` utility (`outline-focus`, full ink).
+- Term definitions and external links follow shared patterns in `src/components/a11y.tsx` and `Term.tsx`.
+- Run `npm run a11y` after `npm run build` for a local axe scan (requires Chromium; set `CHROME_PATH` if needed).
 
 ### Typography
 

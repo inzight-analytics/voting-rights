@@ -7,7 +7,7 @@ export function ExtraIndex() {
   return (
     <Page>
       <h1 className="font-display text-3xl font-bold tracking-tight text-ink">Other questions</h1>
-      <Field label="Children">
+      <Field label="Topics">
         {extras.length === 0 ? (
           <p className="text-ink/70">No extra topics yet.</p>
         ) : (

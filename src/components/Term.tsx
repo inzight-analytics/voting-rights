@@ -24,12 +24,27 @@ export function Term({ termKey }: { termKey: string }) {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const rootRef = useRef<HTMLSpanElement>(null)
   const tipRef = useRef<HTMLSpanElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     return () => {
       if (closeTimer.current) clearTimeout(closeTimer.current)
     }
   }, [])
+
+  useEffect(() => {
+    if (!open) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false)
+        buttonRef.current?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [open])
 
   useLayoutEffect(() => {
     if (!open) {
@@ -102,9 +117,13 @@ export function Term({ termKey }: { termKey: string }) {
       }}
     >
       <button
+        ref={buttonRef}
         type="button"
-        className="cursor-help border-0 bg-transparent p-0 font-[inherit] text-[length:inherit] leading-[inherit] text-inherit underline decoration-dotted decoration-ink/45 underline-offset-4"
+        className="focus-ring cursor-help border-0 bg-transparent p-0 font-[inherit] text-[length:inherit] leading-[inherit] text-inherit underline decoration-dotted decoration-ink/70 underline-offset-4"
+        aria-expanded={open}
+        aria-controls={open ? tipId : undefined}
         aria-describedby={open ? tipId : undefined}
+        aria-label={`Definition of ${item.title}`}
       >
         {item.title}
       </button>
@@ -112,7 +131,6 @@ export function Term({ termKey }: { termKey: string }) {
         <span
           ref={tipRef}
           id={tipId}
-          role="tooltip"
           style={coords ?? { visibility: 'hidden' }}
           className="fixed z-30 w-56 max-w-[calc(100vw-1rem)]"
           onMouseEnter={show}
@@ -122,11 +140,11 @@ export function Term({ termKey }: { termKey: string }) {
             {item.summary.trim() ? (
               <span className="block text-ink/80">{item.summary}</span>
             ) : (
-              <span className="block text-ink/55">Open for the full explanation.</span>
+              <span className="block text-ink/70">Open for the full explanation.</span>
             )}
             <Link
               to={`/info/${item.key}`}
-              className="mt-2 inline-block font-semibold text-accent no-underline hover:underline"
+              className="focus-ring mt-2 inline-block font-semibold text-accent no-underline hover:underline"
               onClick={() => setOpen(false)}
             >
               Read more

@@ -23,7 +23,7 @@ export function ExtraPage() {
           )}
         </section>
         {item.source.length > 0 ? (
-          <div className="text-sm text-ink/55">
+          <div className="text-sm text-ink/70">
             <Source source={item.source} />
           </div>
         ) : null}

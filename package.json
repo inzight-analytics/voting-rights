@@ -11,6 +11,7 @@
     "build:app": "tsc -b && vite build",
     "build": "npm run build:data && npm run build:app",
     "lint": "oxlint",
+    "a11y": "npm run build && node scripts/a11y-scan.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -20,6 +21,7 @@
     "react-router-dom": "^7.13.1"
   },
   "devDependencies": {
+    "@axe-core/puppeteer": "^4.13.0",
     "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.17",
@@ -27,6 +29,7 @@
     "@vitejs/plugin-react": "^6.0.4",
     "csv-parse": "^7.0.2",
     "oxlint": "^1.75.0",
+    "puppeteer-core": "^25.9.0",
     "tailwindcss": "^4.1.18",
     "tsx": "^4.21.0",
     "typescript": "~6.0.2",

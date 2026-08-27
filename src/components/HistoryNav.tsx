@@ -6,7 +6,7 @@ function canGoBack() {
 }
 
 const control =
-  'bg-transparent p-0 font-inherit text-sm font-medium no-underline hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
+  'focus-ring bg-transparent p-0 font-inherit text-sm font-medium no-underline hover:underline'
 
 export function HistoryNav({ fallback }: { fallback: string }) {
   const navigate = useNavigate()
@@ -15,6 +15,7 @@ export function HistoryNav({ fallback }: { fallback: string }) {
     <nav aria-label="Back">
       <button
         type="button"
+        aria-label="Back to previous page"
         className={`${control} text-accent`}
         onClick={() => (canGoBack() ? navigate(-1) : navigate(fallback))}
       >

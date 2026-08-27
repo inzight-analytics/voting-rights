@@ -52,7 +52,7 @@ export function IssueAdvice({ issue }: { issue: Issue }) {
         ) : (
           sections.map((section) => (
             <section key={section.kind} className={`rounded-xl px-5 py-4 ${SURFACES[section.kind]}`}>
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-ink/50">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">
                 {LABELS[section.kind]}
               </h2>
               <div className="mt-2">
@@ -62,7 +62,7 @@ export function IssueAdvice({ issue }: { issue: Issue }) {
           ))
         )}
         {issue.source.length > 0 ? (
-          <div className="text-sm text-ink/55">
+          <div className="text-sm text-ink/70">
             <Source source={issue.source} />
           </div>
         ) : null}

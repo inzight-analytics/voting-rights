@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState, useId } from 'react'
 import type { HierarchyNode, TreeNode } from '../types'
 import { browsePath, childLabel, firstIssueQuestion, isBranch, isIssue } from '../lib/hierarchy'
 import { Breadcrumbs } from './Breadcrumbs'
@@ -39,6 +39,49 @@ type WizardProps = {
   crumbs: Array<{ title: string; path: number[] }>
 }
 
+function BarrierChoice({
+  child,
+  index,
+  indices,
+  firstRow,
+}: {
+  child: HierarchyNode['children'][number]
+  index: number
+  indices: number[]
+  firstRow: boolean
+}) {
+  const example = firstIssueQuestion(child)
+  const exampleId = useId()
+  const noteShift = index % 2 === 0 ? '-left-2' : '-right-2'
+
+  return (
+    <div
+      className="group relative h-full"
+      data-first-row={firstRow ? '' : undefined}
+    >
+      {example ? (
+        <span id={exampleId} className="sr-only">
+          {example}
+        </span>
+      ) : null}
+      <ChoiceButton
+        to={browsePath([...indices, index])}
+        title={childLabel(child)}
+        describedBy={example ? exampleId : undefined}
+        className="justify-center py-8"
+      />
+      {example ? (
+        <PostIt
+          className={`absolute top-full z-10 w-[calc(100%-1.25rem)] -translate-y-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 group-data-first-row:top-auto group-data-first-row:bottom-full group-data-first-row:translate-y-3 ${noteShift}`}
+          variant={index % 2 === 0 ? 'pink' : 'yellow'}
+        >
+          {example}
+        </PostIt>
+      ) : null}
+    </div>
+  )
+}
+
 function Barriers({ node, indices }: { node: HierarchyNode; indices: number[] }) {
   const { ref: wrapRef, count: firstRowCount } = useFirstRowCount(node.children.length)
 
@@ -59,32 +102,15 @@ function Barriers({ node, indices }: { node: HierarchyNode; indices: number[] })
         <p className="text-ink/70">This path is still being written.</p>
       ) : (
         <ChoiceWrap ref={wrapRef}>
-          {node.children.map((child, index) => {
-            const example = firstIssueQuestion(child)
-            const noteShift = index % 2 === 0 ? '-left-2' : '-right-2'
-            const firstRow = index < firstRowCount
-            return (
-              <div
-                key={isIssue(child) ? child.slug : `branch-${index}`}
-                className="group relative h-full"
-                data-first-row={firstRow ? '' : undefined}
-              >
-                <ChoiceButton
-                  to={browsePath([...indices, index])}
-                  title={childLabel(child)}
-                  className="justify-center py-8"
-                />
-                {example ? (
-                  <PostIt
-                    className={`absolute top-full z-10 w-[calc(100%-1.25rem)] -translate-y-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 group-data-first-row:top-auto group-data-first-row:bottom-full group-data-first-row:translate-y-3 ${noteShift}`}
-                    variant={index % 2 === 0 ? 'pink' : 'yellow'}
-                  >
-                    {example}
-                  </PostIt>
-                ) : null}
-              </div>
-            )
-          })}
+          {node.children.map((child, index) => (
+            <BarrierChoice
+              key={isIssue(child) ? child.slug : `branch-${index}`}
+              child={child}
+              index={index}
+              indices={indices}
+              firstRow={index < firstRowCount}
+            />
+          ))}
         </ChoiceWrap>
       )}
     </LevelCanvas>
@@ -144,7 +170,7 @@ export function Wizard({ node, indices, crumbs }: WizardProps) {
         </Field>
       ) : null}
 
-      <Field label="Children">
+      <Field label="Options">
         {node.children.length === 0 ? (
           <p className="text-ink/70">This path is still being written.</p>
         ) : (
