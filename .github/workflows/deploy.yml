@@ -3,7 +3,18 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    # Hourly sheet sync. Offset from :00 to reduce GitHub schedule queue drops.
+    - cron: '23 * * * *'
   workflow_dispatch:
+    inputs:
+      action:
+        description: What to run
+        type: choice
+        options:
+          - deploy
+          - sync
+        default: deploy
 
 permissions:
   contents: read
@@ -15,7 +26,42 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  sync:
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.action == 'sync')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: true
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Log trigger
+        run: echo "Sync triggered by ${GITHUB_EVENT_NAME} at $(date -u)"
+
+      - run: npm ci
+      - run: npm run sync:data
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/sheet.csv src/data/hierarchy.json src/data/extras.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Sync sheet data from Google Sheets."
+          git pull --rebase origin main
+          git push
+
   build:
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.action == 'deploy')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -24,13 +70,15 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - run: npm run sync:data
+      - run: npm run build:app
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
   deploy:
     needs: build
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.action == 'deploy')
     runs-on: ubuntu-latest
     environment:
       name: github-pages
