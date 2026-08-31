@@ -1,7 +1,7 @@
 [
   {
     "key": "special-vote",
-    "title": "Special Vote",
+    "title": "Special vote",
     "summary": "A special vote is no different to a normal vote, except special voters must also sign a declaration form when they vote.",
     "answer": "A special vote is no different to a normal vote, except special voters must also sign a declaration form when they vote. There are several reasons why someone might need to cast a special vote. This includes if your name is not on the printed roll at a voting place by the time voting begins, this might occur because of the following reasons:\n\n- You enrolled after the roll was printed (writ day **4 October**)\n- You're voting away from your home electorate\n- You're on the unpublished roll\n\nWhen you get to a voting place, you'll need to fill out and sign a 'special declaration vote' form before you can vote, then you cast your vote as normal. \n\nSpecial votes are counted in the days following the election day. Special votes also include overseas votes, [[takeaway-vote]]s, and postal votes.",
     "source": [
@@ -11,7 +11,7 @@
   },
   {
     "key": "takeaway-vote",
-    "title": "Takeaway Vote",
+    "title": "Takeaway vote",
     "summary": "A takeaway vote is for those who cannot physically make it to a voting place during the advance voting period or on election day.",
     "answer": "A takeaway vote is for those who cannot physically make it to a voting place during the advance voting period or on election day. For those who cannot make it to a voting place nearby, you can authorise someone else to pick up your voting papers for you and bring them to you.\n\nCloser to the election you will be able to download a form from the electoral commission's website which you will sign and ask someone to take it to a voting place. They will then bring back your voting papers to complete.\n\nIf you're not able to download and print the form, you can write the following information by hand on a piece of paper and have someone take it to a voting place. The handwritten authorisation must include:\n\n- Your first and last name\n- Your contact phone number\n- The address where you're enrolled to vote\n- The electoral roll (general or Māori) you believe you are enrolled on\n- A statement authorize the bearer to collect voting papers on your behalf.\n\nIf you are completing a takeaway vote, your voting papers must be returned to a voting place **before** voting closes at **7pm** on election day on **7 November**.",
     "source": [
@@ -49,7 +49,7 @@
   },
   {
     "key": "what-is-my-address",
-    "title": "What is my Address?",
+    "title": "What is my address?",
     "summary": "Your address for the purpose of enrolment is the place you have most recently resided in for 1 month or longer.",
     "answer": "Your address for the purpose of enrolment is the place you have most recently resided in for 1 month or longer.\n\nFor those who may have unstable housing conditions, who frequently move, or are overseas, you may change your **postal** address to ensure you receive any correspondence from the electoral commision - but your **residential** address should remain the place you last resided in New Zealand for 1 month or longer.\n\nIf you have recently moved, but by the election date you will have lived in your current address for 1 month or longer, you may change your address to this in advance of the election date.\n\nIt is important for your address to be up to date, if it isn't, you may eventually be removed from the electoral roll. The electoral commission will attempt to text or email you before this happens.",
     "source": [
