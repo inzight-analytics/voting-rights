@@ -358,8 +358,8 @@
               "slug": "i-am-on-home-detention-2",
               "title": "I am on home detention",
               "question": "I am serving a 6 month home detention sentence, how can I my vote if I can't leave home?",
-              "enrol": "If you are on home detention, you can still enrol to vote, provided you meet the general eligibility criteria. You can enrol online or by completing a paper form.",
-              "vote": "You can vote if you are on home detention or serving a community-based sentence. Election officials will provide your local Probation Services office with information about the voting options available to you.",
+              "enrol": "If you are on home detention, you can still enrol to vote, provided you meet the general eligibility criteria. \n\nYou can enrol online or by completing a paper form.",
+              "vote": "You can vote if you are on home detention or serving a community-based sentence. \n\nElection officials will provide your local Probation Services office with information about the voting options available to you.",
               "source": [
                 "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote",
                 "https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place"
@@ -369,8 +369,8 @@
               "slug": "i-am-in-prison",
               "title": "I am in prison",
               "question": "I am currently serving a prison sentence of 2 years, can I still vote and will I be able to vote from prison?",
-              "enrol": "You can still enrol, but this depends on when the offences you were sentenced for occured. If the offences you were sentenced for were before 20 December 2025 and your sentence is under 3 years, you can enrol and vote. Prison staff assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission.",
-              "vote": "This depends on when the offences you were sentenced for occured. If the offences you were sentenced for were before 20 December 2025 and your sentence is under 3 years, you can vote. \n\nDuring the [[advance-voting]] period, mobile voting teams will attend prisons and set up voting facilities for prisoners who are eligible to vote.",
+              "enrol": "You can still enrol, but this depends on when the offences you were sentenced for occured. \n\nIf the offence/s you were sentenced for were before 20 December 2025 and your sentence is under 3 years, you can enrol and vote. \n\nPrison staff assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission.",
+              "vote": "This depends on when the offences you were sentenced for occured. \n\nIf the offence/s you were sentenced for were before 20 December 2025 and your sentence is under 3 years, you can vote. \n\nDuring the [[advance-voting]] period, mobile voting teams will attend prisons and set up voting facilities for prisoners who are eligible to vote.",
               "source": [
                 "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote",
                 "https://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2",
@@ -383,8 +383,8 @@
               "slug": "i-am-on-remand",
               "title": "I am on remand",
               "question": "I'm in prison while on remand waiting for my trial, can I still enrol to vote?",
-              "enrol": "If you're on remand, you can still enrol to vote if you meet the general eligibility criteria. You do not face the same restrictions as those who have been sentenced. If you are in prison while on remand, prison staff will assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission.",
-              "vote": "If you're in a police cell in the electorate on election day, a voting team may visit before midday so you can vote. If you are in prison while on remand, during the [[advance-voting]] period, mobile voting teams will attend prisons and set up voting facilities for those who are eligible to vote.",
+              "enrol": "If you're on remand, you can still enrol to vote if you meet the general eligibility criteria. You do not face the same restrictions as those who have been sentenced. \n\nIf you are in prison while on remand, prison staff will assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission.",
+              "vote": "If you're in a police cell in the electorate on election day, a voting team may visit before midday so you can vote. \n\nIf you are in prison while on remand, during the [[advance-voting]] period, mobile voting teams will attend prisons and set up voting facilities for those who are eligible to vote.",
               "source": [
                 "https://www.corrections.govt.nz/our_work/in_prison/being_in_prison/voting_in_prison",
                 "https://vote.nz/2026-general-election/voting-in-the-election/cant-get-to-a-voting-place",
@@ -395,8 +395,8 @@
               "slug": "i-am-on-community-service",
               "title": "I am on community service",
               "question": "I'm serving a community service sentence can I still vote?",
-              "enrol": "If you're serving a community based sentence, you can still enrol to vote. You can do this online or via paper form.",
-              "vote": "You can vote if you're on home detention or serving a community-based sentence. Election officials will give your local Probation Services information about the voting options available to you.",
+              "enrol": "If you're serving a community based sentence, you can still enrol to vote. \n\nYou can enrol online or by completing a paper form.",
+              "vote": "You can vote if you're on home detention or serving a community-based sentence. \n\nElection officials will give your local Probation Services information about the voting options available to you.",
               "source": [
                 "https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place",
                 "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote."
@@ -853,8 +853,8 @@
               "slug": "they-are-on-home-detention-2",
               "title": "They are on home detention",
               "question": "My partner is serving a 6 month home detention sentence, can they still enrol to vote?",
-              "enrol": "If you are on home detention, you can still enrol to vote, provided you meet the general eligibility criteria. You can enrol online or by completing a paper form.",
-              "vote": "You can vote if you are on home detention or serving a community-based sentence. Election officials will provide your local Probation Services office with information about the voting options available to you.",
+              "enrol": "If someone is on home detention, they can still enrol to vote, provided they meet the general eligibility criteria. \n\nThey can enrol online or by completing a paper form.",
+              "vote": "They can vote if they are on home detention or serving a community-based sentence. \n\nElection officials will provide their local Probation Services office with information about the voting options available to them.",
               "source": [
                 "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote",
                 "https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place"
@@ -864,8 +864,8 @@
               "slug": "they-are-in-prison",
               "title": "They are in prison",
               "question": "My dad is currently serving a prison sentence of 2 years, can he still vote and will he be able to vote from prison?",
-              "enrol": "You can still enrol, but this depends on when the offences you were sentenced for occured. If the offences you were sentenced for were before 20 December 2025 and your sentence is under 3 years, you can enrol and vote. Prison staff assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission.",
-              "vote": "This depends on when the offences you were sentenced for occured. If the offences you were sentenced for were before 20 December 2025 and your sentence is under 3 years, you can vote. \n\nDuring the [[advance-voting]] period, mobile voting teams will attend prisons and set up voting facilities for prisoners who are eligible to vote.",
+              "enrol": "They can still enrol, but this depends on when the offences they were sentenced for occured. \n\nIf the offence/s they were sentenced for were before 20 December 2025 and their sentence is under 3 years, they can enrol and vote. \n\nPrison staff assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission.",
+              "vote": "This depends on when the offences they were sentenced for occured. \n\nIf the offence/s they were sentenced for were before 20 December 2025 and their sentence is under 3 years, they can vote. \n\nDuring the [[advance-voting]] period, mobile voting teams will attend prisons and set up voting facilities for prisoners who are eligible to vote.",
               "source": [
                 "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote",
                 "https://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2",
@@ -878,8 +878,8 @@
               "slug": "they-are-on-remand",
               "title": "They are on remand",
               "question": "My client is in prison while on remand waiting for his trial, can he still enrol to vote?",
-              "enrol": "If you're on remand, you can still enrol to vote if you meet the general eligibility criteria. You do not face the same restrictions as those who have been sentenced. If you are in prison while on remand, prison staff will assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission.",
-              "vote": "If you're in a police cell in the electorate on election day, a voting team may visit before midday so you can vote. If you are in prison while on remand, during the [[advance-voting]] period, mobile voting teams will attend prisons and set up voting facilities for those who are eligible to vote.",
+              "enrol": "If someone is on remand, they can still enrol to vote if they meet the general eligibility criteria. They do not face the same restrictions as those who have been sentenced. \n\nIf they are in prison while on remand, prison staff will assist those who are eligible and enrolment applications are individually scanned and emailed to the Electoral Commission.",
+              "vote": "If someone is in a police cell in the electorate on election day, a voting team may visit before midday so they can vote. \n\nIf they are in prison while on remand, during the [[advance-voting]] period, mobile voting teams will attend prisons and set up voting facilities for those who are eligible to vote.",
               "source": [
                 "https://www.corrections.govt.nz/our_work/in_prison/being_in_prison/voting_in_prison",
                 "https://vote.nz/2026-general-election/voting-in-the-election/cant-get-to-a-voting-place",
@@ -890,8 +890,8 @@
               "slug": "they-are-on-community-service",
               "title": "They are on community service",
               "question": "My cousin is serving a community service sentence, can they still vote?",
-              "enrol": "If you're serving a community based sentence, you can still enrol to vote. You can do this online or via paper form.",
-              "vote": "You can vote if you're on home detention or serving a community-based sentence. Election officials will give your local Probation Services information about the voting options available to you.",
+              "enrol": "If someone is serving a community based sentence, they can still enrol to vote. \n\nThey can enrol online or by completing a paper form.",
+              "vote": "They can vote if they're on home detention or serving a community-based sentence. \n\nElection officials will give their local Probation Services information about the voting options available to them.",
               "source": [
                 "https://vote.nz/voting/get-help-to-vote/cant-get-to-a-voting-place",
                 "https://vote.nz/enrolling/get-ready-to-enrol/are-you-eligible-to-enrol-and-vote."
