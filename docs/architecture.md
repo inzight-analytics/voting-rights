@@ -52,6 +52,7 @@ Live site: `https://vote.inzight.co.nz`.
 | `/issue/:slug` | Issue detail |
 | `/issue/:slug?from=/0/2` | Issue + back-link to that wizard level |
 | `/info/:slug` | Additional question |
+| `/about` | About page and project credits |
 
 Invalid paths redirect to `/?notice=...`. Older `#/browse/...` hashes redirect to the matching path.
 
@@ -75,6 +76,7 @@ src/
     Markdown.tsx
   pages/
     Home.tsx
+    AboutPage.tsx
     WizardPath.tsx
     IssuePage.tsx
     ExtraPage.tsx

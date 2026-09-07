@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { ExternalLink } from './a11y'
 import { HistoryNav, parentPath } from './HistoryNav'
 
@@ -27,7 +27,7 @@ export function Shell() {
       </a>
 
       <header className="shrink-0">
-        <div className="mx-auto w-full max-w-[100rem] px-4 py-5 sm:px-8">
+        <div className="mx-auto flex w-full max-w-[100rem] items-center justify-between gap-4 px-4 py-5 sm:px-8">
           <Link
             to="/"
             aria-current={pathname === '/' ? 'page' : undefined}
@@ -35,6 +35,18 @@ export function Shell() {
           >
             Voting Rights
           </Link>
+          <nav aria-label="Site navigation">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `focus-ring rounded-xs px-2 py-1.5 text-base font-semibold no-underline hover:underline sm:text-lg ${
+                  isActive ? 'text-ink underline' : 'text-accent'
+                }`
+              }
+            >
+              About
+            </NavLink>
+          </nav>
         </div>
       </header>
 
@@ -54,26 +66,34 @@ export function Shell() {
       </main>
 
       <footer className="shrink-0">
-        <div className="mx-auto max-w-2xl px-4 py-8 text-center text-sm text-ink/70 sm:px-8">
+        <div className="mx-auto max-w-2xl border-t border-ink/15 px-4 py-8 text-center text-sm text-ink/70 sm:px-8">
           <p>
+            Information for New Zealand enrolment and voting situations. Not affiliated with any
+            political party.<br />
+            Authorised by Lara Greaves, c/o iNZight Analytics{' '}
+            <ExternalLink
+              href="https://inzight.co.nz/"
+              className="focus-ring rounded-xs text-accent underline break-all"
+            >
+              https://inzight.co.nz/
+            </ExternalLink>
+          </p>
+          <p className="mt-2">
             Funded and created by{' '}
             <ExternalLink
               href="https://www.royalsociety.org.nz/what-we-do/funds-and-opportunities/rutherford-discovery-fellowships/rutherford-discovery-fellowship-recipients/lara-greaves"
-              className="text-accent"
+              className="focus-ring rounded-xs text-accent underline"
             >
               Lara Greaves&rsquo; Rutherford Discovery Fellowship
             </ExternalLink>{' '}
             from the Royal Society Te Apārangi.
-          </p>
-          <p className="mt-2">
             Supported by{' '}
-            <ExternalLink href="https://inzight.co.nz" className="text-accent">
+            <ExternalLink
+              href="https://inzight.co.nz"
+              className="focus-ring rounded-xs text-accent underline"
+            >
               iNZight Analytics
             </ExternalLink>
-          </p>
-          <p className="mt-2 text-ink/70">
-            Information for New Zealand enrolment and voting situations. Not affiliated with any
-            political party.
           </p>
         </div>
       </footer>

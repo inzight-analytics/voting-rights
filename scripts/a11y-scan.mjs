@@ -28,6 +28,7 @@ const ROUTES = [
   '/0/0',
   '/issue/i-have-to-bring-my-kids-with-me',
   '/info',
+  '/about',
 ]
 
 const MIME = {
