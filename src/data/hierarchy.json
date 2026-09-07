@@ -544,8 +544,8 @@
           ]
         },
         {
-          "title": "I can't physically get to a polling place",
-          "description": "They can't physically get to a polling place",
+          "title": "They can't physically get to a polling place",
+          "description": "",
           "children": [
             {
               "slug": "they-will-be-are-currently-in-hospital",
