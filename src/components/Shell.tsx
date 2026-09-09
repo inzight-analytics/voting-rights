@@ -28,14 +28,14 @@ export function Shell() {
 
       <header className="shrink-0">
         <div className="mx-auto flex w-full max-w-[100rem] items-center justify-between gap-4 px-4 py-5 sm:px-8">
-          <Link
-            to="/"
-            aria-current={pathname === '/' ? 'page' : undefined}
-            className="focus-ring font-display text-2xl font-bold tracking-tight text-ink no-underline sm:text-3xl"
-          >
-            Voting Rights
-          </Link>
-          <nav aria-label="Site navigation">
+          <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-5">
+            <Link
+              to="/"
+              aria-current={pathname === '/' ? 'page' : undefined}
+              className="focus-ring font-display text-2xl font-bold tracking-tight text-ink no-underline sm:text-3xl mr-8"
+            >
+              Voting Rights
+            </Link>
             <NavLink
               to="/about"
               className={({ isActive }) =>
@@ -46,7 +46,27 @@ export function Shell() {
             >
               About
             </NavLink>
-          </nav>
+          </div>
+          <ExternalLink
+            href="https://vote.nz"
+            className="focus-ring shrink-0 rounded-md bg-[#f89628] px-4 py-2 text-xl text-black"
+          >
+            Enrol now at <strong>vote.nz</strong>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 20 20"
+              fill="none"
+              className="ml-2 inline-block size-5 shrink-0 align-[-0.2em]"
+            >
+              <path
+                d="M7.5 4.5H4.5A1.5 1.5 0 0 0 3 6v9.5A1.5 1.5 0 0 0 4.5 17h9.5a1.5 1.5 0 0 0 1.5-1.5v-3M11 3h6v6M17 3l-8.5 8.5"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </ExternalLink>
         </div>
       </header>
 
