@@ -542,7 +542,10 @@
               "title": "They are a shift worker",
               "question": "My wife works night shifts and sleeps during the day, how can she cast her vote?",
               "vote": "If someone is a shift worker, they can either vote during the [[advance-voting]] period or cast a [[takeaway-vote]]. \n\n[[Advance-voting]] places provide different operating hours, including weekends and some late nights. \n\nThey can check where all their nearby voting places are and their hours on the Electoral Commission's website 3 weeks before election day.",
-              "source": []
+              "source": [
+                "https://elections.nz/guidance-and-rules/candidate-hub/resources/enrolment-and-resources-2",
+                "https://vote.nz/2026-general-election/voting-in-the-election/what-to-do"
+              ]
             }
           ]
         },
